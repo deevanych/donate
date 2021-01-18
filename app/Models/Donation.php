@@ -11,6 +11,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property number user_from
  * @property number user_to
  * @property string media
+ * @property string speechUri
+ * @property string donation_sender
+ * @property integer id
  */
 
 class Donation extends Model
@@ -18,6 +21,7 @@ class Donation extends Model
     use HasFactory;
 
     protected $guarded = [];
+    public $speechUri;
 
     public function getSender() {
         return $this->belongsTo('App\Models\User', 'user_from')->get();
@@ -37,5 +41,13 @@ class Donation extends Model
 
     public function getMedia() {
         return $this->media;
+    }
+
+    public function setSpeechUri($speechUri = null) {
+        $this->speechUri = $speechUri;
+    }
+
+    public function setSum($sum = null) {
+        $this->sum = $sum;
     }
 }

@@ -17,6 +17,7 @@ class CreateDonationsTable extends Migration
             $table->id();
             $table->text('text')->nullable()->comment('Текст доната');
             $table->float('sum')->index()->comment('Сумма доната');
+            $table->text('donation_sender')->index()->nullable()->comment('Ник донатера');
             $table->unsignedBigInteger('user_to')->comment('Получатель доната');
             $table->foreign('user_to')->references('id')->on('users');
             $table->unsignedBigInteger('user_from')->comment('Отправитель доната');

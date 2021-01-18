@@ -1,0 +1,8 @@
+.donation {
+    &__wrapper {
+        @extend .d-flex, .h-100, .w-100, .position-absolute;
+    }
+    &__item {
+        @extend .m-auto, .text-center;
+    }
+}

@@ -1,30 +1,35 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import CreateDonation from '@/views/donations/CreateDonation.vue';
-import App from '@/App.vue';
-import Home from '@/views/Home.vue';
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'App',
-    component: App,
+    component: () => import('../components/layouts/MainLayout'),
     children: [
       {
         path: '/',
-        name: 'Home',
-        component: Home,
+        name: 'home',
+        component: () => import('../components/pages/Home'),
       },
       {
-        path: 'donate',
-        name: 'CreateDonation',
-        component: CreateDonation,
+        path: '/donate/:user',
+        name: 'donate',
+        component: () => import('../components/pages/Donate'),
+      },
+      {
+        path: '/widget/:user',
+        name: 'widget',
+        component: () => import('../components/widgets/Notification'),
       },
     ],
   },
 ];
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes,
 });
 
