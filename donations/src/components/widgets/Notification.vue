@@ -24,12 +24,24 @@ export default {
       .then((response) => {
         const channel = this.$pusher.subscribe(`channel-${response.data.id}`);
 
-        channel.bind('donation.created', ({ donation }) => {
+        channel.bind('donation.created', ({ donation, speech_uri: speechUri }) => {
           self.showDonation = true;
           self.donation = donation;
-          setTimeout(() => {
-            self.showDonation = false;
-          }, 5000);
+          if (speechUri !== null) {
+            const speech = new Audio(speechUri);
+            speech.addEventListener('canplay', () => {
+              speech.play();
+            });
+            speech.addEventListener('ended', () => {
+              setTimeout(() => {
+                self.showDonation = false;
+              }, 3000);
+            });
+          } else {
+            setTimeout(() => {
+              self.showDonation = false;
+            }, 3000);
+          }
         });
       });
   },
@@ -37,12 +49,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .donation {
-    &__wrapper {
+.donation {
+  &__wrapper {
 
-    }
-    &__item {
-
-    }
   }
+
+  &__item {
+
+  }
+}
 </style>

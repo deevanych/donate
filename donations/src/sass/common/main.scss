@@ -1,0 +1,7 @@
+@import "fonts";
+@import "variables";
+@import "mixins";
+
+* {
+    @include vendor-prefix('outline', 'none');
+}

@@ -22,7 +22,10 @@ class Yandex {
             $response = $client->request('POST', '', [
                 'query' => [
                     'text' => $donation->text,
-                    'folderId' => env('YANDEX_FOLDER_ID')
+                    'folderId' => env('YANDEX_FOLDER_ID'),
+                    'voice' => 'omazh',
+                    'speed' => 1.2,
+                    'emotion' => 'neutral',
                 ]
             ]);
 
@@ -34,9 +37,9 @@ class Yandex {
             $speechFileName = Hash::make(implode('', $hashParameters)).".ogg";
             Storage::disk('temp')->put($speechFileName, $speechBinary);
 
-            return Storage::disk('temp')->url($speechFileName);
+            return asset(Storage::disk('temp')->url($speechFileName));
         } catch (GuzzleException $e) {
-            echo $e->getMessage();
+            return $e->getMessage();
         }
     }
 }

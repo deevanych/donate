@@ -21,6 +21,18 @@ class DonationObserver
     }
 
     /**
+     * Handle the Donation "creating" event.
+     *
+     * @param Donation $donation
+     * @return void
+     */
+    public function creating(Donation $donation)
+    {
+        //
+        return true;
+    }
+
+    /**
      * Handle the Donation "updated" event.
      *
      * @param Donation $donation

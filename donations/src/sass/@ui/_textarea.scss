@@ -1,0 +1,11 @@
+textarea {
+    border: 2px solid transparent;
+    background: rgba(var(--vs-gray-2), 1);
+    color: rgba(var(--vs-text), 1);
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    padding: 7px 13px 7px 10px;
+    width: 200px;
+    border-radius: $border-radius;
+    resize: none;
+}

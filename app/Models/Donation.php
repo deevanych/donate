@@ -21,7 +21,7 @@ class Donation extends Model
     use HasFactory;
 
     protected $guarded = [];
-    public $speechUri;
+    protected $speechUri;
 
     public function getSender() {
         return $this->belongsTo('App\Models\User', 'user_from')->get();
