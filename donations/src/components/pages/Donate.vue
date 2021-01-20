@@ -46,7 +46,7 @@ export default {
       });
   },
   methods: {
-    donateNotification(border = 'success', title = 'Донат отправлен', text = 'Счастья, здоровья!') {
+    donateNotification(text = 'Счастья, здоровья!', border = 'success', title = 'Донат отправлен') {
       loading.close();
       this.$vs.notification({
         position: 'top-right',
@@ -59,11 +59,15 @@ export default {
       loading = this.$vs.loading();
       const self = this;
       self.$http.post(`users/${self.$route.params.user}/donations`, self.donate)
-        .then(() => {
-          self.donateNotification();
+        .then((response) => {
+          if (response.data.status === 'error') {
+            self.donateNotification(response.data.message, 'danger', 'Произошла ошибка');
+          } else {
+            self.donateNotification(response.data.message);
+          }
         })
-        .catch(() => {
-          self.donateNotification('danger', 'Произошла ошибка', 'Соре, но тебе гг (((');
+        .catch((error) => {
+          self.donateNotification(error.data.message, 'danger', 'Произошла ошибка');
         });
     },
   },

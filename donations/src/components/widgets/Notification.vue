@@ -24,11 +24,11 @@ export default {
       .then((response) => {
         const channel = this.$pusher.subscribe(`channel-${response.data.id}`);
 
-        channel.bind('donation.created', ({ donation, speech_uri: speechUri }) => {
+        channel.bind('donation.created', ({ donation }) => {
           self.showDonation = true;
           self.donation = donation;
-          if (speechUri !== null) {
-            const speech = new Audio(speechUri);
+          if (donation.speech_uri !== null) {
+            const speech = new Audio(donation.speech_uri);
             speech.addEventListener('canplay', () => {
               speech.play();
             });

@@ -16,7 +16,6 @@ class DonationCreated implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $donation;
-    public $speech_uri;
 
     /**
      * Create a new event instance.
@@ -26,7 +25,6 @@ class DonationCreated implements ShouldBroadcast
     public function __construct(Donation $donation)
     {
         //
-        $this->speech_uri = Yandex::TTS($donation);
         $this->donation = $donation;
     }
 

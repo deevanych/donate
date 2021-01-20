@@ -21,7 +21,6 @@ class Donation extends Model
     use HasFactory;
 
     protected $guarded = [];
-    protected $speechUri;
 
     public function getSender() {
         return $this->belongsTo('App\Models\User', 'user_from')->get();
@@ -41,13 +40,5 @@ class Donation extends Model
 
     public function getMedia() {
         return $this->media;
-    }
-
-    public function setSpeechUri($speechUri = null) {
-        $this->speechUri = $speechUri;
-    }
-
-    public function setSum($sum = null) {
-        $this->sum = $sum;
     }
 }

@@ -24,7 +24,7 @@ class Yandex {
                     'text' => $donation->text,
                     'folderId' => env('YANDEX_FOLDER_ID'),
                     'voice' => 'omazh',
-                    'speed' => 1.2,
+                    'speed' => 1.1,
                     'emotion' => 'neutral',
                 ]
             ]);

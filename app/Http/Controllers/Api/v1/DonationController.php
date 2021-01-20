@@ -39,7 +39,7 @@ class DonationController extends Controller
 
             return [
                 'status' => 'success',
-                'message' => 'Donate has been successful!',
+                'message' => 'Донат отправлен',
                 'donation' => $donation
             ];
         } catch (\Exception $e) {
