@@ -1,4 +1,8 @@
 .vs-input {
+    width: 100%;
+    &__label {
+        @extend .mb-0;
+    }
     &-content {
         border-radius: $border-radius !important;
     }

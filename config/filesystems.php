@@ -45,7 +45,7 @@ return [
         'temp' => [
             'driver' => 'local',
             'root' => storage_path('app/temp'),
-            'url' => '/temp',
+            'url' => 'storage/temp',
             'visibility' => 'public',
         ],
 
@@ -74,7 +74,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
-        public_path('temp') => storage_path('app/temp'),
+        public_path('storage/temp') => storage_path('app/temp'),
     ],
 
 ];
