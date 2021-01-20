@@ -1,96 +1,78 @@
 <template>
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col">
-        <h1>{{ user.name }}</h1>
+  <div class="donation__wrapper">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col">
+          <h1>{{ user.name }}</h1>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <form @submit.prevent="sendForm">
-          <div class="mb-3">
-            <h5 class="mb-3">Вариации донатов</h5>
-            <VueSlickCarousel class="proposed-options"
-                              :arrows="false"
-                              :variableWidth="true"
-                              :infinite="false"
-                              :focusOnSelect="true"
-                              :slidesToShow="3.3"
-                              :swipeToSlide="true"
-                              @beforeChange="test">
-              <vs-radio v-model="donate.sum" :val="100">
-                <div class="proposed-options__item">
-                  <span class="proposed-options__sum">100₽</span>
-                  <span class="proposed-options__title">минимум</span>
-                </div>
-              </vs-radio>
-              <vs-radio v-model="donate.sum" :val="666">
-                <div class="proposed-options__item">
-                  <span class="proposed-options__sum">666₽</span>
-                  <span class="proposed-options__title">скример</span>
-                </div>
-              </vs-radio>
-              <vs-radio v-model="donate.sum" :val="1000">
-                <div class="proposed-options__item">
-                  <span class="proposed-options__sum">1000₽</span>
-                  <span class="proposed-options__title">стриптиз</span>
-                </div>
-              </vs-radio>
-              <vs-radio v-model="donate.sum" :val="2000">
-                <div class="proposed-options__item">
-                  <span class="proposed-options__sum">2000₽</span>
-                  <span class="proposed-options__title">пердеж</span>
-                </div>
-              </vs-radio>
-              </VueSlickCarousel>
-          </div>
-          <div class="mb-4">
-            <h5 class="mb-2">Ваше имя</h5>
-            <vs-input border v-model="donate.donation_sender" placeholder="Диваныч">
-            <template #icon>
-              <i class='bx bx-user'></i>
-            </template>
-            </vs-input>
-          </div>
-          <div class="mb-4">
-            <h5 class="mb-2">Сумма доната</h5>
-            <vs-input border v-model="donate.sum" placeholder="100">
-              <template #icon>
-                ₽
-              </template>
-            </vs-input>
-          </div>
-          <div class="mb-4">
-            <h5 class="mb-2">Текст сообщения</h5>
-            <vs-input border v-model="donate.text" placeholder="Ты топчик!">
-              <template #icon>
-                <i class='bx bx-comment-detail'></i>
-              </template>
-            </vs-input>
-          </div>
-          <vs-button size="xl">
-            Отправить
-          </vs-button>
-        </form>
-      </div>
-      <div class="col-5 offset-1">
-        <h5>Цель сбора</h5>
+      <div class="row">
+        <div class="col-6">
+          <form @submit.prevent="sendForm">
+            <DonationSection title="Вариации донатов">
+              <DonationVariations v-model="donate.sum" :variations="donationVariations"/>
+            </DonationSection>
+            <DonationSection title="Ваше имя">
+              <vs-input border v-model="donate.donation_sender" placeholder="Диваныч">
+                <template #icon>
+                  <i class='bx bx-user'></i>
+                </template>
+              </vs-input>
+            </DonationSection>
+            <DonationSection title="Сумма доната">
+              <vs-input border v-model="donate.sum" placeholder="100">
+                <template #icon>
+                  ₽
+                </template>
+              </vs-input>
+            </DonationSection>
+            <DonationSection title="Текст сообщения">
+              <vs-input border v-model="donate.text" placeholder="Ты топчик!">
+                <template #icon>
+                  <i class='bx bx-comment-detail'></i>
+                </template>
+              </vs-input>
+            </DonationSection>
+            <vs-button size="xl">
+              Отправить
+            </vs-button>
+          </form>
+        </div>
+        <div class="col-5 offset-1">
+<!--          <h5>Цель сбора</h5>-->
+<!--          <div class="center">-->
+<!--            <vs-radio v-model="donate.goal_id" :val="null">-->
+<!--              Без цели-->
+<!--            </vs-radio>-->
+<!--            <vs-radio v-model="donate.goal_id" :val="1">-->
+<!--              На кресло-->
+<!--            </vs-radio>-->
+<!--            <vs-radio v-model="donate.goal_id" :val="2">-->
+<!--              На любовницу-->
+<!--            </vs-radio>-->
+<!--            <vs-radio v-model="donate.goal_id" :val="3">-->
+<!--              На камеру-->
+<!--            </vs-radio>-->
+<!--          </div>-->
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+import DonationSection from '@/components/DonationSection.vue';
+import DonationVariations from '@/components/DonationVariations.vue';
 
 let loading = '';
 
 export default {
   name: 'Donate',
   components: {
-    VueSlickCarousel,
+    DonationSection,
+    DonationVariations,
   },
   data: () => ({
     user: {
@@ -100,7 +82,41 @@ export default {
       text: 'Ты суперкласс!',
       donation_sender: 'Лолита',
       sum: 300,
+      // goal_id: null,
     },
+    donationVariations: [
+      {
+        id: 1,
+        sum: 100,
+        description: 'минимум',
+      },
+      {
+        id: 2,
+        sum: 666,
+        description: 'скример',
+      },
+      {
+        id: 3,
+        sum: 1000,
+        description: 'стриптиз',
+      },
+      {
+        id: 4,
+        sum: 2000,
+        description: 'танцую',
+      },
+      {
+        id: 5,
+        sum: 5000,
+        description: 'делаю тату',
+      },
+      {
+        id: 6,
+        sum: 10000,
+        description: 'показываю то самое',
+      },
+    ],
+    showDialog: true,
   }),
   mounted() {
     const self = this;
@@ -110,9 +126,6 @@ export default {
       });
   },
   methods: {
-    test(old, newe) {
-      console.log(old, newe);
-    },
     donateNotification(text = 'Счастья, здоровья!', border = 'success', title = 'Донат отправлен') {
       loading.close();
       this.$vs.notification({
@@ -141,54 +154,19 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.proposed-options::v-deep {
-  font-weight: bold;
-  .slick-list {
-    padding: .5rem 0 1.5rem 1.2rem;
-    .slick-track {
-      display: flex;
-      gap: 1rem;
-    }
+<style lang="scss">
+  body {
+    background: url("https://get.wallhere.com/photo/1920x1080-px-Dota-fantasy-art-Lina-1260795.jpg");
   }
-  .vs-radio {
-    display: none !important;
+</style>
 
-    &-content {
-      &.active {
-        .proposed-options__item {
-          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-          transform: scale(1.05);
-        }
-      }
-    }
-
-    &__label {
-      margin: 0;
-
-      .proposed-options {
-        &__item {
-          display: flex;
-          flex-direction: column;
-          border-radius: 10px;
-          width: 150px;
-          padding: 1rem;
-          background: #9fcdff;
-          cursor: pointer;
-          transition: .3s;
-
-          &:hover {
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-            transform: scale(1.05);
-          }
-        }
-
-        &__sum {
-          font-size: 1.5rem;
-          line-height: 1.5rem;
-        }
-      }
-    }
+<style scoped lang="scss">
+.donation__wrapper {
+  display: flex;
+  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, .8);
+  & > .container {
+    margin: auto;
   }
 }
 </style>

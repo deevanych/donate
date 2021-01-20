@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class Yandex {
-
+    const VOICES = [
+        'alena',
+        'filipp',
+        'omazh'
+    ];
     public static function TTS($donation) {
         $client = new Client([
             'base_uri' => 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize',
@@ -23,7 +27,7 @@ class Yandex {
                 'query' => [
                     'text' => $donation->text,
                     'folderId' => env('YANDEX_FOLDER_ID'),
-                    'voice' => 'omazh',
+                    'voice' => self::VOICES[0],
                     'speed' => 1.1,
                     'emotion' => 'neutral',
                 ]
