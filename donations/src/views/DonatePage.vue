@@ -39,21 +39,21 @@
           </form>
         </div>
         <div class="col-5 offset-1">
-<!--          <h5>Цель сбора</h5>-->
-<!--          <div class="center">-->
-<!--            <vs-radio v-model="donate.goal_id" :val="null">-->
-<!--              Без цели-->
-<!--            </vs-radio>-->
-<!--            <vs-radio v-model="donate.goal_id" :val="1">-->
-<!--              На кресло-->
-<!--            </vs-radio>-->
-<!--            <vs-radio v-model="donate.goal_id" :val="2">-->
-<!--              На любовницу-->
-<!--            </vs-radio>-->
-<!--            <vs-radio v-model="donate.goal_id" :val="3">-->
-<!--              На камеру-->
-<!--            </vs-radio>-->
-<!--          </div>-->
+          <!--          <h5>Цель сбора</h5>-->
+          <!--          <div class="center">-->
+          <!--            <vs-radio v-model="donate.goal_id" :val="null">-->
+          <!--              Без цели-->
+          <!--            </vs-radio>-->
+          <!--            <vs-radio v-model="donate.goal_id" :val="1">-->
+          <!--              На кресло-->
+          <!--            </vs-radio>-->
+          <!--            <vs-radio v-model="donate.goal_id" :val="2">-->
+          <!--              На любовницу-->
+          <!--            </vs-radio>-->
+          <!--            <vs-radio v-model="donate.goal_id" :val="3">-->
+          <!--              На камеру-->
+          <!--            </vs-radio>-->
+          <!--          </div>-->
         </div>
       </div>
     </div>
@@ -120,6 +120,8 @@ export default {
   }),
   mounted() {
     const self = this;
+    const utterance = new SpeechSynthesisUtterance('Hello world!');
+    speechSynthesis.speak(utterance);
     self.$http.get(`users/${self.$route.params.user}`)
       .then((response) => {
         self.user = response.data;
@@ -127,7 +129,6 @@ export default {
   },
   methods: {
     donateNotification(text = 'Счастья, здоровья!', border = 'success', title = 'Донат отправлен') {
-      loading.close();
       this.$vs.notification({
         position: 'top-right',
         border,
@@ -148,6 +149,9 @@ export default {
         })
         .catch((error) => {
           self.donateNotification(error.data.message, 'danger', 'Произошла ошибка');
+        })
+        .finally(() => {
+          loading.close();
         });
     },
   },
@@ -155,9 +159,9 @@ export default {
 </script>
 
 <style lang="scss">
-  body {
-    background: url("https://get.wallhere.com/photo/1920x1080-px-Dota-fantasy-art-Lina-1260795.jpg");
-  }
+body {
+  background: url("https://get.wallhere.com/photo/1920x1080-px-Dota-fantasy-art-Lina-1260795.jpg");
+}
 </style>
 
 <style scoped lang="scss">
@@ -165,6 +169,7 @@ export default {
   display: flex;
   backdrop-filter: blur(2px);
   background: rgba(255, 255, 255, .8);
+
   & > .container {
     margin: auto;
   }

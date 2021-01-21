@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import './sass/app.scss';
+import './scss/app.scss';
 import Axios from 'axios';
 import Vuesax from 'vuesax';
 

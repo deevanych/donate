@@ -6,22 +6,22 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    component: () => import('../components/layouts/MainLayout'),
+    component: () => import('../views/layouts/MainLayout'),
     children: [
       {
         path: '/',
         name: 'home',
-        component: () => import('../components/pages/Home'),
+        component: () => import('../views/HomePage'),
       },
       {
         path: '/donate/:user',
         name: 'donate',
-        component: () => import('../components/pages/Donate'),
+        component: () => import('../views/DonatePage'),
       },
       {
         path: '/widget/:user',
         name: 'widget',
-        component: () => import('../components/widgets/Notification'),
+        component: () => import('../views/widgets/Notification'),
       },
     ],
   },
