@@ -27,7 +27,7 @@ class Yandex {
                 'query' => [
                     'text' => $donation->text,
                     'folderId' => env('YANDEX_FOLDER_ID'),
-                    'voice' => self::VOICES[0],
+                    'voice' => self::VOICES[1],
                     'speed' => 1.1,
                     'emotion' => 'neutral',
                 ]

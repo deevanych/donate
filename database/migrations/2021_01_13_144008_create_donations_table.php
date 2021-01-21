@@ -22,6 +22,8 @@ class CreateDonationsTable extends Migration
             $table->foreign('user_to')->references('id')->on('users');
             $table->unsignedBigInteger('user_from')->comment('Отправитель доната');
             $table->foreign('user_from')->references('id')->on('users');
+            $table->unsignedBigInteger('goal_id')->nullable()->comment('Цель доната');
+            $table->foreign('goal_id')->references('id')->on('donation_goals');
             $table->string('media')->nullable()->comment('Ссылка на видео');
             $table->string('speech_uri')->nullable()->comment('Ссылка на озвучку');
             $table->timestamps();

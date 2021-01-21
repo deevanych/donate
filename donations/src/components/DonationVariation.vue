@@ -1,8 +1,10 @@
 <template>
-  <vs-radio :value="value" :val="sum" v-on:input="$emit('input', $event)">
-    <div class="proposed-options__item">
-      <span class="proposed-options__sum">{{ sum }}₽</span>
-      <span class="proposed-options__title">{{ description }}</span>
+  <vs-radio :value="value" :val="variation.sum" v-on:input="$emit('input', $event)">
+    <div class="proposed-options__item"
+         v-bind:style="{ backgroundImage: 'linear-gradient(' + getBackgroundColor + ')',
+                         color: getTextColor}">
+      <span class="proposed-options__sum">{{ variation.sum }}₽</span>
+      <span class="proposed-options__title">{{ variation.title }}</span>
     </div>
   </vs-radio>
 </template>
@@ -14,13 +16,17 @@ export default {
     value: {
       required: true,
     },
-    sum: {
-      type: Number,
+    variation: {
+      type: Object,
       required: true,
     },
-    description: {
-      type: String,
-      required: true,
+  },
+  computed: {
+    getBackgroundColor() {
+      return JSON.parse(this.variation.appearance).background;
+    },
+    getTextColor() {
+      return JSON.parse(this.variation.appearance).color;
     },
   },
 };

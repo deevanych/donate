@@ -38,9 +38,7 @@ export default {
               }, 3000);
             });
           } else {
-            const utterance = new SpeechSynthesisUtterance(donation.text);
-            utterance.voice = speechSynthesis.getVoices()[2];
-            speechSynthesis.speak(utterance);
+            speechSynthesis.speak(new SpeechSynthesisUtterance(donation.text));
             setTimeout(() => {
               self.showDonation = false;
             }, 3000);

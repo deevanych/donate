@@ -9,51 +9,61 @@
       <div class="row">
         <div class="col-6">
           <form @submit.prevent="sendForm">
-            <DonationSection title="Вариации донатов">
-              <DonationVariations v-model="donate.sum" :variations="donationVariations"/>
+            <DonationSection v-if="user.donation_variations.length !== 0" title="Вариации донатов">
+              <DonationVariations v-model="donation.sum" :variations="user.donation_variations"/>
             </DonationSection>
             <DonationSection title="Ваше имя">
-              <vs-input border v-model="donate.donation_sender" placeholder="Диваныч">
+              <vs-input border v-model="donation.donation_sender" placeholder="Диваныч">
                 <template #icon>
                   <i class='bx bx-user'></i>
                 </template>
               </vs-input>
             </DonationSection>
             <DonationSection title="Сумма доната">
-              <vs-input border v-model="donate.sum" placeholder="100">
+              <vs-input border v-model="donation.sum" placeholder="100">
                 <template #icon>
                   ₽
+                </template>
+                <template v-if="!$v.donation.sum.minValue" #message-warn>
+                  Минимальная сумма - 100₽
+                </template>
+                <template v-if="!$v.donation.sum.numeric" #message-warn>
+                  Поле должно быть числом
+                </template>
+                <template v-if="!$v.donation.sum.required" #message-danger>
+                  Обязательное поле
                 </template>
               </vs-input>
             </DonationSection>
             <DonationSection title="Текст сообщения">
-              <vs-input border v-model="donate.text" placeholder="Ты топчик!">
+              <vs-input border v-model="donation.text" placeholder="Ты топчик!">
                 <template #icon>
                   <i class='bx bx-comment-detail'></i>
                 </template>
               </vs-input>
             </DonationSection>
-            <vs-button size="xl">
+            <vs-button size="xl" :disabled="$v.$invalid">
               Отправить
             </vs-button>
           </form>
         </div>
         <div class="col-5 offset-1">
-          <!--          <h5>Цель сбора</h5>-->
-          <!--          <div class="center">-->
-          <!--            <vs-radio v-model="donate.goal_id" :val="null">-->
-          <!--              Без цели-->
-          <!--            </vs-radio>-->
-          <!--            <vs-radio v-model="donate.goal_id" :val="1">-->
-          <!--              На кресло-->
-          <!--            </vs-radio>-->
-          <!--            <vs-radio v-model="donate.goal_id" :val="2">-->
-          <!--              На любовницу-->
-          <!--            </vs-radio>-->
-          <!--            <vs-radio v-model="donate.goal_id" :val="3">-->
-          <!--              На камеру-->
-          <!--            </vs-radio>-->
-          <!--          </div>-->
+          <DonationSection v-if="user.donation_goals.length !== 0" title="Цели сбора">
+            <div class="center d-flex flex-column align-items-start">
+              <vs-radio v-model="donation.goal_id"
+                        :val="null"
+                        class="mb-2">
+                Без цели
+              </vs-radio>
+              <vs-radio v-for="donation_goal in user.donation_goals"
+                        :key="donation_goal.id"
+                        v-model="donation.goal_id"
+                        :val="donation_goal.id"
+                        class="mb-2">
+                {{ donation_goal.title }}
+              </vs-radio>
+            </div>
+          </DonationSection>
         </div>
       </div>
     </div>
@@ -65,70 +75,50 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import DonationSection from '@/components/DonationSection.vue';
 import DonationVariations from '@/components/DonationVariations.vue';
+import { required, minValue, numeric } from 'vuelidate/lib/validators';
 
 let loading = '';
 
 export default {
-  name: 'Donate',
+  name: 'donation',
   components: {
     DonationSection,
     DonationVariations,
   },
-  data: () => ({
-    user: {
-      name: null,
+  data() {
+    return {
+      user: {
+        name: null,
+        donation_variations: [],
+        donation_goals: [],
+      },
+      donation: {
+        text: 'Ты суперкласс!',
+        donation_sender: 'Лолита',
+        sum: 300,
+        goal_id: null,
+      },
+      showDialog: true,
+    };
+  },
+  validations: {
+    donation: {
+      sum: {
+        required,
+        minValue: minValue(100),
+        numeric,
+      },
     },
-    donate: {
-      text: 'Ты суперкласс!',
-      donation_sender: 'Лолита',
-      sum: 300,
-      // goal_id: null,
-    },
-    donationVariations: [
-      {
-        id: 1,
-        sum: 100,
-        description: 'минимум',
-      },
-      {
-        id: 2,
-        sum: 666,
-        description: 'скример',
-      },
-      {
-        id: 3,
-        sum: 1000,
-        description: 'стриптиз',
-      },
-      {
-        id: 4,
-        sum: 2000,
-        description: 'танцую',
-      },
-      {
-        id: 5,
-        sum: 5000,
-        description: 'делаю тату',
-      },
-      {
-        id: 6,
-        sum: 10000,
-        description: 'показываю то самое',
-      },
-    ],
-    showDialog: true,
-  }),
+  },
   mounted() {
     const self = this;
-    const utterance = new SpeechSynthesisUtterance('Hello world!');
-    speechSynthesis.speak(utterance);
     self.$http.get(`users/${self.$route.params.user}`)
       .then((response) => {
         self.user = response.data;
       });
   },
   methods: {
-    donateNotification(text = 'Счастья, здоровья!', border = 'success', title = 'Донат отправлен') {
+    donationNotification(text = 'Счастья, здоровья!', border = 'success', title = 'Донат отправлен') {
       this.$vs.notification({
         position: 'top-right',
         border,
@@ -139,16 +129,16 @@ export default {
     sendForm() {
       loading = this.$vs.loading();
       const self = this;
-      self.$http.post(`users/${self.$route.params.user}/donations`, self.donate)
+      self.$http.post(`users/${self.$route.params.user}/donations`, self.donation)
         .then((response) => {
           if (response.data.status === 'error') {
-            self.donateNotification(response.data.message, 'danger', 'Произошла ошибка');
+            self.donationNotification(response.data.message, 'danger', 'Произошла ошибка');
           } else {
-            self.donateNotification(response.data.message);
+            self.donationNotification(response.data.message);
           }
         })
         .catch((error) => {
-          self.donateNotification(error.data.message, 'danger', 'Произошла ошибка');
+          self.donationNotification(error.data.message, 'danger', 'Произошла ошибка');
         })
         .finally(() => {
           loading.close();
@@ -160,7 +150,7 @@ export default {
 
 <style lang="scss">
 body {
-  background: url("https://get.wallhere.com/photo/1920x1080-px-Dota-fantasy-art-Lina-1260795.jpg");
+  background: url("https://static.donationalerts.ru/uploads/images/3107503/1588490770_39-p-prostie-rozovie-foni-89.jpg");
 }
 </style>
 

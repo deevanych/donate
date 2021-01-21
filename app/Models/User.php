@@ -26,6 +26,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected $with = [
+        'donationVariations',
+        'donationGoals',
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -45,11 +50,39 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getReceivedDonates() {
-        return $this->hasMany('App\Models\Donation', 'user_to')->get();
+//    Getters
+
+    public function getReceivedDonations() {
+        return $this->receivedDonations()->get();
     }
 
-    public function getSentDonates() {
-        return $this->hasMany('App\Models\Donation', 'user_from')->get();
+    public function getSentDonations() {
+        return $this->sentDonations()->get();
+    }
+
+    public function getDonationVariations() {
+        return $this->donationVariations()->get();
+    }
+
+    public function getDonationGoals() {
+        return $this->donationGoals()->get();
+    }
+
+//    Relations
+
+    public function receivedDonations() {
+        return $this->hasMany('App\Models\Donation', 'user_to');
+    }
+
+    public function sentDonations() {
+        return $this->hasMany('App\Models\Donation', 'user_from');
+    }
+
+    public function donationVariations() {
+        return $this->hasMany('App\Models\DonationVariation')->orderBy('sum');
+    }
+
+    public function donationGoals() {
+        return $this->hasMany('App\Models\DonationGoal');
     }
 }

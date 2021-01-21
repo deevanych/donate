@@ -8,8 +8,7 @@
                     :swipeToSlide="true">
     <DonationVariation v-for='variation in variations'
                        :key="variation.id"
-                       :sum="variation.sum"
-                       :description="variation.description"
+                       :variation="variation"
                        :value="value"
                        v-on:input="$emit('input', $event)"/>
   </VueSlickCarousel>

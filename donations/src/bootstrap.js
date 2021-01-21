@@ -2,6 +2,10 @@ import Vue from 'vue';
 import './scss/app.scss';
 import Axios from 'axios';
 import Vuesax from 'vuesax';
+import Vuelidate from 'vuelidate';
+
+// Vuelidate
+Vue.use(Vuelidate);
 
 // Vuesax
 Vue.use(Vuesax);
@@ -10,7 +14,7 @@ Vue.use(Vuesax);
 Vue.prototype.$http = Axios.create({
   baseURL: 'http://127.0.0.1:8000/api/v1/',
   timeout: 10000,
-  headers: { 'X-Custom-Header': 'foobar' },
+  // headers: { 'X-Custom-Header': 'foobar' },
 });
 
 Vue.use(require('vue-pusher'), {
