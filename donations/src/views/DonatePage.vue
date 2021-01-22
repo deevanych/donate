@@ -4,7 +4,7 @@
       <div class="container my-5 my-lg-0 m-lg-auto">
         <div class="row mb-5">
           <div class="col">
-            <h1>{{ $store.getters.getDonatePageSettings('nickname') }}</h1>
+            <h1 class="nickname">{{ $store.getters.getDonatePageSettings('nickname') }}</h1>
           </div>
         </div>
         <div class="row">
@@ -203,6 +203,11 @@ export default {
   width: 100%;
   background-position: center;
   background-size: cover;
+
+  .nickname {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
 
   .donation__wrapper {
     display: flex;

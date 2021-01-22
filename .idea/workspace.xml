@@ -22,8 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Кастомизация страницы донатов">
+    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Мобильный вид">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/common/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/scss/common/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/fonts/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/scss/fonts/main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/donations/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/views/DonatePage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -359,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611291958250</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Мобильный вид">
+      <created>1611294237478</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1611294237478</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,6 +396,7 @@
     <MESSAGE value="Дизайн вариаций." />
     <MESSAGE value="Поменял шрифт" />
     <MESSAGE value="Кастомизация страницы донатов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Кастомизация страницы донатов" />
+    <MESSAGE value="Мобильный вид" />
+    <option name="LAST_COMMIT_MESSAGE" value="Мобильный вид" />
   </component>
 </project>
