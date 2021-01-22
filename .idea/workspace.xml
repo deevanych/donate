@@ -22,16 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Совмещение фронта и бэка">
-      <change afterPath="$PROJECT_DIR$/frontend/src/scss/common/_positions.scss" afterDir="false" />
+    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Мобильная версия">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/DonationVariations.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DonationVariations.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/scss/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/scss/common/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/common/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/scss/pages/_notification.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/pages/_notification.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/scss/vendors/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/vendors/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +294,7 @@
       <workItem from="1611096878936" duration="7820000" />
       <workItem from="1611155999968" duration="12383000" />
       <workItem from="1611255033016" duration="22024000" />
-      <workItem from="1611328288246" duration="19815000" />
+      <workItem from="1611328288246" duration="20720000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -429,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611347991786</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Мобильная версия">
+      <created>1611355297104</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1611355297104</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,6 +460,7 @@
     <MESSAGE value="Мобильный вид" />
     <MESSAGE value="Шрифт заголовка" />
     <MESSAGE value="Совмещение фронта и бэка" />
-    <option name="LAST_COMMIT_MESSAGE" value="Совмещение фронта и бэка" />
+    <MESSAGE value="Мобильная версия" />
+    <option name="LAST_COMMIT_MESSAGE" value="Мобильная версия" />
   </component>
 </project>
