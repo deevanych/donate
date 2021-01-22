@@ -23,18 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Совмещение фронта и бэка">
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/GetYandexCloudToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/donate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/donate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GetYandexCloudToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GetYandexCloudToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/DonationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/DonationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Donation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Donation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Observers/DonationObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/DonationObserver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Yandex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Yandex.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/scss/common/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/common/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vue.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +231,7 @@
       <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src\sass\vendors" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.serve">
+  <component name="RunManager" selected="npm.lint">
     <configuration name="serve" type="ComposerRunConfigurationType" factoryName="Composer Script" temporary="true">
       <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
       <option name="script" value="serve" />
@@ -280,10 +280,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.lint" />
         <item itemvalue="npm.serve" />
         <item itemvalue="Composer Script.serve" />
         <item itemvalue="npm.buildTest" />
-        <item itemvalue="npm.lint" />
       </list>
     </recent_temporary>
   </component>
@@ -304,7 +304,7 @@
       <workItem from="1611096878936" duration="7820000" />
       <workItem from="1611155999968" duration="12383000" />
       <workItem from="1611255033016" duration="22024000" />
-      <workItem from="1611328288246" duration="12725000" />
+      <workItem from="1611328288246" duration="15154000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -418,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611342576203</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Совмещение фронта и бэка">
+      <created>1611345451878</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1611345451878</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -37,8 +37,12 @@ export default {
                 self.showDonation = false;
               }, 3000);
             });
-          } else {
+          } else if (donation.text !== null) {
             speechSynthesis.speak(new SpeechSynthesisUtterance(donation.text));
+            setTimeout(() => {
+              self.showDonation = false;
+            }, 3000);
+          } else {
             setTimeout(() => {
               self.showDonation = false;
             }, 3000);

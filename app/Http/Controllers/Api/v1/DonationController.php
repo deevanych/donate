@@ -35,6 +35,14 @@ class DonationController extends Controller
             $donation->user_to = $user->id;
             $donation->user_from = 2;
 
+//            todo
+            if (empty($donation->donation_sender)) {
+                $donation->donation_sender = 'Аноним';
+            }
+            if (!empty($donation->text)) {
+                $donation->speech_uri = Yandex::TTS($donation);
+            }
+
             $donation->save();
 
             return [

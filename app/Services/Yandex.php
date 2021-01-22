@@ -7,18 +7,21 @@ use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
-class Yandex {
+class Yandex
+{
     const VOICES = [
         'alena',
         'filipp',
         'omazh'
     ];
-    public static function TTS($donation) {
+
+    public static function TTS($donation)
+    {
         $client = new Client([
             'base_uri' => 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize',
-            'timeout'  => 10.0,
+            'timeout' => 10.0,
             'headers' => [
-                'Authorization' => 'Bearer '.env('YANDEX_TOKEN'),
+                'Authorization' => "Bearer " . settings()->get('yandex_token'),
             ]
         ]);
 
@@ -35,10 +38,11 @@ class Yandex {
 
             $speechBinary = $response->getBody()->getContents();
             $hashParameters = [
-                $donation->text,
-                time()
+                $donation->user_to,
+                time(),
+                $donation->sum,
             ];
-            $speechFileName = Hash::make(implode('', $hashParameters)).".ogg";
+            $speechFileName = Hash::make(implode('', $hashParameters)) . ".ogg";
             Storage::disk('temp')->put($speechFileName, $speechBinary);
 
             return asset(Storage::disk('temp')->url($speechFileName));

@@ -88,7 +88,7 @@
         </div>
         <div class="row">
           <div class="col-12 col-lg-5">
-            <vs-button size="xl" :disabled="$v.$invalid">
+            <vs-button size="xl" :disabled="$v.$invalid" @click="sendForm">
               {{ $store.getters.getDonatePageSettings('donate_button_text') }}
             </vs-button>
           </div>

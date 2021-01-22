@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property number user_from
  * @property number user_to
  * @property string media
- * @property string speechUri
+ * @property string speech_uri
  * @property string donation_sender
  * @property integer id
  */
@@ -21,6 +21,9 @@ class Donation extends Model
     use HasFactory;
 
     protected $guarded = [];
+    /**
+     * @var mixed|string
+     */
 
     public function getSender() {
         return $this->belongsTo('App\Models\User', 'user_from')->get();

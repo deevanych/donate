@@ -29,7 +29,9 @@ class DonationObserver
     public function creating(Donation $donation)
     {
         //
-        $donation->__set('speech_uri', Yandex::TTS($donation));
+        if (!empty($donation->text)) {
+            $donation->__set('speech_uri', Yandex::TTS($donation));
+        }
     }
 
     /**

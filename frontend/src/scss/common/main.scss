@@ -1,7 +1,7 @@
 @import "variables";
 @import "mixins";
 * {
-    @include vendor-prefix('outline', 'none');
+    @include vendor-prefix('outline', 'none !important');
 }
 
 html, body {

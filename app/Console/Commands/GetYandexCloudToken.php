@@ -45,13 +45,14 @@ class GetYandexCloudToken extends Command
         ]);
 
         try {
-            $response = $client->request('GET', 'tokens', [
+            $response = $client->request('POST', 'tokens', [
                 'query' => [
                     'yandexPassportOauthToken' => env('YANDEX_PASSPORT_OAUTH_TOKEN'),
                 ]
             ]);
 
-            settings()->set('yandex_token', $response->getBody()->getContents());
+            $data = json_decode($response->getBody(), true);
+            settings()->set('yandex_token', $data['iamToken']);
 
             echo 'Token has been updated successfully!';
         } catch (GuzzleException $e) {
