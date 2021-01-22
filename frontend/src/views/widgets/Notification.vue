@@ -1,5 +1,5 @@
 <template>
-  <div class="donation__wrapper">
+  <div class="donation__wrapper position-absolute">
     <div class="donation__item" v-if="showDonation">
       <h1>{{ donation.donation_sender }} - {{ donation.sum }}₽</h1>
       <h2>{{ donation.text }}</h2>

@@ -44,7 +44,18 @@ export default {
 
     .slick-track {
       display: flex;
-      gap: 1rem;
+
+      > .slick-slide {
+        margin: 0 .5rem;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
     }
   }
 

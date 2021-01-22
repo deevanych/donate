@@ -1,6 +1,6 @@
 <template>
-  <div class="donation__page position-lg-absolute" :style="{backgroundImage: `url(${$store.getters.getDonatePageSettings('background_uri')})`}">
-    <div class="donation__wrapper" :style="cssVars">
+  <div v-if="loaded" class="donation__page position-relative position-lg-absolute" :style="{backgroundImage: `url(${$store.getters.getDonatePageSettings('background_uri')})`}">
+    <div class="donation__wrapper position-relative position-lg-absolute" :style="cssVars">
       <div class="container my-5 my-lg-0 m-lg-auto">
         <div class="row mb-5">
           <div class="col">
@@ -129,6 +129,7 @@ export default {
         sum: '',
         goal_id: null,
       },
+      loaded: false,
     };
   },
   validations() {
@@ -160,6 +161,7 @@ export default {
       this.donation.sum = data.data.settings.donation_min_sum;
       this.$store.dispatch('setDonatePageSettings', data.data.settings);
       this.$store.dispatch('setDonatePageSettings', { nickname: data.data.name }).then(() => {
+        this.loaded = true;
         loading.close();
       });
     },
@@ -198,7 +200,6 @@ export default {
 
 <style scoped lang="scss">
 .donation__page {
-  position: absolute;
   height: 100%;
   width: 100%;
   background-position: center;
