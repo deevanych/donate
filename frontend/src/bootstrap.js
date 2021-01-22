@@ -12,7 +12,7 @@ Vue.use(Vuesax);
 
 // Axios
 Vue.prototype.$http = Axios.create({
-  baseURL: 'http://127.0.0.1:8000/api/v1/',
+  baseURL: '/api/v1/',
   timeout: 10000,
   // headers: { 'X-Custom-Header': 'foobar' },
 });
