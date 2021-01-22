@@ -1,14 +1,14 @@
 <template>
-  <div class="donation__page" :style="{backgroundImage: `url(${$store.getters.getDonatePageSettings('background_uri')})`}">
+  <div class="donation__page position-lg-absolute" :style="{backgroundImage: `url(${$store.getters.getDonatePageSettings('background_uri')})`}">
     <div class="donation__wrapper" :style="cssVars">
-      <div class="container">
+      <div class="container my-5 my-lg-0 m-lg-auto">
         <div class="row mb-5">
           <div class="col">
             <h1>{{ $store.getters.getDonatePageSettings('nickname') }}</h1>
           </div>
         </div>
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
             <form @submit.prevent="sendForm">
               <template v-if="$store.getters.getDonatePageSettings('enabled_donation_variations')">
                 <DonationSection v-if="user.donation_variations.length !== 0" title="Вариации донатов">
@@ -47,12 +47,9 @@
                   </template>
                 </vs-input>
               </DonationSection>
-              <vs-button size="xl" :disabled="$v.$invalid">
-                {{ $store.getters.getDonatePageSettings('donate_button_text') }}
-              </vs-button>
             </form>
           </div>
-          <div class="col-5 offset-1">
+          <div class="offset-lg-1 col-12 col-lg-5 mt-2 mt-lg-0">
             <template v-if="$store.getters.getDonatePageSettings('enabled_donation_goals')">
               <DonationSection v-if="user.donation_goals.length !== 0" title="Цели сбора">
                 <div class="center d-flex flex-column align-items-start">
@@ -87,6 +84,13 @@
                 </vs-input>
               </DonationSection>
             </template>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-5">
+            <vs-button size="xl" :disabled="$v.$invalid">
+              {{ $store.getters.getDonatePageSettings('donate_button_text') }}
+            </vs-button>
           </div>
         </div>
       </div>

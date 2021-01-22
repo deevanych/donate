@@ -22,30 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Стартуем">
-      <change afterPath="$PROJECT_DIR$/app/Settings/UserSettings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2016_09_19_000000_create_property_bag_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/helpers/color.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/donate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/donate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Кастомизация страницы донатов">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/api/donation.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/api/donation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/components/DonationSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/components/DonationSection.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/components/DonationVariation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/components/DonationVariation.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/components/DonationVariations.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/components/DonationVariations.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/components/InfoDescription.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/components/InfoDescription.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/scss/common/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/scss/common/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/donations/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/views/DonatePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/views/widgets/Notification.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/views/widgets/Notification.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611278840112</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Кастомизация страницы донатов">
+      <created>1611291958250</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1611291958250</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,6 +386,7 @@
     <MESSAGE value="Разбитие на компоненты" />
     <MESSAGE value="Дизайн вариаций." />
     <MESSAGE value="Поменял шрифт" />
-    <option name="LAST_COMMIT_MESSAGE" value="Поменял шрифт" />
+    <MESSAGE value="Кастомизация страницы донатов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Кастомизация страницы донатов" />
   </component>
 </project>
