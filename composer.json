@@ -16,7 +16,7 @@
         "laravel/passport": "^10.1",
         "laravel/tinker": "^2.5",
         "pusher/pusher-php-server": "^4.1",
-      "ext-json": "*"
+        "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -30,7 +30,9 @@
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
-        "process-timeout": 0
+        "process-timeout": 0,
+        "disable-tls": true,
+        "secure-http": false
     },
     "extra": {
         "laravel": {

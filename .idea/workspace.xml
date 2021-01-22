@@ -22,45 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Дизайн вариаций.">
-      <change afterPath="$PROJECT_DIR$/donations/src/api/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/api/donation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/api/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Bold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Bold.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Italic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Italic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Italic.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Medium.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Medium.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Medium.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/components/InfoDescription.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/scss/fonts/_GoogleSans.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/donations/src/scss/fonts/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/components/DonationSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/components/DonationSection.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/components/DonationVariation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/components/DonationVariation.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/scss/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/scss/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/scss/common/_fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/scss/fonts/_CeraPro.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/scss/common/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/scss/common/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/scss/common/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/scss/common/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/views/DonatePage.vue" afterDir="false" />
+    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Поменял шрифт">
+      <change afterPath="$PROJECT_DIR$/composer.phar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +34,7 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
-      <phar pharPath="C:\OpenServer\userdata\composer\composer.phar" interpreterId="8254bc41-a346-4b51-b67b-8d9bfa819586" />
+      <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="8254bc41-a346-4b51-b67b-8d9bfa819586" />
     </execution>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -227,6 +191,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/donations/src/scss/fonts" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -306,7 +271,7 @@
       <workItem from="1611017289125" duration="7930000" />
       <workItem from="1611096878936" duration="7820000" />
       <workItem from="1611155999968" duration="12383000" />
-      <workItem from="1611255033016" duration="21702000" />
+      <workItem from="1611255033016" duration="22024000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -371,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611266260531</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Поменял шрифт">
+      <created>1611278840112</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1611278840112</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,9 +369,14 @@
     <MESSAGE value="Стартуем" />
     <MESSAGE value="Разбитие на компоненты" />
     <MESSAGE value="Дизайн вариаций." />
-    <option name="LAST_COMMIT_MESSAGE" value="Дизайн вариаций." />
+    <MESSAGE value="Поменял шрифт" />
+    <option name="LAST_COMMIT_MESSAGE" value="Поменял шрифт" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="540" y="175" key="#Test_Frameworks" timestamp="1611279146388">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="175" key="#Test_Frameworks/0.0.1920.1040@0.0.1920.1040" timestamp="1611279146388" />
     <state x="586" y="146" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611099880313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -420,22 +397,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1610796697088" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1611277921172">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1611278844788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611277921172" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1611277921172">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611278844788" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1611278844788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611277921172" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1611277921172">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611278844788" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1611278844788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611277921172" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1611277921172">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611278844788" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1611278844788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611277921172" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611278844788" />
     <state x="184" y="86" key="MergeDialog" timestamp="1611255314446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -452,6 +429,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="733" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610879532135" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1611279040830">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1611279040830" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611266267119">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -468,9 +449,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611270813574" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611268165627">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611278859901">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611268165627" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611278859901" />
   </component>
 </project>
