@@ -13,19 +13,16 @@
               <DonationVariations v-model="donation.sum" :variations="user.donation_variations"/>
             </DonationSection>
             <DonationSection title="Ваше имя">
-              <vs-input border v-model="donation.donation_sender" placeholder="Диваныч">
+              <vs-input v-model="donation.donation_sender" placeholder="Диваныч" autocomplete="off">
                 <template #icon>
                   <i class='bx bx-user'></i>
                 </template>
               </vs-input>
             </DonationSection>
             <DonationSection title="Сумма доната">
-              <vs-input border v-model="donation.sum" placeholder="100">
+              <vs-input v-model="donation.sum" placeholder="100" autocomplete="off">
                 <template #icon>
                   ₽
-                </template>
-                <template v-if="!$v.donation.sum.minValue" #message-warn>
-                  Минимальная сумма - 100₽
                 </template>
                 <template v-if="!$v.donation.sum.numeric" #message-warn>
                   Поле должно быть числом
@@ -33,10 +30,13 @@
                 <template v-if="!$v.donation.sum.required" #message-danger>
                   Обязательное поле
                 </template>
+                <template v-if="!$v.donation.sum.minValue" #message-warn>
+                  Минимальная сумма - 100₽
+                </template>
               </vs-input>
             </DonationSection>
             <DonationSection title="Текст сообщения">
-              <vs-input border v-model="donation.text" placeholder="Ты топчик!">
+              <vs-input v-model="donation.text" placeholder="Ты топчик!" autocomplete="off">
                 <template #icon>
                   <i class='bx bx-comment-detail'></i>
                 </template>
@@ -64,6 +64,18 @@
               </vs-radio>
             </div>
           </DonationSection>
+          <DonationSection title="Медиа">
+            <vs-input placeholder="Ссылка на видео"
+                      :disabled="donation.sum < 150"
+                      autocomplete="off">
+              <template #icon>
+                <i class='bx bxl-youtube'></i>
+              </template>
+              <template v-if="donation.sum < 150" #message-warn>
+                Минимальная сумма для медиа - 150₽
+              </template>
+            </vs-input>
+          </DonationSection>
         </div>
       </div>
     </div>
@@ -76,6 +88,8 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import DonationSection from '@/components/DonationSection.vue';
 import DonationVariations from '@/components/DonationVariations.vue';
 import { required, minValue, numeric } from 'vuelidate/lib/validators';
+import user from '@/api/user';
+import donation from '@/api/donation';
 
 let loading = '';
 
@@ -93,9 +107,9 @@ export default {
         donation_goals: [],
       },
       donation: {
-        text: 'Ты суперкласс!',
-        donation_sender: 'Лолита',
-        sum: 300,
+        text: '',
+        donation_sender: '',
+        sum: '',
         goal_id: null,
       },
       showDialog: true,
@@ -112,12 +126,12 @@ export default {
   },
   mounted() {
     const self = this;
-    self.$http.get(`users/${self.$route.params.user}`)
-      .then((response) => {
-        self.user = response.data;
-      });
+    user.get(self.$route.params.user, this.setUser);
   },
   methods: {
+    setUser(data) {
+      this.user = data.data;
+    },
     donationNotification(text = 'Счастья, здоровья!', border = 'success', title = 'Донат отправлен') {
       this.$vs.notification({
         position: 'top-right',
@@ -126,23 +140,26 @@ export default {
         text,
       });
     },
+    successNotification(data) {
+      loading.close();
+      if (data.data.status === 'error') {
+        this.donationNotification(data.data.message, 'danger', 'Произошла ошибка');
+      } else {
+        this.donationNotification(data.data.message);
+      }
+    },
+    errorNotification(data) {
+      loading.close();
+      this.donationNotification(data, 'danger', 'Произошла ошибка');
+    },
     sendForm() {
       loading = this.$vs.loading();
-      const self = this;
-      self.$http.post(`users/${self.$route.params.user}/donations`, self.donation)
-        .then((response) => {
-          if (response.data.status === 'error') {
-            self.donationNotification(response.data.message, 'danger', 'Произошла ошибка');
-          } else {
-            self.donationNotification(response.data.message);
-          }
-        })
-        .catch((error) => {
-          self.donationNotification(error.data.message, 'danger', 'Произошла ошибка');
-        })
-        .finally(() => {
-          loading.close();
-        });
+      donation.send(
+        this.$route.params.user,
+        this.donation,
+        this.successNotification,
+        this.errorNotification,
+      );
     },
   },
 };

@@ -1,15 +1,14 @@
 <template>
-  <div class="mb-4">
-    <h5 class="mb-3">{{ title }}</h5>
-    <slot></slot>
-  </div>
+  <span class="text-muted small">
+    {{ text }}
+  </span>
 </template>
 
 <script>
 export default {
-  name: 'DonationSection',
+  name: 'InfoDescription',
   props: {
-    title: {
+    text: {
       type: String,
       required: true,
     },
