@@ -13,10 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-//todo
-Route::resource('/{user}/donate', \App\Http\Controllers\DonationController::class);
-Route::get('/{user}/donate', [\App\Http\Controllers\DonationController::class, 'create'])->name('donate');
+Route::get('/{any}', [\App\Http\Controllers\PageController::class, 'index'])->where('any', '.*')->name('index');

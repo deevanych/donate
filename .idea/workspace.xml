@@ -22,11 +22,168 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Мобильный вид">
+    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Шрифт заголовка">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/scss/vendors/_vuesax.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/scss/common/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/scss/common/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/scss/fonts/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/scss/fonts/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donations/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/views/DonatePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/.browserslistrc" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.browserslistrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/api/donation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/donation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Black.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Black.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Black.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Black.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Black.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Black.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-BlackItalic.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-BlackItalic.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-BlackItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-BlackItalic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-BlackItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-BlackItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Bold.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Bold.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Bold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Bold.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Bold.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-BoldItalic.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-BoldItalic.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-BoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-BoldItalic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-BoldItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-BoldItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Italic.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Italic.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Italic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Italic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Italic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Light.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Light.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Light.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Light.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Light.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-LightItalic.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-LightItalic.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-LightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-LightItalic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-LightItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-LightItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Medium.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Medium.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Medium.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Medium.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Medium.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-MediumItalic.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-MediumItalic.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-MediumItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-MediumItalic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-MediumItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-MediumItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Regular.otf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Regular.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Regular.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Thin.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Thin.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Thin.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Thin.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-Thin.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-Thin.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-ThinItalic.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-ThinItalic.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-ThinItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-ThinItalic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/CeraPro/CeraPro-ThinItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/CeraPro/CeraPro-ThinItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Bold.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Bold.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Bold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Bold.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Bold.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Bold.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Bold.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-BoldItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Italic.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Italic.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Italic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Italic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Italic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Italic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Italic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Medium.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Medium.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Medium.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Medium.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Medium.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Medium.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Medium.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-MediumItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/assets/fonts/GoogleSans/GoogleSans-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/fonts/GoogleSans/GoogleSans-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/components/DonationSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DonationSection.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/components/DonationVariation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DonationVariation.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/components/DonationVariations.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DonationVariations.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/components/InfoDescription.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InfoDescription.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/helpers/color.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/helpers/color.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/@ui/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/@ui/_buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/@ui/_inputs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/@ui/_inputs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/@ui/_textarea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/@ui/_textarea.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/@ui/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/@ui/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/common/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/common/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/common/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/common/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/common/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/common/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/fonts/_CeraPro.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/fonts/_CeraPro.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/fonts/_GoogleSans.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/fonts/_GoogleSans.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/fonts/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/fonts/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/pages/_notification.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/pages/_notification.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/pages/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/pages/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/vendors/_bootstrap.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/vendors/_bootstrap.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/vendors/_vuesax.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/vendors/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/vendors/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/views/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/layouts/MainLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/views/widgets/Notification.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/speech.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Black.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Black.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-BlackItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-BlackItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-BlackItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-BoldItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-BoldItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Italic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Light.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-LightItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-LightItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Medium.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Medium.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-MediumItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-MediumItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-MediumItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Thin.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-Thin.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-ThinItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-ThinItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fonts/CeraPro/CeraPro-ThinItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/layouts/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/@ui/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/@ui/main.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/app.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/common/_fonts.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/common/main.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/vendors/_bootstrap.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/vendors/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/vendors/main.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,14 +372,14 @@
       <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\donate" />
+      <recent name="C:\OpenServer\domains\donate\resources" />
       <recent name="C:\Users\casha\PhpstormProjects\donate\donations\src\assets\fonts\GoogleSans" />
       <recent name="C:\Users\casha\PhpstormProjects\donate\storage\app" />
       <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src\sass\vendors" />
-      <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src\assets\fonts" />
-      <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.lint">
+  <component name="RunManager" selected="npm.buildTest">
     <configuration name="serve" type="ComposerRunConfigurationType" factoryName="Composer Script" temporary="true">
       <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
       <option name="script" value="serve" />
@@ -232,8 +389,28 @@
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="buildTest" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="buildTest" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/donations/package.json" />
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
       <command value="run" />
       <scripts>
         <script value="lint" />
@@ -243,7 +420,7 @@
       <method v="2" />
     </configuration>
     <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/donations/package.json" />
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
       <command value="run" />
       <scripts>
         <script value="serve" />
@@ -254,15 +431,19 @@
     </configuration>
     <list>
       <item itemvalue="Composer Script.serve" />
-      <item itemvalue="npm.serve" />
-      <item itemvalue="npm.lint" />
       <item itemvalue="PHPUnit.phpunit.xml" />
+      <item itemvalue="npm.lint" />
+      <item itemvalue="npm.serve" />
+      <item itemvalue="npm.build" />
+      <item itemvalue="npm.buildTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.buildTest" />
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.serve" />
         <item itemvalue="Composer Script.serve" />
+        <item itemvalue="npm.lint" />
       </list>
     </recent_temporary>
   </component>
@@ -283,6 +464,7 @@
       <workItem from="1611096878936" duration="7820000" />
       <workItem from="1611155999968" duration="12383000" />
       <workItem from="1611255033016" duration="22024000" />
+      <workItem from="1611328288246" duration="5650000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -368,7 +550,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611294237478</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Шрифт заголовка">
+      <created>1611297055963</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1611297055963</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,6 +586,7 @@
     <MESSAGE value="Поменял шрифт" />
     <MESSAGE value="Кастомизация страницы донатов" />
     <MESSAGE value="Мобильный вид" />
-    <option name="LAST_COMMIT_MESSAGE" value="Мобильный вид" />
+    <MESSAGE value="Шрифт заголовка" />
+    <option name="LAST_COMMIT_MESSAGE" value="Шрифт заголовка" />
   </component>
 </project>
