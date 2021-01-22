@@ -22,9 +22,30 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Поменял шрифт">
-      <change afterPath="$PROJECT_DIR$/composer.phar" afterDir="false" />
+    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Стартуем">
+      <change afterPath="$PROJECT_DIR$/app/Settings/UserSettings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2016_09_19_000000_create_property_bag_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donations/src/helpers/color.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/donate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/donate.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/api/donation.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/api/donation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/components/DonationSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/components/DonationSection.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/components/DonationVariation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/components/DonationVariation.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/components/DonationVariations.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/components/DonationVariations.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/components/InfoDescription.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/components/InfoDescription.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/scss/common/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/scss/common/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/views/DonatePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/src/views/widgets/Notification.vue" beforeDir="false" afterPath="$PROJECT_DIR$/donations/src/views/widgets/Notification.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +55,7 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
-      <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="8254bc41-a346-4b51-b67b-8d9bfa819586" />
+      <phar pharPath="C:\OpenServer\domains\donate\composer.phar" interpreterId="ed3927c4-818b-4f31-8de9-714da00c787c" />
     </execution>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -47,6 +68,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -171,6 +200,7 @@
       <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
       <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/vendor/zachleigh/laravel-property-bag" />
     </include_path>
   </component>
   <component name="ProjectId" id="1n19yDca0NgWZE10h2mQhOSAfbp" />
@@ -196,19 +226,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\casha\PhpstormProjects\donate\donations\src\assets\fonts\GoogleSans" />
-      <recent name="C:\Users\casha\PhpstormProjects\donate\storage\app" />
-      <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src\sass\vendors" />
-      <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src\assets\fonts" />
-      <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\casha\PhpstormProjects\donate\donations\src\scss\fonts" />
       <recent name="C:\Users\casha\PhpstormProjects\donate\donations\src\api" />
       <recent name="C:\Users\casha\PhpstormProjects\donate\app\Http\Controllers\Api\v1" />
       <recent name="C:\Users\casha\PhpstormProjects\donate\storage\app\temp" />
       <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\casha\PhpstormProjects\donate\donations\src\assets\fonts\GoogleSans" />
+      <recent name="C:\Users\casha\PhpstormProjects\donate\storage\app" />
+      <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src\sass\vendors" />
+      <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src\assets\fonts" />
+      <recent name="C:\Users\casha\PhpstormProjects\donate\donations3\src" />
     </key>
   </component>
   <component name="RunManager" selected="npm.lint">
@@ -250,8 +280,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.lint" />
-        <item itemvalue="Composer Script.serve" />
         <item itemvalue="npm.serve" />
+        <item itemvalue="Composer Script.serve" />
       </list>
     </recent_temporary>
   </component>
@@ -371,87 +401,5 @@
     <MESSAGE value="Дизайн вариаций." />
     <MESSAGE value="Поменял шрифт" />
     <option name="LAST_COMMIT_MESSAGE" value="Поменял шрифт" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="540" y="175" key="#Test_Frameworks" timestamp="1611279146388">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="540" y="175" key="#Test_Frameworks/0.0.1920.1040@0.0.1920.1040" timestamp="1611279146388" />
-    <state x="586" y="146" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611099880313">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="586" y="146" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611099880313" />
-    <state x="637" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611258592601">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="637" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611258592601" />
-    <state x="1280" y="161" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1611262028223">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1280" y="161" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611262028223" />
-    <state x="736" y="432" width="447" height="265" key="ComposerInitDialogKey" timestamp="1610796699053">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="736" y="432" width="447" height="265" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1610796699053" />
-    <state x="739" y="261" key="FileChooserDialogImpl" timestamp="1610796697088">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1610796697088" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1611278844788">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611278844788" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1611278844788">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611278844788" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1611278844788">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611278844788" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1611278844788">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611278844788" />
-    <state x="184" y="86" key="MergeDialog" timestamp="1611255314446">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="184" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611255314446" />
-    <state x="718" y="243" key="NewPhpClassDialog" timestamp="1610987877520">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="718" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610987877520" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1610987910857">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610987910857" />
-    <state x="733" y="222" key="RollbackChangesDialog" timestamp="1610879532135">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="733" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610879532135" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1611279040830">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1611279040830" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611266267119">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611266267119" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611156033747">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611156033747" />
-    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1611262618353">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611262618353" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1611270813574">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611270813574" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611278859901">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611278859901" />
   </component>
 </project>

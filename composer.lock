@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef6d4aaaae6473096ed0b9cf7223fa92",
+    "content-hash": "f4d9be8f5c24db1957f5df6f73f54e25",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5885,6 +5885,67 @@
                 "source": "https://github.com/webmozart/assert/tree/master"
             },
             "time": "2020-07-08T17:02:28+00:00"
+        },
+        {
+            "name": "zachleigh/laravel-property-bag",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zachleigh/laravel-property-bag.git",
+                "reference": "0c3b1be15afc5fb9515e5117b8192d6e200feb77"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zachleigh/laravel-property-bag/zipball/0c3b1be15afc5fb9515e5117b8192d6e200feb77",
+                "reference": "0c3b1be15afc5fb9515e5117b8192d6e200feb77",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "laravel/browser-kit-testing": "~1.0",
+                "laravel/laravel": "^6.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelPropertyBag\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelPropertyBag\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zach Leigh",
+                    "email": "zachleigh@fastmail.jp"
+                }
+            ],
+            "description": "Easy Laravel user settings using a property bag",
+            "homepage": "https://github.com/zachleigh/laravel-property-bag",
+            "keywords": [
+                "Settings",
+                "laravel",
+                "property",
+                "propety bag",
+                "user",
+                "user settings"
+            ],
+            "support": {
+                "issues": "https://github.com/zachleigh/laravel-property-bag/issues",
+                "source": "https://github.com/zachleigh/laravel-property-bag/tree/master"
+            },
+            "time": "2020-01-05T06:29:51+00:00"
         }
     ],
     "packages-dev": [
@@ -8375,7 +8436,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "^7.4|^8.0",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"

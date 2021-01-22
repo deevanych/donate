@@ -1,81 +1,93 @@
 <template>
-  <div class="donation__wrapper">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col">
-          <h1>{{ user.name }}</h1>
+  <div class="donation__page" :style="{backgroundImage: `url(${$store.getters.getDonatePageSettings('background_uri')})`}">
+    <div class="donation__wrapper" :style="cssVars">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col">
+            <h1>{{ $store.getters.getDonatePageSettings('nickname') }}</h1>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <form @submit.prevent="sendForm">
-            <DonationSection v-if="user.donation_variations.length !== 0" title="Вариации донатов">
-              <DonationVariations v-model="donation.sum" :variations="user.donation_variations"/>
-            </DonationSection>
-            <DonationSection title="Ваше имя">
-              <vs-input v-model="donation.donation_sender" placeholder="Диваныч" autocomplete="off">
-                <template #icon>
-                  <i class='bx bx-user'></i>
-                </template>
-              </vs-input>
-            </DonationSection>
-            <DonationSection title="Сумма доната">
-              <vs-input v-model="donation.sum" placeholder="100" autocomplete="off">
-                <template #icon>
-                  ₽
-                </template>
-                <template v-if="!$v.donation.sum.numeric" #message-warn>
-                  Поле должно быть числом
-                </template>
-                <template v-if="!$v.donation.sum.required" #message-danger>
-                  Обязательное поле
-                </template>
-                <template v-if="!$v.donation.sum.minValue" #message-warn>
-                  Минимальная сумма - 100₽
-                </template>
-              </vs-input>
-            </DonationSection>
-            <DonationSection title="Текст сообщения">
-              <vs-input v-model="donation.text" placeholder="Ты топчик!" autocomplete="off">
-                <template #icon>
-                  <i class='bx bx-comment-detail'></i>
-                </template>
-              </vs-input>
-            </DonationSection>
-            <vs-button size="xl" :disabled="$v.$invalid">
-              Отправить
-            </vs-button>
-          </form>
-        </div>
-        <div class="col-5 offset-1">
-          <DonationSection v-if="user.donation_goals.length !== 0" title="Цели сбора">
-            <div class="center d-flex flex-column align-items-start">
-              <vs-radio v-model="donation.goal_id"
-                        :val="null"
-                        class="mb-2">
-                Без цели
-              </vs-radio>
-              <vs-radio v-for="donation_goal in user.donation_goals"
-                        :key="donation_goal.id"
-                        v-model="donation.goal_id"
-                        :val="donation_goal.id"
-                        class="mb-2">
-                {{ donation_goal.title }}
-              </vs-radio>
-            </div>
-          </DonationSection>
-          <DonationSection title="Медиа">
-            <vs-input placeholder="Ссылка на видео"
-                      :disabled="donation.sum < 150"
-                      autocomplete="off">
-              <template #icon>
-                <i class='bx bxl-youtube'></i>
+        <div class="row">
+          <div class="col-6">
+            <form @submit.prevent="sendForm">
+              <template v-if="$store.getters.getDonatePageSettings('enabled_donation_variations')">
+                <DonationSection v-if="user.donation_variations.length !== 0" title="Вариации донатов">
+                  <DonationVariations v-model="donation.sum" :variations="user.donation_variations"/>
+                </DonationSection>
               </template>
-              <template v-if="donation.sum < 150" #message-warn>
-                Минимальная сумма для медиа - 150₽
-              </template>
-            </vs-input>
-          </DonationSection>
+              <DonationSection title="Ваше имя">
+                <vs-input v-model="donation.donation_sender" placeholder="Диваныч" autocomplete="off">
+                  <template #icon>
+                    <i class='bx bx-user'></i>
+                  </template>
+                </vs-input>
+              </DonationSection>
+              <DonationSection title="Сумма доната">
+                <vs-input v-model="donation.sum" placeholder="100" autocomplete="off">
+                  <template #icon>
+                    ₽
+                  </template>
+                  <template v-if="!$v.donation.sum.numeric" #message-warn>
+                    Поле должно быть числом
+                  </template>
+                  <template v-if="!$v.donation.sum.required" #message-danger>
+                    Обязательное поле
+                  </template>
+                  <template v-if="!$v.donation.sum.minValue" #message-warn>
+                    Минимальная сумма -
+                    {{ $store.getters.getDonatePageSettings('donation_min_sum') }}
+                    ₽
+                  </template>
+                </vs-input>
+              </DonationSection>
+              <DonationSection title="Текст сообщения">
+                <vs-input v-model="donation.text" placeholder="Ты топчик!" autocomplete="off">
+                  <template #icon>
+                    <i class='bx bx-comment-detail'></i>
+                  </template>
+                </vs-input>
+              </DonationSection>
+              <vs-button size="xl" :disabled="$v.$invalid">
+                {{ $store.getters.getDonatePageSettings('donate_button_text') }}
+              </vs-button>
+            </form>
+          </div>
+          <div class="col-5 offset-1">
+            <template v-if="$store.getters.getDonatePageSettings('enabled_donation_goals')">
+              <DonationSection v-if="user.donation_goals.length !== 0" title="Цели сбора">
+                <div class="center d-flex flex-column align-items-start">
+                  <vs-radio v-model="donation.goal_id"
+                            :val="null"
+                            class="mb-2">
+                    Без цели
+                  </vs-radio>
+                  <vs-radio v-for="donation_goal in user.donation_goals"
+                            :key="donation_goal.id"
+                            v-model="donation.goal_id"
+                            :val="donation_goal.id"
+                            class="mb-2">
+                    {{ donation_goal.title }}
+                  </vs-radio>
+                </div>
+              </DonationSection>
+            </template>
+            <template v-if="$store.getters.getDonatePageSettings('enabled_media')">
+              <DonationSection title="Медиа">
+                <vs-input placeholder="Ссылка на видео"
+                          :disabled="donation.sum < $store.getters.getDonatePageSettings('donation_media_min_sum')"
+                          autocomplete="off">
+                  <template #icon>
+                    <i class='bx bxl-youtube'></i>
+                  </template>
+                  <template v-if="donation.sum < $store.getters.getDonatePageSettings('donation_media_min_sum')"
+                            #message-warn>
+                    Минимальная сумма для медиа -
+                    {{ $store.getters.getDonatePageSettings('donation_media_min_sum') }}₽
+                  </template>
+                </vs-input>
+              </DonationSection>
+            </template>
+          </div>
         </div>
       </div>
     </div>
@@ -90,6 +102,7 @@ import DonationVariations from '@/components/DonationVariations.vue';
 import { required, minValue, numeric } from 'vuelidate/lib/validators';
 import user from '@/api/user';
 import donation from '@/api/donation';
+import { HEXtoRGB } from '@/helpers/color';
 
 let loading = '';
 
@@ -112,25 +125,39 @@ export default {
         sum: '',
         goal_id: null,
       },
-      showDialog: true,
     };
   },
-  validations: {
-    donation: {
-      sum: {
-        required,
-        minValue: minValue(100),
-        numeric,
+  validations() {
+    return {
+      donation: {
+        sum: {
+          required,
+          minValue: minValue(this.$store.getters.getDonatePageSettings('donation_min_sum')),
+          numeric,
+        },
       },
-    },
+    };
   },
   mounted() {
     const self = this;
+    loading = this.$vs.loading();
     user.get(self.$route.params.user, this.setUser);
+  },
+  computed: {
+    cssVars() {
+      return {
+        '--vs-primary': HEXtoRGB(this.$store.getters.getDonatePageSettings('main_color')),
+      };
+    },
   },
   methods: {
     setUser(data) {
       this.user = data.data;
+      this.donation.sum = data.data.settings.donation_min_sum;
+      this.$store.dispatch('setDonatePageSettings', data.data.settings);
+      this.$store.dispatch('setDonatePageSettings', { nickname: data.data.name }).then(() => {
+        loading.close();
+      });
     },
     donationNotification(text = 'Счастья, здоровья!', border = 'success', title = 'Донат отправлен') {
       this.$vs.notification({
@@ -165,20 +192,22 @@ export default {
 };
 </script>
 
-<style lang="scss">
-body {
-  background: url("https://static.donationalerts.ru/uploads/images/3107503/1588490770_39-p-prostie-rozovie-foni-89.jpg");
-}
-</style>
-
 <style scoped lang="scss">
-.donation__wrapper {
-  display: flex;
-  backdrop-filter: blur(2px);
-  background: rgba(255, 255, 255, .8);
+.donation__page {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
 
-  & > .container {
-    margin: auto;
+  .donation__wrapper {
+    display: flex;
+    backdrop-filter: blur(2px);
+    background: rgba(255, 255, 255, .8);
+
+    & > .container {
+      margin: auto;
+    }
   }
 }
 </style>

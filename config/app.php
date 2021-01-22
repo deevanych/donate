@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        LaravelPropertyBag\ServiceProvider::class,
 
         /*
          * Application Service Providers...

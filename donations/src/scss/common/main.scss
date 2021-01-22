@@ -4,3 +4,7 @@
 * {
     @include vendor-prefix('outline', 'none');
 }
+
+html, body {
+    height: 100%;
+}
