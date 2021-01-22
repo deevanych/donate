@@ -23,8 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Совмещение фронта и бэка">
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/GetYandexCloudToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/donate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/donate.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,6 +190,7 @@
       <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
       <path value="$PROJECT_DIR$/vendor/zachleigh/laravel-property-bag" />
+      <path value="$PROJECT_DIR$/vendor/qcod/laravel-settings" />
     </include_path>
   </component>
   <component name="ProjectId" id="1n19yDca0NgWZE10h2mQhOSAfbp" />
@@ -293,7 +304,7 @@
       <workItem from="1611096878936" duration="7820000" />
       <workItem from="1611155999968" duration="12383000" />
       <workItem from="1611255033016" duration="22024000" />
-      <workItem from="1611328288246" duration="9611000" />
+      <workItem from="1611328288246" duration="12725000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -400,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611341994836</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Совмещение фронта и бэка">
+      <created>1611342576203</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1611342576203</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

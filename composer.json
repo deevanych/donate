@@ -17,6 +17,7 @@
         "laravel/passport": "^10.1",
         "laravel/tinker": "^2.5",
         "pusher/pusher-php-server": "^4.1",
+        "qcod/laravel-settings": "^1.0",
         "zachleigh/laravel-property-bag": "^1.4"
     },
     "require-dev": {
