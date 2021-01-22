@@ -24,7 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Совмещение фронта и бэка">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vue.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,16 +230,6 @@
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/frontend/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration name="buildTest" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/frontend/package.json" />
       <command value="run" />
@@ -272,18 +262,16 @@
     </configuration>
     <list>
       <item itemvalue="Composer Script.serve" />
-      <item itemvalue="PHPUnit.phpunit.xml" />
       <item itemvalue="npm.lint" />
       <item itemvalue="npm.serve" />
-      <item itemvalue="npm.build" />
       <item itemvalue="npm.buildTest" />
+      <item itemvalue="PHPUnit.phpunit.xml" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.serve" />
-        <item itemvalue="npm.buildTest" />
-        <item itemvalue="npm.build" />
         <item itemvalue="Composer Script.serve" />
+        <item itemvalue="npm.buildTest" />
         <item itemvalue="npm.lint" />
       </list>
     </recent_temporary>
@@ -305,7 +293,7 @@
       <workItem from="1611096878936" duration="7820000" />
       <workItem from="1611155999968" duration="12383000" />
       <workItem from="1611255033016" duration="22024000" />
-      <workItem from="1611328288246" duration="9070000" />
+      <workItem from="1611328288246" duration="9611000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -405,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611338295283</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Совмещение фронта и бэка">
+      <created>1611341994836</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1611341994836</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
