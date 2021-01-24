@@ -25,6 +25,11 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => import('../views/DashboardPage'),
+  },
 ];
 
 const router = new VueRouter({

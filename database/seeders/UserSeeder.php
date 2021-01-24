@@ -17,13 +17,11 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'deevanich',
-            'password' => 123456,
-            'email' => 'test@test.com',
+            'email' => 'cashalotkzn@gmail.com',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('users')->insert([
             'name' => 'tanisat',
-            'password' => 123456,
             'email' => 'test1@test.com',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

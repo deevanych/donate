@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => '/v1', 'as' => 'api.'], function () {
-    Route::resource('users', UserController::class)->except('index');
+    Route::resource('users', UserController::class)->only('show');
     Route::resource('users/{user}/donations', DonationController::class)->only('store');
 });
 
 Route::group(['prefix' => '/v1', 'as' => 'api.', 'middleware' => 'auth:api'], function () {
-//    Route::resource('users', UserController::class);
+    Route::resource('users', UserController::class);
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -13,4 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/auth/callback/{type?}', [\App\Http\Controllers\AuthController::class, 'callback'])->name('callback');
+Route::get('/auth/{type?}', [\App\Http\Controllers\AuthController::class, 'index'])->name('login');
+Route::get('/dashboard', [\App\Http\Controllers\PageController::class, 'index'])->name('dashboard');
 Route::get('/{any}', [\App\Http\Controllers\PageController::class, 'index'])->where('any', '.*')->name('index');

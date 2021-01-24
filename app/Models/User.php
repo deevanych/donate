@@ -24,7 +24,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'avatar_url',
     ];
 
     protected $with = [
@@ -102,5 +102,18 @@ class User extends Authenticatable
     public function donationGoals(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany('App\Models\DonationGoal');
+    }
+
+    public static function socialLogin($user, $type = 'twitch'): User
+    {
+        return User::firstOrCreate(
+            [
+                'email' => $user->email
+            ],
+            [
+                'avatar_url' => $user->avatar,
+                'name' => $user->nickname,
+            ]
+        );
     }
 }
