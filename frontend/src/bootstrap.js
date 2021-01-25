@@ -11,7 +11,6 @@ Vue.use(Vuelidate);
 Vue.use(Vuesax);
 
 // Cookie
-Vue.use(VueCookie);
 
 // Axios
 Vue.prototype.$http = Axios.create({
@@ -19,8 +18,8 @@ Vue.prototype.$http = Axios.create({
   timeout: 10000,
 });
 
-if (1) {
-  Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ${Vue.prototype.$cookie.get('_token')}`;
+if (localStorage.getItem('_token')) {
+  Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('_token')}`;
 }
 
 Vue.use(require('vue-pusher'), {

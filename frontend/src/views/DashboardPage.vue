@@ -1,6 +1,6 @@
 <template>
   <div>
-    asdsad
+    {{ ko }}
   </div>
 </template>
 
@@ -9,13 +9,18 @@ import user from '@/api/user';
 
 export default {
   name: 'DashboardPage',
+  data() {
+    return {
+      ko: null,
+    };
+  },
   mounted() {
-    console.log(this.$route.query.token);
+    this.ko = localStorage.getItem('_token');
     user.get('', this.userInfo, this.userInfo);
   },
   methods: {
     userInfo() {
-      console.log(this.$cookie.get('_token'));
+
     },
   },
 };

@@ -29,10 +29,16 @@ export default new Vuex.Store({
         state.donatePage[key] = settings[key];
       });
     },
+    setUser(state, user) {
+      state.user = user;
+    },
   },
   actions: {
     setDonatePageSettings(state, settings) {
       state.commit('setDonatePageSettings', settings);
+    },
+    setUser(state, user) {
+      state.commit('setUser', user);
     },
   },
   modules: {

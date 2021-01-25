@@ -22,6 +22,6 @@ class AuthController extends Controller
     {
         $user = Socialite::driver($type)->stateless()->user();
         $user = User::socialLogin($user, $type);
-        return redirect()->route('dashboard', ['token' => $user->createToken($type)->accessToken]);
+        return redirect('/login?token='.$user->createToken($type)->accessToken);
     }
 }

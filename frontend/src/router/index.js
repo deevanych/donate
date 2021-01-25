@@ -26,6 +26,11 @@ const routes = [
     ],
   },
   {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/LoginWindow'),
+  },
+  {
     path: '/dashboard',
     name: 'dashboard',
     component: () => import('../views/DashboardPage'),
