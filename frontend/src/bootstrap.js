@@ -10,12 +10,18 @@ Vue.use(Vuelidate);
 // Vuesax
 Vue.use(Vuesax);
 
+// Cookie
+Vue.use(VueCookie);
+
 // Axios
 Vue.prototype.$http = Axios.create({
   baseURL: '/api/v1/',
   timeout: 10000,
-  // headers: { 'X-Custom-Header': 'foobar' },
 });
+
+if (1) {
+  Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ${Vue.prototype.$cookie.get('_token')}`;
+}
 
 Vue.use(require('vue-pusher'), {
   api_key: '4e2a53bcaa017d996bda',

@@ -22,7 +22,7 @@ Route::group(['prefix' => '/v1', 'as' => 'api.'], function () {
 });
 
 Route::group(['prefix' => '/v1', 'as' => 'api.', 'middleware' => 'auth:api'], function () {
-    Route::resource('users', UserController::class);
+    Route::resource('users', UserController::class)->except('show');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

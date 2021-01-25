@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="cashalot_donate@cashalot.beget.tech">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.20">
+<dataSource name="donate@localhost">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.19">
     <root id="1">
       <ServerVersion>5.7.21</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -723,7 +723,7 @@
     </collation>
     <user id="226" parent="1" name="cashalot_donate">
       <Host>%</Host>
-      <ObjectGrants>ALL PRIVILEGES|cashalot\_donate
+      <ObjectGrants>ALL PRIVILEGES|cashalot\_donate:null
 </ObjectGrants>
     </user>
     <table id="227" parent="2" name="donation_goals">
@@ -1378,27 +1378,29 @@ key</ColNames>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="367" parent="240" name="email_verified_at">
+    <column id="367" parent="240" name="avatar_url">
       <Position>4</Position>
-      <DataType>timestamp|0s</DataType>
-    </column>
-    <column id="368" parent="240" name="password">
-      <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;https://avatars.mds.yandex.net/get-yapic/33202/enc-2560ecc40f7f9ca1bd5bad7001ee6cae2f6017ab5242bddcdcc3724e464cb0f3/islands-200&apos;</DefaultExpression>
     </column>
-    <column id="369" parent="240" name="remember_token">
-      <Position>6</Position>
+    <column id="368" parent="240" name="remember_token">
+      <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="370" parent="240" name="created_at">
+    <column id="369" parent="240" name="created_at">
+      <Position>6</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <column id="370" parent="240" name="updated_at">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="371" parent="240" name="updated_at">
-      <Position>8</Position>
-      <DataType>timestamp|0s</DataType>
-    </column>
+    <index id="371" parent="240" name="users_name_unique">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
     <index id="372" parent="240" name="users_email_unique">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
@@ -1409,7 +1411,11 @@ key</ColNames>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="374" parent="240" name="users_email_unique">
+    <key id="374" parent="240" name="users_name_unique">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>users_name_unique</UnderlyingIndexName>
+    </key>
+    <key id="375" parent="240" name="users_email_unique">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
     </key>

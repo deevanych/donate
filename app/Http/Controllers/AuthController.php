@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
@@ -21,7 +22,6 @@ class AuthController extends Controller
     {
         $user = Socialite::driver($type)->stateless()->user();
         $user = User::socialLogin($user, $type);
-        Auth::login($user);
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard', ['token' => $user->createToken($type)->accessToken]);
     }
 }
