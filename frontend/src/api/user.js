@@ -1,7 +1,10 @@
-import api from './api';
+import Vue from 'vue';
 
 export default {
-  get(userName = '', successCallback = null, errorCallback = null) {
-    api.sendRequest(`users/${userName}`, successCallback, errorCallback);
+  async getInfo(userName = '') {
+    return Vue.prototype.$http({
+      method: 'GET',
+      url: `/users/${userName}`,
+    });
   },
 };

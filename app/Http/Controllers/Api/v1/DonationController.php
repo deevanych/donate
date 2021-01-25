@@ -31,7 +31,7 @@ class DonationController extends Controller
     {
         //
         try {
-            $donation = new Donation($request->all());
+            $donation = new Donation($request->get('donation'));
             $donation->user_to = $user->id;
             $donation->user_from = 2;
 

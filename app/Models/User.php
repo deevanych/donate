@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -30,6 +29,7 @@ class User extends Authenticatable
     protected $with = [
         'donationVariations',
         'donationGoals',
+        'socialNetworks',
     ];
 
     protected $appends = [
@@ -82,6 +82,11 @@ class User extends Authenticatable
         return $this->allSettings();
     }
 
+    public function getSocialNetwork(): \Illuminate\Database\Eloquent\Collection
+    {
+        return $this->socialNetworks()->get();
+    }
+
 //    Relations
 
     public function receivedDonations(): \Illuminate\Database\Eloquent\Relations\HasMany
@@ -102,6 +107,11 @@ class User extends Authenticatable
     public function donationGoals(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany('App\Models\DonationGoal');
+    }
+
+    public function socialNetworks(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\SocialNetwork')->withPivot('link');
     }
 
     public static function socialLogin($user, $type = 'twitch'): User

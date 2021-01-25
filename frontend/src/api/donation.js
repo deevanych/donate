@@ -1,13 +1,13 @@
-import api from './api';
+import Vue from 'vue';
 
 export default {
-  send(
-    userName = '',
-    donation = {},
-    successCallback = null,
-    errorCallback = null,
-    finallyCallback = null,
-  ) {
-    api.sendRequest(`users/${userName}/donations`, successCallback, errorCallback, finallyCallback, 'post', donation);
+  async sendDonation(userName = '', donation = {}) {
+    return Vue.prototype.$http({
+      method: 'POST',
+      url: `/users/${userName}/donations`,
+      data: {
+        donation,
+      },
+    });
   },
 };

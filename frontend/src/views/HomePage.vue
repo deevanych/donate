@@ -10,12 +10,16 @@
 
 <script>
 let authWindow;
+let loading;
+
 export default {
   name: 'Home',
   methods: {
     authLogin(url) {
+      loading = this.$vs.loading();
       authWindow = window.open(url, 'authWindow', 'width=300, height=600');
       authWindow.addEventListener('beforeunload', () => {
+        loading.close();
         this.$router.push({ name: 'dashboard' });
       });
     },

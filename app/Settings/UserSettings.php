@@ -46,5 +46,9 @@ class UserSettings extends ResourceConfig
             'allowed' => ':int:',
             'default' => 150,
         ],
+        'description' => [
+            'allowed' => ':any:',
+            'default' => 'Спасибо всем за поддержку! Надеюсь, вам нравится мой контент!',
+        ],
     ];
 }

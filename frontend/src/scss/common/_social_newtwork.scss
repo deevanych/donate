@@ -1,0 +1,12 @@
+.social_networks {
+    text-decoration: none !important;
+    transition: .3s;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    &.twitch {
+        color: rgba(var(--vs-twitch), 1);
+    }
+}

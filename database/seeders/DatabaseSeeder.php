@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             DonationVariationSeeder::class,
             DonationGoalSeeder::class,
-//            OauthClientSeeder::class,
+            OauthClientSeeder::class,
+            SocialNetworkSeeder::class,
+            SocialNetworkUserSeeder::class,
         ]);
     }
 }
