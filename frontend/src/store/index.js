@@ -47,13 +47,14 @@ export default new Vuex.Store({
     },
     setUserDonatePage(state, user) {
       state.userDonatePage = user;
-    }
-    ,
+      Vue.prototype.$vs.loading().close();
+    },
   },
   actions: {
     async SET_USER_DONATE_PAGE(state, user) {
-      await userApi.getInfo(user).then((response) => {
-        state.commit('setUserDonatePage', response.data);
+      const e = userApi.getInfo(user);
+      e.then((data) => {
+        state.commit('setUserDonatePage', data.data);
       }).catch((error) => {
         Vue.prototype.$vs.notification({
           position: 'top-right',
@@ -62,12 +63,16 @@ export default new Vuex.Store({
           text: error,
         });
       });
+
+      return e;
     },
+
     async SEND_DONATION(state, data) {
-      await donation.sendDonation(
+      const e = donation.sendDonation(
         data.user,
         data.donation,
-      ).then((response) => {
+      );
+      e.then((response) => {
         Vue.prototype.$vs.notification({
           position: 'top-right',
           border: 'success',
@@ -82,6 +87,8 @@ export default new Vuex.Store({
           text: error,
         });
       });
+
+      return e;
     }
     ,
   },

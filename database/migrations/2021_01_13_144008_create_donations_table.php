@@ -20,7 +20,7 @@ class CreateDonationsTable extends Migration
             $table->text('donation_sender')->nullable()->comment('Ник донатера');
             $table->unsignedBigInteger('user_to')->comment('Получатель доната');
             $table->foreign('user_to')->references('id')->on('users');
-            $table->unsignedBigInteger('user_from')->comment('Отправитель доната');
+            $table->unsignedBigInteger('user_from')->nullable()->comment('Отправитель доната');
             $table->foreign('user_from')->references('id')->on('users');
             $table->unsignedBigInteger('goal_id')->nullable()->comment('Цель доната');
             $table->foreign('goal_id')->references('id')->on('donation_goals');

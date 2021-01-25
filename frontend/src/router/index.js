@@ -14,11 +14,6 @@ const routes = [
         component: () => import('../views/HomePage'),
       },
       {
-        path: '/donate/:user',
-        name: 'donate',
-        component: () => import('../views/DonatePage'),
-      },
-      {
         path: '/widget/:user',
         name: 'widget',
         component: () => import('../views/widgets/Notification'),
@@ -34,6 +29,12 @@ const routes = [
     path: '/dashboard',
     name: 'dashboard',
     component: () => import('../views/DashboardPage'),
+  },
+  {
+    path: '/:user',
+    alias: '/donate/:user',
+    name: 'donate',
+    component: () => import('../views/DonatePage'),
   },
 ];
 

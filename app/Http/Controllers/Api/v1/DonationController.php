@@ -33,7 +33,6 @@ class DonationController extends Controller
         try {
             $donation = new Donation($request->get('donation'));
             $donation->user_to = $user->id;
-            $donation->user_from = 2;
 
 //            todo
             if (empty($donation->donation_sender)) {

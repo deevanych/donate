@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loaded" class="donation__page position-relative position-lg-absolute background-center"
+  <div v-if="USER_DONATE_PAGE.id !== 0" class="donation__page position-relative position-lg-absolute background-center"
        :style="{backgroundImage: `url(${USER_DONATE_PAGE.settings.background_uri})`}">
     <div class="donation__wrapper position-relative position-lg-absolute" :style="cssVars">
       <div class="container my-5 my-lg-0 m-lg-auto">
@@ -42,7 +42,7 @@
                 </vs-input>
               </DonationSection>
               <DonationSection title="Сумма доната">
-                <vs-input v-model="donation.sum" placeholder="100" autocomplete="off">
+                <vs-input v-model="donation.sum" placeholder="100" v-mask="'######'" autocomplete="off">
                   <template #icon>
                     ₽
                   </template>
@@ -135,7 +135,7 @@ import { required, minValue, numeric } from 'vuelidate/lib/validators';
 import { mapGetters } from 'vuex';
 import { HEXtoRGB } from '@/helpers/color';
 
-let loading = '';
+let loading;
 
 export default {
   name: 'donation',
@@ -153,7 +153,6 @@ export default {
         sum: '',
         goal_id: null,
       },
-      loaded: false,
     };
   },
   validations() {
@@ -171,10 +170,7 @@ export default {
     loading = this.$vs.loading();
     this.$store.dispatch('SET_USER_DONATE_PAGE', this.$route.params.user)
       .then(() => {
-        this.loaded = true;
         this.donation.sum = this.USER_DONATE_PAGE.settings.donation_min_sum;
-      })
-      .finally(() => {
         loading.close();
       });
   },
