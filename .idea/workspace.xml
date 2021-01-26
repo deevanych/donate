@@ -22,43 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Аутентификация твитч">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/UserSettingsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/settings.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/DashboardPageTitle.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/InputSection.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/scss/@ui/_switch.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/scss/vendors/_boxicons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/DonatePageTest.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardHeader.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardIndexPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardSidebar.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardStatsPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardWidgetsPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DonationPageSettings.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/layouts/DashboardLayout.vue" afterDir="false" />
+    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Кастомизация страницы донатов">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Settings/UserSettings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Settings/UserSettings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/donation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/donation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/DonationSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InputField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/HelpInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HelpInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/SocialNetworkLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SocialNetworkLink.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/scss/@ui/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/@ui/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/scss/vendors/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/vendors/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/DashboardPage.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/LoginWindow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/LoginWindow.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/layouts/MainLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <list id="4fe381a6-224e-4003-a09d-8e61aea58b25" name="Композер" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -336,7 +302,8 @@
       <workItem from="1611255033016" duration="22263000" />
       <workItem from="1611519433627" duration="13188000" />
       <workItem from="1611571000412" duration="13860000" />
-      <workItem from="1611625754630" duration="24249000" />
+      <workItem from="1611625754630" duration="24546000" />
+      <workItem from="1611685026162" duration="1288000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -429,7 +396,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611533253054</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Кастомизация страницы донатов">
+      <created>1611684476281</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1611684476281</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Фикс">
+      <created>1611685061113</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1611685061113</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,6 +439,8 @@
     <MESSAGE value="Поменял шрифт" />
     <MESSAGE value="Композер" />
     <MESSAGE value="Аутентификация твитч" />
-    <option name="LAST_COMMIT_MESSAGE" value="Аутентификация твитч" />
+    <MESSAGE value="Кастомизация страницы донатов" />
+    <MESSAGE value="Фикс" />
+    <option name="LAST_COMMIT_MESSAGE" value="Фикс" />
   </component>
 </project>

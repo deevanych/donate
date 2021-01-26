@@ -4,7 +4,7 @@ export default {
   async getInfo(userName = '') {
     return Vue.prototype.$http({
       method: 'GET',
-      url: `/users/${userName}`,
+      url: `/users/${userName}/`,
     });
   },
 };
