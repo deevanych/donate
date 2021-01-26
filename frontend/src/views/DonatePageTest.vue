@@ -1,5 +1,5 @@
 <template>
-  <div v-if="USER_DONATE_PAGE.id !== 0" class="donation__page position-relative position-lg-absolute background-center"
+  <div v-if="USER_DONATE_PAGE" class="donation__page position-relative position-lg-absolute background-center"
        :style="{backgroundImage: `url(${USER_DONATE_PAGE.settings.background_uri})`}">
     <div class="donation__wrapper position-relative position-lg-absolute" :style="cssVars">
       <div class="container my-5 my-lg-0 m-lg-auto">
@@ -114,7 +114,7 @@
         </div>
         <div class="row">
           <div class="col-12 col-lg-5">
-            <vs-button size="xl" :disabled="$v.$invalid" @click="sendForm" :style="{'color': USER_DONATE_PAGE.settings.donate_button_text_color}">
+            <vs-button size="xl" :disabled="$v.$invalid" :style="{'color': USER_DONATE_PAGE.settings.donate_button_text_color}">
               {{ USER_DONATE_PAGE.settings.donate_button_text }}
             </vs-button>
           </div>
@@ -132,10 +132,7 @@ import DonationVariations from '@/components/DonationVariations.vue';
 import InfoDescription from '@/components/InfoDescription.vue';
 import SocialNetworkLink from '@/components/SocialNetworkLink.vue';
 import { required, minValue, numeric } from 'vuelidate/lib/validators';
-import { mapGetters } from 'vuex';
 import { HEXtoRGB } from '@/helpers/color';
-
-let loading;
 
 export default {
   name: 'donation',
@@ -147,6 +144,7 @@ export default {
   },
   data() {
     return {
+      USER_DONATE_PAGE: {},
       donation: {
         text: '',
         donation_sender: '',
@@ -166,16 +164,21 @@ export default {
       },
     };
   },
-  mounted() {
-    loading = this.$vs.loading();
-    this.$store.dispatch('SET_USER_DONATE_PAGE', this.$route.params.user)
-      .then(() => {
-        this.donation.sum = this.USER_DONATE_PAGE.settings.donation_min_sum;
-        loading.close();
-      });
+  beforeMount() {
+    this.updatePreview();
+    setInterval(() => {
+      this.updatePreview();
+    }, 100);
+    window.addEventListener('beforeunload', () => {
+      localStorage.removeItem('donatePagePreview');
+    });
+  },
+  methods: {
+    updatePreview() {
+      this.USER_DONATE_PAGE = JSON.parse(localStorage.getItem('donatePagePreview'));
+    },
   },
   computed: {
-    ...mapGetters(['USER_DONATE_PAGE']),
     cssVars() {
       return {
         '--vs-primary': HEXtoRGB(this.USER_DONATE_PAGE.settings.main_color),
@@ -184,15 +187,6 @@ export default {
       };
     }
     ,
-  },
-  methods: {
-    sendForm() {
-      loading = this.$vs.loading();
-      this.$store.dispatch('SEND_DONATION', { user: this.$route.params.user, donation: this.donation })
-        .finally(() => {
-          loading.close();
-        });
-    },
   },
 };
 </script>
@@ -214,6 +208,8 @@ export default {
 
   .donation__wrapper {
     display: flex;
+    backdrop-filter: blur(2px);
+    background: rgba(255, 255, 255, .8);
 
     & > .container {
       margin: auto;

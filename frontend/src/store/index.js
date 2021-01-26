@@ -1,13 +1,30 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import userApi from '@/api/user';
-import donation from '@/api/donation';
+import donationApi from '@/api/donation';
+import settingsApi from '@/api/settings';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    user: {},
+    token: localStorage.getItem('_token') || '',
+    user: {
+      settings: {
+        background_uri: '',
+        donate_button_text: 'Отправить',
+        donation_media_min_sum: 150,
+        donation_min_sum: 100,
+        enabled_donation_goals: false,
+        enabled_donation_variations: false,
+        enabled_media: false,
+        main_color: '#007bff',
+        description: '',
+        donate_button_text_color: '#FFFFFF',
+        background_color: 'rgba(255, 255, 255, .8)',
+        background_blur: 2,
+      },
+    },
     userDonatePage: {
       avatar_url: '',
       created_at: '',
@@ -26,6 +43,9 @@ export default new Vuex.Store({
         enabled_media: false,
         main_color: '#007bff',
         description: '',
+        donate_button_text_color: '#FFFFFF',
+        background_color: 'rgba(255, 255, 255, .8)',
+        background_blur: 2,
       },
       social_networks: [
         {
@@ -39,7 +59,9 @@ export default new Vuex.Store({
     },
   },
   getters: {
+    IS_AUTH: (state) => !!state.token,
     USER_DONATE_PAGE: (state) => state.userDonatePage,
+    AUTH_USER: (state) => state.user,
   },
   mutations: {
     setUser(state, user) {
@@ -47,7 +69,6 @@ export default new Vuex.Store({
     },
     setUserDonatePage(state, user) {
       state.userDonatePage = user;
-      Vue.prototype.$vs.loading().close();
     },
   },
   actions: {
@@ -67,8 +88,44 @@ export default new Vuex.Store({
       return e;
     },
 
+    async SAVE_SETTINGS(state) {
+      const e = settingsApi.saveSettings(state.getters.AUTH_USER.settings);
+      e.then((response) => {
+        Vue.prototype.$vs.notification({
+          position: 'top-right',
+          border: 'success',
+          title: 'Настройки сохранены',
+          text: response.data.message,
+        });
+      }).catch((error) => {
+        Vue.prototype.$vs.notification({
+          position: 'top-right',
+          border: 'danger',
+          title: 'Произошла ошибка',
+          text: error,
+        });
+      });
+
+      return e;
+    },
+
+    async SET_USER(state) {
+      const e = userApi.getInfo();
+      e.then((data) => {
+        state.commit('setUser', data.data);
+      }).catch(() => {
+
+      });
+
+      return e;
+    },
+
+    async LOGOUT() {
+      localStorage.removeItem('_token');
+    },
+
     async SEND_DONATION(state, data) {
-      const e = donation.sendDonation(
+      const e = donationApi.sendDonation(
         data.user,
         data.donation,
       );

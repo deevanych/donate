@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\v1\DonationController;
 use App\Http\Controllers\Api\v1\UserController;
+use App\Http\Controllers\Api\v1\UserSettingsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::group(['prefix' => '/v1', 'as' => 'api.'], function () {
 
 Route::group(['prefix' => '/v1', 'as' => 'api.', 'middleware' => 'auth:api'], function () {
     Route::resource('users', UserController::class)->except('show');
+    Route::resource('settings', UserSettingsController::class);
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -6,8 +6,6 @@
 </template>
 
 <script>
-import user from '@/api/user';
-
 export default {
   name: 'LoginWindow',
   data() {
@@ -18,12 +16,14 @@ export default {
   mounted() {
     this.token = this.$route.query.token;
     localStorage.setItem('_token', this.token);
-    user.get('', this.setUser);
+    this.$store.dispatch('SET_USER')
+      .finally(() => {
+        window.close();
+      });
   },
   methods: {
     setUser(response) {
       this.$store.dispatch('setUser', response.data);
-      window.close();
     },
   },
 };

@@ -12,7 +12,7 @@
 import HelpInfo from '@/components/HelpInfo.vue';
 
 export default {
-  name: 'DonationSection',
+  name: 'InputField',
   components: {
     HelpInfo,
   },

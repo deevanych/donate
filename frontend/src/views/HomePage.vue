@@ -1,14 +1,40 @@
 <template>
   <div>
-    <router-link :to="{name: 'donate', params: {user: 'deevanich'}}">задонатить</router-link>
-    <br/>
-    <router-link :to="{name: 'widget', params: {user: 'deevanich'}}">чекнуть</router-link>
-    <br/>
-    <a href="/auth/twitch" @click.prevent="authLogin('/auth/twitch')">Войти через twitch</a>
+    <header class="container mt-5 justify-content-end d-flex">
+      <vs-button v-if="!$store.getters.IS_AUTH"
+                 @click.prevent="authLogin('http://localhost:8000/auth/twitch')"
+                 primary
+                 border
+                 size="large">
+        Войти через <i class='bx bxl-twitch ml-2 social_networks twitch'></i>
+      </vs-button>
+      <router-link v-else :to="{name: 'dashboard'}">
+        <vs-button
+          primary
+          border
+          size="large">
+          <vs-avatar history history-gradient circle class="mr-3">
+            <img :src="AUTH_USER.avatar_url" alt="">
+          </vs-avatar>
+          Панель управления
+        </vs-button>
+      </router-link>
+    </header>
+    <div class="container d-flex h-100">
+      <div class="wrapper">
+        <h1 class="title">
+          ez
+          <br/>
+          donate
+        </h1>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 let authWindow;
 let loading;
 
@@ -24,9 +50,20 @@ export default {
       });
     },
   },
+  computed: {
+    ...mapGetters(['AUTH_USER']),
+  },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.container {
+  top: 0;
+}
 
+.title {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 14rem;
+}
 </style>
