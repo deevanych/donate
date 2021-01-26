@@ -2,7 +2,7 @@
   <div>
     <header class="container mt-5 justify-content-end d-flex">
       <vs-button v-if="!$store.getters.IS_AUTH"
-                 @click.prevent="authLogin('http://localhost:8000/auth/twitch')"
+                 @click.prevent="authLogin('/auth/twitch')"
                  primary
                  border
                  size="large">
