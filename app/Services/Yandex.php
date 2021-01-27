@@ -21,7 +21,7 @@ class Yandex
             'base_uri' => 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize',
             'timeout' => 10.0,
             'headers' => [
-                'Authorization' => "Bearer " . settings()->get('yandex_token'),
+                'Authorization' => "Bearer " . settings()->get('yandex_token', null, true),
             ]
         ]);
 
@@ -47,7 +47,7 @@ class Yandex
 
             return asset(Storage::disk('temp')->url($speechFileName));
         } catch (GuzzleException $e) {
-            return $e->getMessage();
+
         }
     }
 }

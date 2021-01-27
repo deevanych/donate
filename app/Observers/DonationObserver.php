@@ -4,7 +4,6 @@ namespace App\Observers;
 
 use App\Events\DonationCreated;
 use App\Models\Donation;
-use App\Services\Yandex;
 
 class DonationObserver
 {
@@ -29,9 +28,6 @@ class DonationObserver
     public function creating(Donation $donation)
     {
         //
-        if (!empty($donation->text)) {
-            $donation->__set('speech_uri', Yandex::TTS($donation));
-        }
     }
 
     /**
