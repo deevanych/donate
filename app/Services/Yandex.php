@@ -47,7 +47,7 @@ class Yandex
 
             return asset(Storage::disk('temp')->url($speechFileName));
         } catch (GuzzleException $e) {
-
+            return $e->getMessage();
         }
     }
 }
