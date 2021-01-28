@@ -3,7 +3,6 @@ import './scss/app.scss';
 import Axios from 'axios';
 import Vuesax from 'vuesax';
 import Vuelidate from 'vuelidate';
-import VueMask from 'v-mask';
 import router from '@/router';
 import store from '@/store';
 
@@ -33,9 +32,6 @@ if (localStorage.getItem('_token')) {
     }
   });
 }
-
-// Mask
-Vue.use(VueMask);
 
 // Pusher
 Vue.use(require('vue-pusher'), {

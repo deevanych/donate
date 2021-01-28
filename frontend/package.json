@@ -16,7 +16,6 @@
         "core-js": "^3.6.5",
         "node-sass": "^5.0.0",
         "pusher": "^4.0.2",
-        "v-mask": "^2.2.4",
         "vue": "^2.6.11",
         "vue-loading-skeleton": "^1.1.9",
         "vue-pusher": "^1.1.0",

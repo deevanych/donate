@@ -121,6 +121,7 @@ import InputField from '@/components/InputField.vue';
 import InputSection from '@/components/InputSection.vue';
 import HelpInfo from '@/components/HelpInfo.vue';
 import DashboardPageTitle from '@/components/DashboardPageTitle.vue';
+import ColorPicker from '@caohenghu/vue-colorpicker';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -130,6 +131,7 @@ export default {
     DashboardPageTitle,
     InputSection,
     HelpInfo,
+    ColorPicker,
   },
   data() {
     return {

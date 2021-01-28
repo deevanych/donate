@@ -42,7 +42,7 @@
                 </vs-input>
               </InputField>
               <InputField title="Сумма доната">
-                <vs-input v-model="donation.sum" placeholder="100" v-mask="'######'" autocomplete="off">
+                <vs-input v-model="donation.sum" placeholder="100" autocomplete="off">
                   <template #icon>
                     ₽
                   </template>
