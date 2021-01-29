@@ -25,21 +25,20 @@
       <InputField title="Фоновый цвет">
         <div
           class="color__preview rounded shadow"
-          @click="toggleColorPicker('background_color')"
+          @focus="toggleColorPicker('background_color', true)"
+          @focusout="toggleColorPicker('background_color', false)"
+          tabindex="0"
           :style="{'background-color': AUTH_USER.settings.background_color}"
+        >
+          <Chrome
+            v-model="AUTH_USER.settings.background_color"
+            v-if="colorPickers.background_color"
+            @input="AUTH_USER.settings.background_color = $event.hex8"
           />
-        <Chrome
-          v-model="AUTH_USER.settings.background_color"
-          v-if="colorPickers.background_color"
-          @input="AUTH_USER.settings.background_color = $event.hex8"
-        />
+        </div>
       </InputField>
       <InputField title="Размытие изображения">
-        <vs-input v-model="AUTH_USER.settings.background_blur" autocomplete="off">
-          <template #icon>
-            <i class='bx bx-user'></i>
-          </template>
-        </vs-input>
+        <RangeSlider v-model="AUTH_USER.settings.background_blur"/>
       </InputField>
     </InputSection>
 
@@ -54,11 +53,14 @@
       <InputField title="Основной цвет">
         <div
           class="color__preview rounded shadow"
-          @click="toggleColorPicker('main_color')"
-          :style="{'background-color': AUTH_USER.settings.main_color}"/>
+          @focus="toggleColorPicker('main_color', true)"
+          @focusout="toggleColorPicker('main_color', false)"
+          tabindex="0"
+          :style="{'background-color': AUTH_USER.settings.main_color}">
         <Chrome :value="AUTH_USER.settings.main_color"
                 v-if="colorPickers.main_color"
                 @input="AUTH_USER.settings.main_color = $event.hex8"/>
+        </div>
       </InputField>
     </InputSection>
 
@@ -71,11 +73,19 @@
         </vs-input>
       </InputField>
       <InputField title="Цвет текста">
-        <vs-input v-model="AUTH_USER.settings.donate_button_text_color" autocomplete="off">
-          <template #icon>
-            <i class='bx bx-user'></i>
-          </template>
-        </vs-input>
+        <div
+          class="color__preview rounded shadow"
+          @focus="toggleColorPicker('donate_button_text_color', true)"
+          @focusout="toggleColorPicker('donate_button_text_color', false)"
+          tabindex="0"
+          :style="{'background-color': AUTH_USER.settings.donate_button_text_color}"
+        >
+          <Chrome
+            v-model="AUTH_USER.settings.donate_button_text_color"
+            v-if="colorPickers.donate_button_text_color"
+            @input="AUTH_USER.settings.donate_button_text_color = $event.hex8"
+          />
+        </div>
       </InputField>
     </InputSection>
 
@@ -129,6 +139,7 @@ import InputField from '@/components/InputField.vue';
 import InputSection from '@/components/InputSection.vue';
 import HelpInfo from '@/components/HelpInfo.vue';
 import DashboardPageTitle from '@/components/DashboardPageTitle.vue';
+import RangeSlider from '@/components/@ui/RangeSlider.vue';
 import { mapGetters } from 'vuex';
 import { Chrome } from 'vue-color';
 
@@ -140,12 +151,14 @@ export default {
     InputSection,
     HelpInfo,
     Chrome,
+    RangeSlider,
   },
   data() {
     return {
       colorPickers: {
         background_color: false,
         main_color: false,
+        donate_button_text_color: false,
       },
       showPreview: false,
     };
@@ -154,8 +167,8 @@ export default {
     ...mapGetters(['AUTH_USER']),
   },
   methods: {
-    toggleColorPicker(colorPicker) {
-      this.colorPickers[colorPicker] = !this.colorPickers[colorPicker];
+    toggleColorPicker(colorPicker = 'background_color', show = null) {
+      this.colorPickers[colorPicker] = (show) || !this.colorPickers[colorPicker];
     },
     donatePagePreview() {
       localStorage.setItem('donatePagePreview', JSON.stringify(this.AUTH_USER));
@@ -183,15 +196,26 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .color__preview {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  }
+.color__preview {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
 
-  .vc-chrome {
-    margin-top: 1rem;
+  .vc-chrome::v-deep {
+    top: 3rem;
     position: absolute;
     z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .vc-chrome-saturation-wrap {
+      padding-bottom: 100%;
+    }
+
+    .vc-chrome-fields-wrap {
+      display: none;
+    }
   }
+}
 </style>
