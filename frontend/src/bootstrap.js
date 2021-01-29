@@ -5,6 +5,7 @@ import Vuesax from 'vuesax';
 import Vuelidate from 'vuelidate';
 import router from '@/router';
 import store from '@/store';
+import '@/directives/ClickOutside';
 
 // Vuelidate
 Vue.use(Vuelidate);

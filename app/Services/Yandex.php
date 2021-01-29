@@ -12,7 +12,9 @@ class Yandex
     const VOICES = [
         'alena',
         'filipp',
-        'omazh'
+        'omazh',
+        'alyss',
+        'ermil',
     ];
 
     public static function TTS($donation)
@@ -29,8 +31,8 @@ class Yandex
             $response = $client->request('POST', '', [
                 'query' => [
                     'text' => $donation->text,
-                    'folderId' => env('YANDEX_FOLDER_ID'),
-                    'voice' => self::VOICES[1],
+                    'folderId' => env('YANDEX_FOLDER_ID', 'b1g3cl7mgbqrd028u8vk'),
+                    'voice' => self::VOICES[4],
                     'speed' => 1.1,
                     'emotion' => 'neutral',
                 ]
