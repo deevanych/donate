@@ -18,7 +18,7 @@
       <InputField title="Фоновое изображение">
         <vs-input v-model="AUTH_USER.settings.background_uri" autocomplete="off">
           <template #icon>
-            <i class='bx bx-user'></i>
+            <i class='bx bx-image-alt'></i>
           </template>
         </vs-input>
       </InputField>
@@ -38,7 +38,19 @@
         </div>
       </InputField>
       <InputField title="Размытие изображения">
-        <RangeSlider v-model="AUTH_USER.settings.background_blur"/>
+        <div class="d-flex align-items-center">
+          <vs-input v-model="AUTH_USER.settings.background_blur" autocomplete="off" class="settings__background-blur">
+            <template #icon>
+              <i class='bx bx-brush' ></i>
+            </template>
+          </vs-input>
+          <span class="mr-4 ml-1">px</span>
+          <RangeSlider
+            v-model="AUTH_USER.settings.background_blur"
+            width="100px"
+            :min="0"
+          />
+        </div>
       </InputField>
     </InputSection>
 
@@ -46,7 +58,7 @@
       <InputField title="Приветственный текст">
         <vs-input v-model="AUTH_USER.settings.description" autocomplete="off">
           <template #icon>
-            <i class='bx bx-user'></i>
+            <i class='bx bx-text' ></i>
           </template>
         </vs-input>
       </InputField>
@@ -57,9 +69,9 @@
           @focusout="toggleColorPicker('main_color', false)"
           tabindex="0"
           :style="{'background-color': AUTH_USER.settings.main_color}">
-        <Chrome :value="AUTH_USER.settings.main_color"
-                v-if="colorPickers.main_color"
-                @input="AUTH_USER.settings.main_color = $event.hex8"/>
+          <Chrome :value="AUTH_USER.settings.main_color"
+                  v-if="colorPickers.main_color"
+                  @input="AUTH_USER.settings.main_color = $event.hex8"/>
         </div>
       </InputField>
     </InputSection>
@@ -68,7 +80,7 @@
       <InputField title="Текст кнопки">
         <vs-input v-model="AUTH_USER.settings.donate_button_text" autocomplete="off">
           <template #icon>
-            <i class='bx bx-user'></i>
+            <i class='bx bx-text' ></i>
           </template>
         </vs-input>
       </InputField>
@@ -93,14 +105,14 @@
       <InputField title="Минимальная сумма доната">
         <vs-input v-model="AUTH_USER.settings.donation_min_sum" autocomplete="off">
           <template #icon>
-            <i class='bx bx-user'></i>
+            <i class='bx bx-money' ></i>
           </template>
         </vs-input>
       </InputField>
       <InputField title="Минимальная сумма доната для медиа">
         <vs-input v-model="AUTH_USER.settings.donation_media_min_sum" autocomplete="off">
           <template #icon>
-            <i class='bx bx-user'></i>
+            <i class='bx bx-money' ></i>
           </template>
         </vs-input>
       </InputField>
@@ -110,17 +122,38 @@
       <InputField
         title="Включить цели"
         help-text="Пользователь сможет выбрать сбор, в который пойдет донат">
-        <vs-switch v-model="AUTH_USER.settings.enabled_donation_goals"/>
+        <vs-switch v-model="AUTH_USER.settings.enabled_donation_goals">
+          <template #off>
+            <i class='bx bx-x' ></i>
+          </template>
+          <template #on>
+            <i class='bx bx-check' ></i>
+          </template>
+        </vs-switch>
       </InputField>
       <InputField
         title="Включить вариации"
         help-text="Пользователю будут доступны вариации донатов на выбор">
-        <vs-switch v-model="AUTH_USER.settings.enabled_donation_variations"/>
+        <vs-switch v-model="AUTH_USER.settings.enabled_donation_variations">
+          <template #off>
+            <i class='bx bx-x' ></i>
+          </template>
+          <template #on>
+            <i class='bx bx-check' ></i>
+          </template>
+        </vs-switch>
       </InputField>
       <InputField
         title="Включить медиа"
         help-text="У пользователя появится возможность включить медиа">
-        <vs-switch v-model="AUTH_USER.settings.enabled_media"/>
+        <vs-switch v-model="AUTH_USER.settings.enabled_media">
+          <template #off>
+            <i class='bx bx-x' ></i>
+          </template>
+          <template #on>
+            <i class='bx bx-check' ></i>
+          </template>
+        </vs-switch>
       </InputField>
     </InputSection>
 
@@ -196,6 +229,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.settings__background-blur {
+  width: 90px;
+}
+
 .color__preview {
   width: 30px;
   height: 30px;
