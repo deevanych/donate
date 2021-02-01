@@ -8,4 +8,11 @@ export default {
       data: settings,
     });
   },
+
+  async getSettings() {
+    return Vue.prototype.$http({
+      method: 'GET',
+      url: '/settings',
+    });
+  },
 };

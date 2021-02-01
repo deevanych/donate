@@ -1,11 +1,7 @@
 <template>
   <div class="range__slider" :style="{background: backgroundColor, 'width': width}" ref="slider" @mousedown="startMove">
-    <div class="range__value" :style="{'width': rangeValue, background: sliderFillColor}"></div>
-    <vs-tooltip class="range__handler shadow-sm" :style="{'left': rangeValue, background: handlerColor}">
-      <template #tooltip>
-        {{ value }}px
-      </template>
-    </vs-tooltip>
+    <div class="range__value" :style="{'width': rangeValue, background: sliderFillColor}"/>
+    <div class="range__handler shadow-sm" :style="{'left': rangeValue, background: handlerColor}"/>
   </div>
 </template>
 

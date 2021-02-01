@@ -96,7 +96,8 @@
                 title="Медиа"
                 help-text="При донате у пользователя будет воспроизведено медиа"
               >
-                <vs-input placeholder="Ссылка на видео"
+                <vs-input v-model="donation.media"
+                          placeholder="Ссылка на видео"
                           :disabled="donation.sum < USER_DONATE_PAGE.settings.donation_media_min_sum"
                           autocomplete="off">
                   <template #icon>
@@ -152,6 +153,7 @@ export default {
         donation_sender: '',
         sum: '',
         goal_id: null,
+        media: '',
       },
     };
   },

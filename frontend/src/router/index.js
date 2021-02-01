@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import store from '@/store';
+import store from '../store/index';
 
 Vue.use(VueRouter);
 
@@ -11,7 +11,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       if (store.getters.IS_AUTH) {
         const loading = Vue.prototype.$vs.loading();
-        store.dispatch('SET_USER').then(() => {
+        store.dispatch('GET_USER').then(() => {
           next();
         }).catch((error) => {
           Vue.prototype.$vs.notification({
@@ -41,22 +41,27 @@ const routes = [
         children: [
           {
             path: '',
-            name: 'dashboard',
-            component: () => import('../views/dashboard/DashboardStatsPage'),
+            name: 'dashboard.index',
+            component: () => import('../views/dashboard/DashboardIndexPage'),
           },
           {
             path: 'widgets',
-            name: 'widgets',
-            component: () => import('../views/dashboard/DashboardWidgetsPage'),
+            name: 'dashboard.widgets.list',
+            component: () => import('../views/dashboard/widgets/DashboardWidgetsPage'),
+          },
+          {
+            path: 'widgets/:id',
+            name: 'dashboard.widgets.edit',
+            component: () => import('../views/dashboard/widgets/DashboardWidgetsEditPage'),
           },
           {
             path: 'settings',
             component: () => import('../views/layouts/MainLayout'),
             children: [
               {
-                path: 'donate',
-                name: 'settings.donate',
-                component: () => import('../views/dashboard/DonationPageSettings'),
+                path: 'donation-page',
+                name: 'dashboard.settings.donationPage',
+                component: () => import('../views/dashboard/DashboardDonationPageSettings'),
               },
             ],
           },
@@ -75,7 +80,7 @@ const routes = [
     ],
   },
   {
-    path: '/login',
+    path: '/auth/twitch',
     name: 'login',
     component: () => import('../views/LoginWindow'),
   },
@@ -86,7 +91,12 @@ const routes = [
     component: () => import('../views/DonatePage'),
   },
   {
-    path: '/widget/:user',
+    path: '/widget/media',
+    name: 'obs.widget',
+    component: () => import('../views/widgets/MediaWidget'),
+  },
+  {
+    path: '/widget/notification/:user',
     name: 'widget',
     component: () => import('../views/widgets/Notification'),
   },

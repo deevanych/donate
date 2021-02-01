@@ -14,12 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            UserSeeder::class,
-            DonationVariationSeeder::class,
-            DonationGoalSeeder::class,
-            OauthClientSeeder::class,
             SocialNetworkSeeder::class,
-            SocialNetworkUserSeeder::class,
+            WidgetTypeSeeder::class,
         ]);
     }
 }

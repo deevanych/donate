@@ -26,16 +26,6 @@ class User extends Authenticatable
         'avatar_url',
     ];
 
-    protected $with = [
-        'donationVariations',
-        'donationGoals',
-        'socialNetworks',
-    ];
-
-    protected $appends = [
-        'settings',
-    ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -87,6 +77,11 @@ class User extends Authenticatable
         return $this->socialNetworks()->get();
     }
 
+    public function getWidgets(): \Illuminate\Database\Eloquent\Collection
+    {
+        return $this->widgets()->get();
+    }
+
 //    Relations
 
     public function receivedDonations(): \Illuminate\Database\Eloquent\Relations\HasMany
@@ -102,6 +97,11 @@ class User extends Authenticatable
     public function donationVariations(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany('App\Models\DonationVariation')->orderBy('sum');
+    }
+
+    public function widgets(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany('App\Models\Widget');
     }
 
     public function donationGoals(): \Illuminate\Database\Eloquent\Relations\HasMany

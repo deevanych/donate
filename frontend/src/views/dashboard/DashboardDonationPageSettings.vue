@@ -13,10 +13,9 @@
           class="ml-2"/>
       </vs-button>
     </DashboardPageTitle>
-    <iframe v-if="showPreview" src="/preview/donate" frameborder="0"></iframe>
     <InputSection title="Настройки фона">
       <InputField title="Фоновое изображение">
-        <vs-input v-model="AUTH_USER.settings.background_uri" autocomplete="off">
+        <vs-input v-model="USER.settings.background_uri" autocomplete="off">
           <template #icon>
             <i class='bx bx-image-alt'></i>
           </template>
@@ -28,25 +27,25 @@
           @focus="toggleColorPicker('background_color', true)"
           @focusout="toggleColorPicker('background_color', false)"
           tabindex="0"
-          :style="{'background-color': AUTH_USER.settings.background_color}"
+          :style="{'background-color': USER.settings.background_color}"
         >
           <Chrome
-            v-model="AUTH_USER.settings.background_color"
+            v-model="USER.settings.background_color"
             v-if="colorPickers.background_color"
-            @input="AUTH_USER.settings.background_color = $event.hex8"
+            @input="USER.settings.background_color = $event.hex8"
           />
         </div>
       </InputField>
       <InputField title="Размытие изображения">
         <div class="d-flex align-items-center">
-          <vs-input v-model="AUTH_USER.settings.background_blur" autocomplete="off" class="settings__background-blur">
+          <vs-input v-model="USER.settings.background_blur" autocomplete="off" class="settings__background-blur">
             <template #icon>
               <i class='bx bx-brush' ></i>
             </template>
           </vs-input>
           <span class="mr-4 ml-1">px</span>
           <RangeSlider
-            v-model="AUTH_USER.settings.background_blur"
+            v-model="USER.settings.background_blur"
             width="100px"
             :min="0"
           />
@@ -56,7 +55,7 @@
 
     <InputSection title="Основные настройки">
       <InputField title="Приветственный текст">
-        <vs-input v-model="AUTH_USER.settings.description" autocomplete="off">
+        <vs-input v-model="USER.settings.description" autocomplete="off">
           <template #icon>
             <i class='bx bx-text' ></i>
           </template>
@@ -68,17 +67,17 @@
           @focus="toggleColorPicker('main_color', true)"
           @focusout="toggleColorPicker('main_color', false)"
           tabindex="0"
-          :style="{'background-color': AUTH_USER.settings.main_color}">
-          <Chrome :value="AUTH_USER.settings.main_color"
+          :style="{'background-color': USER.settings.main_color}">
+          <Chrome :value="USER.settings.main_color"
                   v-if="colorPickers.main_color"
-                  @input="AUTH_USER.settings.main_color = $event.hex8"/>
+                  @input="USER.settings.main_color = $event.hex8"/>
         </div>
       </InputField>
     </InputSection>
 
     <InputSection title="Настройки Кнопки">
       <InputField title="Текст кнопки">
-        <vs-input v-model="AUTH_USER.settings.donate_button_text" autocomplete="off">
+        <vs-input v-model="USER.settings.donate_button_text" autocomplete="off">
           <template #icon>
             <i class='bx bx-text' ></i>
           </template>
@@ -90,12 +89,12 @@
           @focus="toggleColorPicker('donate_button_text_color', true)"
           @focusout="toggleColorPicker('donate_button_text_color', false)"
           tabindex="0"
-          :style="{'background-color': AUTH_USER.settings.donate_button_text_color}"
+          :style="{'background-color': USER.settings.donate_button_text_color}"
         >
           <Chrome
-            v-model="AUTH_USER.settings.donate_button_text_color"
+            v-model="USER.settings.donate_button_text_color"
             v-if="colorPickers.donate_button_text_color"
-            @input="AUTH_USER.settings.donate_button_text_color = $event.hex8"
+            @input="USER.settings.donate_button_text_color = $event.hex8"
           />
         </div>
       </InputField>
@@ -103,14 +102,14 @@
 
     <InputSection title="Настройки доната">
       <InputField title="Минимальная сумма доната">
-        <vs-input v-model="AUTH_USER.settings.donation_min_sum" autocomplete="off">
+        <vs-input v-model="USER.settings.donation_min_sum" autocomplete="off">
           <template #icon>
             <i class='bx bx-money' ></i>
           </template>
         </vs-input>
       </InputField>
       <InputField title="Минимальная сумма доната для медиа">
-        <vs-input v-model="AUTH_USER.settings.donation_media_min_sum" autocomplete="off">
+        <vs-input v-model="USER.settings.donation_media_min_sum" autocomplete="off">
           <template #icon>
             <i class='bx bx-money' ></i>
           </template>
@@ -122,7 +121,7 @@
       <InputField
         title="Включить цели"
         help-text="Пользователь сможет выбрать сбор, в который пойдет донат">
-        <vs-switch v-model="AUTH_USER.settings.enabled_donation_goals">
+        <vs-switch v-model="USER.settings.enabled_donation_goals">
           <template #off>
             <i class='bx bx-x' ></i>
           </template>
@@ -134,7 +133,7 @@
       <InputField
         title="Включить вариации"
         help-text="Пользователю будут доступны вариации донатов на выбор">
-        <vs-switch v-model="AUTH_USER.settings.enabled_donation_variations">
+        <vs-switch v-model="USER.settings.enabled_donation_variations">
           <template #off>
             <i class='bx bx-x' ></i>
           </template>
@@ -146,7 +145,7 @@
       <InputField
         title="Включить медиа"
         help-text="У пользователя появится возможность включить медиа">
-        <vs-switch v-model="AUTH_USER.settings.enabled_media">
+        <vs-switch v-model="USER.settings.enabled_media">
           <template #off>
             <i class='bx bx-x' ></i>
           </template>
@@ -193,32 +192,38 @@ export default {
         main_color: false,
         donate_button_text_color: false,
       },
-      showPreview: false,
     };
   },
   computed: {
-    ...mapGetters(['AUTH_USER']),
+    ...mapGetters(['USER']),
+  },
+  mounted() {
+    // const loading = this.$vs.loading();
+    // this.$store.dispatch('GET_SETTINGS').finally(() => {
+    //   loading.close();
+    // });
   },
   methods: {
     toggleColorPicker(colorPicker = 'background_color', show = null) {
       this.colorPickers[colorPicker] = (show) || !this.colorPickers[colorPicker];
     },
     donatePagePreview() {
-      localStorage.setItem('donatePagePreview', JSON.stringify(this.AUTH_USER));
+      localStorage.setItem('donatePagePreview', JSON.stringify(this.USER));
       window.open('/preview/donate', 'authWindow', 'width=1200, height=900');
     },
     setPreview() {
-      localStorage.setItem('donatePagePreview', JSON.stringify(this.AUTH_USER));
+      localStorage.setItem('donatePagePreview', JSON.stringify(this.USER));
     },
     sendForm() {
       const loading = this.$vs.loading();
       this.$store.dispatch('SAVE_SETTINGS').finally(() => {
+        this.loaded = true;
         loading.close();
       });
     },
   },
   watch: {
-    AUTH_USER: {
+    USER: {
       handler() {
         this.setPreview();
       },

@@ -3,8 +3,7 @@ import './scss/app.scss';
 import Axios from 'axios';
 import Vuesax from 'vuesax';
 import Vuelidate from 'vuelidate';
-import router from '@/router';
-import store from '@/store';
+import VueYoutube from 'vue-youtube';
 
 // Vuelidate
 Vue.use(Vuelidate);
@@ -12,26 +11,16 @@ Vue.use(Vuelidate);
 // Vuesax
 Vue.use(Vuesax);
 
+// Youtube
+Vue.use(VueYoutube);
+
 // Axios
 Vue.prototype.$http = Axios.create({
   baseURL: '/api/v1/',
   timeout: 10000,
 });
 
-if (localStorage.getItem('_token')) {
-  Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('_token')}`;
-  Vue.prototype.$http.interceptors.response.use((response) => response, (error) => {
-    if (error.response.status === 401) {
-      store.dispatch('LOGOUT').then(() => {
-        if (router.currentRoute.path !== '/') {
-          router.push({ name: 'home' });
-        } else {
-          router.go();
-        }
-      });
-    }
-  });
-}
+Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('_token') || null}`;
 
 // Pusher
 Vue.use(require('vue-pusher'), {

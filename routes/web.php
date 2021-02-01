@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Laravel
+Route::get('/widget/{type?}', [\App\Http\Controllers\WidgetController::class, 'show'])->name('widget')->middleware('signed');
 Route::get('/auth/callback/{type?}', [\App\Http\Controllers\AuthController::class, 'callback'])->name('callback');
 Route::get('/auth/{type?}', [\App\Http\Controllers\AuthController::class, 'index'])->name('login');
 Route::get('/dashboard', [\App\Http\Controllers\PageController::class, 'index'])->name('dashboard');
+
+//Vue
 Route::get('/{any}', [\App\Http\Controllers\PageController::class, 'index'])->where('any', '.*')->name('index');

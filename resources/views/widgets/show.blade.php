@@ -6,9 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script>console.log(2);</script>
 </head>
 <body>
-    <div id="app"></div>
+<iframe src="https://www.youtube.com/embed/fSrRIC44QgQ?autoplay=1" frameborder="0"></iframe>
 </body>
-<script src="{{ mix('js/app.js') }}"></script>
 </html>
