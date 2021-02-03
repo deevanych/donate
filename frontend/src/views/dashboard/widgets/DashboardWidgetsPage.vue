@@ -1,7 +1,10 @@
 <template>
   <div>
+    <VueHeadFul
+      :title="pageTitle"
+    />
     <DashboardPageTitle
-      title="Виджеты"
+      :title="pageTitle"
       description="Виджеты статистики, уведомлений и прочее">
     </DashboardPageTitle>
     <InputSection
@@ -29,16 +32,19 @@ import { mapGetters } from 'vuex';
 import DashboardPageTitle from '@/components/DashboardPageTitle.vue';
 import InputSection from '@/components/InputSection.vue';
 
-let loading = '';
-
 export default {
   name: 'WidgetsPage',
+  data() {
+    return {
+      pageTitle: 'Виджеты',
+    }
+  },
   components: {
     DashboardPageTitle,
     InputSection,
   },
   mounted() {
-    loading = this.$vs.loading();
+    const loading = this.$vs.loading();
     this.$store.dispatch('GET_WIDGET_TYPES').finally(() => {
       loading.close();
     });

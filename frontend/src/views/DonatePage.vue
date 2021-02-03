@@ -1,6 +1,9 @@
 <template>
-  <div v-if="USER_DONATE_PAGE.id !== 0" class="donation__page position-relative position-lg-absolute background-center"
+  <div class="donation__page position-relative position-lg-absolute background-center"
        :style="{backgroundImage: `url(${USER_DONATE_PAGE.settings.background_uri})`}">
+    <VueHeadFul
+      :title="pageTitle"
+    />
     <div class="donation__wrapper position-relative position-lg-absolute" :style="cssVars">
       <div class="container my-5 my-lg-0 m-lg-auto">
         <div class="row mb-5">
@@ -64,6 +67,9 @@
                   <template #icon>
                     <i class='bx bx-comment-detail'></i>
                   </template>
+                  <template v-if="!$v.donation.text.maxLength" #message-warn>
+                    Превышено максимальное количество знаков
+                  </template>
                 </vs-input>
               </InputField>
             </form>
@@ -98,12 +104,12 @@
               >
                 <vs-input v-model="donation.media"
                           placeholder="Ссылка на видео"
-                          :disabled="donation.sum < USER_DONATE_PAGE.settings.donation_media_min_sum"
+                          :disabled="parseInt(donation.sum, 0) < USER_DONATE_PAGE.settings.donation_media_min_sum"
                           autocomplete="off">
                   <template #icon>
                     <i class='bx bxl-youtube'></i>
                   </template>
-                  <template v-if="donation.sum < USER_DONATE_PAGE.settings.donation_media_min_sum"
+                  <template v-if="parseInt(donation.sum, 0) < USER_DONATE_PAGE.settings.donation_media_min_sum"
                             #message-warn>
                     Минимальная сумма для медиа -
                     {{ USER_DONATE_PAGE.settings.donation_media_min_sum }}₽
@@ -132,7 +138,9 @@ import InputField from '@/components/InputField.vue';
 import DonationVariations from '@/components/DonationVariations.vue';
 import InfoDescription from '@/components/InfoDescription.vue';
 import SocialNetworkLink from '@/components/SocialNetworkLink.vue';
-import { required, minValue, numeric } from 'vuelidate/lib/validators';
+import {
+  required, minValue, maxLength, numeric,
+} from 'vuelidate/lib/validators';
 import { mapGetters } from 'vuex';
 import { HEXtoRGB } from '@/helpers/color';
 
@@ -165,6 +173,9 @@ export default {
           minValue: minValue(this.USER_DONATE_PAGE.settings.donation_min_sum),
           numeric,
         },
+        text: {
+          maxLength: maxLength(100),
+        },
       },
     };
   },
@@ -184,8 +195,10 @@ export default {
         'backdrop-filter': `blur(${this.USER_DONATE_PAGE.settings.background_blur}px)`,
         background: this.USER_DONATE_PAGE.settings.background_color,
       };
+    },
+    pageTitle() {
+      return `${this.USER_DONATE_PAGE.name} - ezdonate.ru`;
     }
-    ,
   },
   methods: {
     sendForm() {
@@ -210,7 +223,6 @@ export default {
       height: 2.5rem;
     }
 
-    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
   }
 

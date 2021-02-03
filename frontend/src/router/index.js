@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import store from '../store/index';
 
 Vue.use(VueRouter);
 
@@ -8,27 +7,6 @@ const routes = [
   {
     path: '/',
     component: () => import('../views/layouts/MainLayout'),
-    beforeEnter: (to, from, next) => {
-      if (store.getters.IS_AUTH) {
-        const loading = Vue.prototype.$vs.loading();
-        store.dispatch('GET_USER').then(() => {
-          next();
-        }).catch((error) => {
-          Vue.prototype.$vs.notification({
-            position: 'top-right',
-            border: 'danger',
-            title: 'Произошла ошибка',
-            text: error,
-          });
-        }).finally(() => {
-          loading.close();
-        });
-      } else if (to.name === 'home') {
-        next();
-      } else {
-        next('/');
-      }
-    },
     children: [
       {
         path: '',
@@ -80,7 +58,7 @@ const routes = [
     ],
   },
   {
-    path: '/auth/twitch',
+    path: '/login',
     name: 'login',
     component: () => import('../views/LoginWindow'),
   },

@@ -36,6 +36,16 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $with = [
+        'donationVariations',
+        'donationGoals',
+        'socialNetworks',
+    ];
+
+    protected $appends = [
+        'settings',
+    ];
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -116,7 +126,7 @@ class User extends Authenticatable
 
     public static function socialLogin($user, $type = 'twitch'): User
     {
-        return User::firstOrCreate(
+        $user = User::firstOrCreate(
             [
                 'email' => $user->email
             ],
@@ -125,5 +135,13 @@ class User extends Authenticatable
                 'name' => $user->nickname,
             ]
         );
+
+        $socialNetwork = SocialNetwork::whereTitle($type)->first();
+        $user->socialNetworks()->syncWithoutDetaching($socialNetwork->id);
+        $user->socialNetworks()->updateExistingPivot($socialNetwork->id, [
+            'link' => $socialNetwork->url.$user->name,
+        ]);
+
+        return $user;
     }
 }

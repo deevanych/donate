@@ -1,10 +1,10 @@
 import Vue from 'vue';
 
 export default {
-  async getProfile(userName = '') {
+  async getBalance() {
     return Vue.prototype.$http({
       method: 'GET',
-      url: (userName) ? `/users/${userName}` : '/users',
+      url: '/balance',
     });
   },
 };

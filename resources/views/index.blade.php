@@ -1,1 +1,17 @@
-<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>donations</title><link href="/css/chunk-32dd65d2.6fb1cdc0.css" rel="prefetch"><link href="/css/chunk-3e49b834.0e433876.css" rel="prefetch"><link href="/css/chunk-47f0fb5c.16e05f8b.css" rel="prefetch"><link href="/css/chunk-4999f7c1.b8a5da32.css" rel="prefetch"><link href="/css/chunk-5826a757.0e433876.css" rel="prefetch"><link href="/css/chunk-5e7c66e9.1d9def3c.css" rel="prefetch"><link href="/css/chunk-63bddd4e.99c7983a.css" rel="prefetch"><link href="/css/chunk-74e06ce4.1e9d4ae9.css" rel="prefetch"><link href="/css/chunk-a78bed16.0e433876.css" rel="prefetch"><link href="/js/chunk-2d0a4f40.277a8b9f.js" rel="prefetch"><link href="/js/chunk-2d0aa5b9.9bbb91d9.js" rel="prefetch"><link href="/js/chunk-2d0d723a.473a72f4.js" rel="prefetch"><link href="/js/chunk-2d0e9377.2fcc91a7.js" rel="prefetch"><link href="/js/chunk-32dd65d2.3c822552.js" rel="prefetch"><link href="/js/chunk-3e49b834.27387af6.js" rel="prefetch"><link href="/js/chunk-47f0fb5c.8878d1c3.js" rel="prefetch"><link href="/js/chunk-4999f7c1.4517f663.js" rel="prefetch"><link href="/js/chunk-4dc771f8.fa315d57.js" rel="prefetch"><link href="/js/chunk-5826a757.1d19af6e.js" rel="prefetch"><link href="/js/chunk-5e7c66e9.d6235c17.js" rel="prefetch"><link href="/js/chunk-63bddd4e.7d816871.js" rel="prefetch"><link href="/js/chunk-74e06ce4.750ef9a7.js" rel="prefetch"><link href="/js/chunk-a78bed16.3742fbbc.js" rel="prefetch"><link href="/css/app.566325de.css" rel="preload" as="style"><link href="/css/chunk-vendors.5ff2df4f.css" rel="preload" as="style"><link href="/js/app.f30b466e.js" rel="preload" as="script"><link href="/js/chunk-vendors.bcb85c98.js" rel="preload" as="script"><link href="/css/chunk-vendors.5ff2df4f.css" rel="stylesheet"><link href="/css/app.566325de.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but donations doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script src="/js/chunk-vendors.bcb85c98.js"></script><script src="/js/app.f30b466e.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>donations</title>
+  <link href="/js/0.js" rel="prefetch"><link href="/js/1.js" rel="prefetch"><link href="/js/10.js" rel="prefetch"><link href="/js/11.js" rel="prefetch"><link href="/js/12.js" rel="prefetch"><link href="/js/13.js" rel="prefetch"><link href="/js/14.js" rel="prefetch"><link href="/js/16.js" rel="prefetch"><link href="/js/2.js" rel="prefetch"><link href="/js/3.js" rel="prefetch"><link href="/js/4.js" rel="prefetch"><link href="/js/5.js" rel="prefetch"><link href="/js/6.js" rel="prefetch"><link href="/js/7.js" rel="prefetch"><link href="/js/8.js" rel="prefetch"><link href="/js/9.js" rel="prefetch"><link href="/js/app.js" rel="preload" as="script"><link href="/js/chunk-vendors.js" rel="preload" as="script"></head>
+  <body>
+    <noscript>
+      <strong>We're sorry but donations doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  <script type="text/javascript" src="/js/chunk-vendors.js"></script><script type="text/javascript" src="/js/app.js"></script></body>
+</html>

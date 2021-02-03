@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\v1\BalanceController;
 use App\Http\Controllers\Api\v1\DonationController;
 use App\Http\Controllers\Api\v1\UserController;
 use App\Http\Controllers\Api\v1\UserSettingsController;
@@ -27,6 +28,7 @@ Route::group(['prefix' => '/v1', 'as' => 'api.'], function () {
 
 Route::group(['prefix' => '/v1', 'as' => 'api.', 'middleware' => 'auth:api'], function () {
     Route::resource('users', UserController::class)->except('show');
+    Route::resource('balance', BalanceController::class);
     Route::resource('settings', UserSettingsController::class);
     Route::resource('widgets', WidgetController::class);
 });

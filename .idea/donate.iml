@@ -136,6 +136,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zachleigh/laravel-property-bag" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/illuminatech/balance" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/illuminatech/array-factory" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

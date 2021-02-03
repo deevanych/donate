@@ -1,184 +1,97 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import usersApi from '@/api/users';
-import donationsApi from '@/api/donations';
-import settingsApi from '@/api/settings';
-import widgetsApi from '@/api/widgets';
-import widgetsTypesApi from '@/api/widgetsTypes';
+import users from '@/api/users';
+import balance from '@/api/balance';
+import widgets from '@/api/widgets';
+import widgetsTypes from '@/api/widgetsTypes';
+import settings from '@/api/settings';
+import donations from '@/api/donations';
+
+const userObject = {
+  profile: {
+    name: '',
+    avatar_url: '',
+    email: '',
+  },
+  balance: 0,
+  settings: {
+    background_uri: '',
+    donate_button_text: 'Отправить',
+    donation_media_min_sum: 150,
+    donation_min_sum: 100,
+    enabled_donation_goals: false,
+    enabled_donation_variations: false,
+    enabled_media: false,
+    main_color: '#007bff',
+    description: '',
+    donate_button_text_color: '#FFFFFF',
+    background_color: 'rgba(255, 255, 255, .8)',
+    background_blur: 2,
+  },
+  social_networks: [
+    {
+      title: '',
+      pivot: {
+        link: '',
+      },
+    },
+  ],
+  updated_at: '',
+};
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     token: localStorage.getItem('_token') || '',
-    user: {
-      name: '',
-      avatar_url: '',
-      email: '',
-      settings: {
-        background_uri: '',
-        donate_button_text: 'Отправить',
-        donation_media_min_sum: 150,
-        donation_min_sum: 100,
-        enabled_donation_goals: false,
-        enabled_donation_variations: false,
-        enabled_media: false,
-        main_color: '#007bff',
-        description: '',
-        donate_button_text_color: '#FFFFFF',
-        background_color: 'rgba(255, 255, 255, .8)',
-        background_blur: 2,
-      },
-    },
-    userDonatePage: {
-      avatar_url: '',
-      created_at: '',
-      donation_goals: [],
-      donation_variations: [],
-      email: '',
-      id: 0,
-      name: '',
-      settings: {
-        background_uri: '',
-        donate_button_text: 'Отправить',
-        donation_media_min_sum: 150,
-        donation_min_sum: 100,
-        enabled_donation_goals: false,
-        enabled_donation_variations: false,
-        enabled_media: false,
-        main_color: '#007bff',
-        description: '',
-        donate_button_text_color: '#FFFFFF',
-        background_color: 'rgba(255, 255, 255, .8)',
-        background_blur: 2,
-      },
-      social_networks: [
-        {
-          title: '',
-          pivot: {
-            link: '',
-          },
-        },
-      ],
-      updated_at: '',
-    },
+    user: userObject,
+    userDonatePage: userObject,
     widgets: [],
     widgetsTypes: [],
   },
   getters: {
+    TOKEN: (state) => state.token,
     IS_AUTH: (state) => !!state.token,
     USER_DONATE_PAGE: (state) => state.userDonatePage,
-    USER: (state) => state.user,
+    USER: (state) => state.user.profile,
+    BALANCE: (state) => state.user.balance,
+    SETTINGS: (state) => state.user.settings,
     USER_WIDGETS: (state) => state.widgets,
     WIDGETS_TYPES: (state) => state.widgetsTypes,
   },
   mutations: {
-    setUser(state, user) {
-      state.user = user;
+    setUserProfile(state, payload) {
+      state.user.profile = payload;
     },
-    setSettings(state, settings) {
-      state.user.settings = settings;
+    setToken(state, token) {
+      state.token = token;
     },
-    setUserDonatePage(state, user) {
-      state.userDonatePage = user;
+    setSettings(state, payload) {
+      state.user.settings = payload;
     },
-    setWidgets(state, widgets) {
-      state.widgets = widgets;
+    setBalance(state, payload) {
+      state.user.balance = payload;
     },
-    setWidgetsTypes(state, widgetsTypes) {
-      state.widgetsTypes = widgetsTypes;
+    setUserDonatePage(state, payload) {
+      state.userDonatePage = payload;
+    },
+    setWidgets(state, payload) {
+      state.widgets = payload;
+    },
+    setWidgetsTypes(state, payload) {
+      state.widgetsTypes = payload;
     },
   },
   actions: {
+    async SET_TOKEN(state, token = null) {
+      state.commit('setToken', token);
+      Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ${token}`;
+    },
+
     async SET_USER_DONATE_PAGE(state, user) {
-      const e = usersApi.getInfo(user);
+      const e = users.getProfile(user);
       e.then((data) => {
         state.commit('setUserDonatePage', data.data);
-      }).catch((error) => {
-        Vue.prototype.$vs.notification({
-          position: 'top-right',
-          border: 'danger',
-          title: 'Произошла ошибка',
-          text: error,
-        });
-      });
-
-      return e;
-    },
-
-    async GET_WIDGETS(state) {
-      const e = widgetsApi.getList();
-      e.then((data) => {
-        state.commit('setWidgets', data.data);
-      }).catch((error) => {
-        Vue.prototype.$vs.notification({
-          position: 'top-right',
-          border: 'danger',
-          title: 'Произошла ошибка',
-          text: error,
-        });
-      });
-
-      return e;
-    },
-
-    async GET_WIDGET_TYPES(state) {
-      const e = widgetsTypesApi.getList();
-      e.then((data) => {
-        state.commit('setWidgetsTypes', data.data);
-      }).catch((error) => {
-        Vue.prototype.$vs.notification({
-          position: 'top-right',
-          border: 'danger',
-          title: 'Произошла ошибка',
-          text: error,
-        });
-      });
-
-      return e;
-    },
-
-    async SAVE_SETTINGS(state) {
-      const e = settingsApi.saveSettings(state.user.settings);
-      e.then((response) => {
-        Vue.prototype.$vs.notification({
-          position: 'top-right',
-          border: 'success',
-          title: 'Настройки сохранены',
-          text: response.data.message,
-        });
-      }).catch((error) => {
-        Vue.prototype.$vs.notification({
-          position: 'top-right',
-          border: 'danger',
-          title: 'Произошла ошибка',
-          text: error,
-        });
-      });
-
-      return e;
-    },
-
-    async GET_SETTINGS(state) {
-      const e = settingsApi.getSettings();
-      e.then((response) => {
-        state.commit('setSettings', response.data);
-      }).catch((error) => {
-        Vue.prototype.$vs.notification({
-          position: 'top-right',
-          border: 'danger',
-          title: 'Произошла ошибка',
-          text: error,
-        });
-      });
-
-      return e;
-    },
-
-    async GET_USER(state) {
-      const e = usersApi.getInfo();
-      e.then((data) => {
-        state.commit('setUser', data.data);
       }).catch(() => {
 
       });
@@ -186,29 +99,97 @@ export default new Vuex.Store({
       return e;
     },
 
-    async LOGOUT() {
+    async GET_WIDGETS(state) {
+      const e = widgets.getList();
+      e.then((data) => {
+        state.commit('setWidgets', data.data);
+      }).catch(() => {
+
+      });
+
+      return e;
+    },
+
+    async GET_WIDGET_TYPES(state) {
+      const e = widgetsTypes.getList();
+      e.then((data) => {
+        state.commit('setWidgetsTypes', data.data);
+      }).catch(() => {
+
+      });
+
+      return e;
+    },
+
+    async SAVE_SETTINGS(state) {
+      const e = settings.saveSettings(state.getters.SETTINGS);
+      e.then((data) => {
+        state.commit('setSettings', data.data.settings);
+        Vue.prototype.$vs.notification({
+          position: 'top-right',
+          border: data.data.status,
+          title: 'Настройки сохранены',
+          text: data.data.message,
+        });
+      }).catch(() => {
+
+      });
+
+      return e;
+    },
+
+    async GET_SETTINGS(state) {
+      const e = settings.getSettings();
+      e.then((response) => {
+        state.commit('setSettings', response.data);
+      }).catch(() => {
+
+      });
+
+      return e;
+    },
+
+    async GET_BALANCE(state) {
+      const e = balance.getBalance();
+      e.then((response) => {
+        state.commit('setBalance', response.data);
+      }).catch(() => {
+
+      });
+
+      return e;
+    },
+
+    async GET_USER_PROFILE(state) {
+      const e = users.getProfile();
+      e.then((data) => {
+        state.commit('setUserProfile', data.data);
+      }).catch(() => {
+
+      });
+
+      return e;
+    },
+
+    async LOGOUT(state) {
       localStorage.removeItem('_token');
+      state.dispatch('SET_TOKEN');
     },
 
     async SEND_DONATION(state, data) {
-      const e = donationsApi.sendDonation(
+      const e = donations.sendDonation(
         data.user,
         data.donation,
       );
       e.then((response) => {
         Vue.prototype.$vs.notification({
           position: 'top-right',
-          border: 'success',
+          border: response.data.status,
           title: 'Донат отправлен',
           text: response.data.message,
         });
-      }).catch((error) => {
-        Vue.prototype.$vs.notification({
-          position: 'top-right',
-          border: 'danger',
-          title: 'Произошла ошибка',
-          text: error,
-        });
+      }).catch(() => {
+
       });
 
       return e;

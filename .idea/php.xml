@@ -129,6 +129,8 @@
       <path value="$PROJECT_DIR$/vendor/socialiteproviders/twitch" />
       <path value="$PROJECT_DIR$/vendor/socialiteproviders/manager" />
       <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/illuminatech/balance" />
+      <path value="$PROJECT_DIR$/vendor/illuminatech/array-factory" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />

@@ -17,15 +17,19 @@ class WidgetTypeSeeder extends Seeder
     {
         //
         DB::table('widget_types')->insert([
+            'title' => 'Уведомления',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+        DB::table('widget_types')->insert([
+            'title' => 'Сборы',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+        DB::table('widget_types')->insert([
             'title' => 'Медиа',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         DB::table('widget_types')->insert([
             'title' => 'Статистика',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);
-        DB::table('widget_types')->insert([
-            'title' => 'Уведомления',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }

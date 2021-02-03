@@ -4,12 +4,13 @@
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
-        "buildProd": "rm -rf ../public/{js,css,img} && vue-cli-service build --no-clean",
-        "buildTest": "vue-cli-service build --no-clean",
+        "build": "rm -rf ../public/{js,css,img} && vue-cli-service build --no-clean",
+        "watch": "vue-cli-service build --watch --no-clean",
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
         "animate.css": "^4.1.1",
+        "animated-number-vue": "^1.0.0",
         "axios": "^0.21.1",
         "bootstrap": "^4.5.3",
         "boxicons": "^2.0.7",
@@ -19,7 +20,9 @@
         "pusher": "^4.0.2",
         "vue": "^2.6.11",
         "vue-color": "^2.8.1",
+        "vue-headful": "^2.1.0",
         "vue-loading-skeleton": "^1.1.9",
+        "vue-lottie": "^0.2.1",
         "vue-pusher": "^1.1.0",
         "vue-router": "^3.2.0",
         "vue-slick-carousel": "^1.0.6",

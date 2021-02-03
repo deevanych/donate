@@ -17,6 +17,7 @@ class SocialNetworkSeeder extends Seeder
         //
         DB::table('social_networks')->insert([
             'title' => 'twitch',
+            'url' => 'https://twitch.tv/',
         ]);
     }
 }

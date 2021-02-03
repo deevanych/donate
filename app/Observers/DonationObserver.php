@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Events\DonationCreated;
 use App\Events\MediaReceived;
 use App\Models\Donation;
+use Illuminatech\Balance\Facades\Balance;
 
 class DonationObserver
 {
@@ -21,6 +22,7 @@ class DonationObserver
             MediaReceived::dispatch('f0c71c5bb19f6d7f0a98022ff2e1a59ea768008914de469d6dda3adc9bfccc88', $donation->media);
         }
         DonationCreated::dispatch($donation);
+        Balance::increase($donation->user_to, $donation->sum);
     }
 
     /**

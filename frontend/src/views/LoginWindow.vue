@@ -8,8 +8,9 @@ export default {
   created() {
     if (this.$route.query.token) {
       localStorage.setItem('_token', this.$route.query.token || null);
+      this.$store.dispatch('SET_TOKEN', this.$route.query.token);
     }
-    window.close();
+    this.$router.push('/');
   },
 };
 </script>
