@@ -48,7 +48,7 @@ export default {
   data() {
     return {
       pageTitle: 'ezdonate - система для приема донатов',
-    }
+    };
   },
   mounted() {
     return !store.getters.IS_AUTH || store.dispatch('GET_USER_PROFILE');

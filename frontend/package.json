@@ -23,6 +23,7 @@
         "vue-headful": "^2.1.0",
         "vue-loading-skeleton": "^1.1.9",
         "vue-lottie": "^0.2.1",
+        "vue-marquee-text-component": "^1.2.0",
         "vue-pusher": "^1.1.0",
         "vue-router": "^3.2.0",
         "vue-slick-carousel": "^1.0.6",

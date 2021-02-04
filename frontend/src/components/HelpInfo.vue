@@ -2,7 +2,9 @@
   <vs-tooltip class="d-flex">
     <i class='bx bx-help-circle'></i>
     <template #tooltip>
-      {{ text }}
+      <div class="content-tooltip" v-html="text">
+
+      </div>
     </template>
   </vs-tooltip>
 </template>

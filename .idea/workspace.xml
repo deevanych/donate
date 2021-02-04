@@ -22,115 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Колорпикеры и ренж">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/BalanceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BalanceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_03_002505_create_balance_accounts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_03_002704_create_balance_transactions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/balance.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/lottie/money.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/donate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/donate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Да">
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/widgets/stats/StatsWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/DonationObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/DonationObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_25_135307_create_social_networks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_25_135307_create_social_networks_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/SocialNetworkSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SocialNetworkSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/WidgetTypeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/WidgetTypeSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/babel.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/donations.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/donations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/widgets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/widgets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/widgetsTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/widgetsTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/@ui/RangeSlider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/@ui/RangeSlider.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/DashboardPageTitle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DashboardPageTitle.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/DonationVariation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DonationVariation.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/DonationVariations.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DonationVariations.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/HelpInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HelpInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InfoDescription.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InfoDescription.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InputField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InputField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InputSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InputSection.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/SocialNetworkLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SocialNetworkLink.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/helpers/color.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/helpers/color.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/DonatePageTest.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePageTest.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/LoginWindow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/LoginWindow.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardDonationPageSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardDonationPageSettings.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardIndexPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardIndexPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardSidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsEditPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsEditPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/layouts/DashboardLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/layouts/DashboardLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/layouts/MainLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/MediaWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/MediaWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vue.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.5baa279a.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.7d84cf68.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/chunk-15bb6090.90df939f.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/chunk-225dc025.0e433876.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/chunk-30a24df9.816b7a48.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/chunk-6826d949.0e433876.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/chunk-7a407666.90df939f.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/chunk-vendors.5ff2df4f.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Black.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Black.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Black.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-BlackItalic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-BlackItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-BlackItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Bold.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-BoldItalic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-BoldItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Light.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Light.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-LightItalic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-LightItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-LightItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Medium.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Medium.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-MediumItalic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-MediumItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-MediumItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Thin.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-Thin.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-ThinItalic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-ThinItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/CeraPro/CeraPro-ThinItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/boxicons.dad92ba1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/boxicons.dad92ba1.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <list id="4fe381a6-224e-4003-a09d-8e61aea58b25" name="Композер" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -345,16 +248,6 @@
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-    <configuration name="buildTest" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/frontend/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="buildTest" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/frontend/package.json" />
       <command value="run" />
@@ -389,16 +282,14 @@
       <item itemvalue="Composer Script.serve" />
       <item itemvalue="npm.lint" />
       <item itemvalue="npm.serve" />
-      <item itemvalue="npm.buildTest" />
-      <item itemvalue="PHPUnit.phpunit.xml" />
       <item itemvalue="npm.watch" />
+      <item itemvalue="PHPUnit.phpunit.xml" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.lint" />
         <item itemvalue="npm.watch" />
         <item itemvalue="npm.serve" />
-        <item itemvalue="npm.buildTest" />
         <item itemvalue="Composer Script.serve" />
       </list>
     </recent_temporary>
@@ -431,7 +322,9 @@
       <workItem from="1611863739300" duration="100000" />
       <workItem from="1611910992793" duration="13407000" />
       <workItem from="1612101792728" duration="37433000" />
-      <workItem from="1612230015696" duration="42456000" />
+      <workItem from="1612230015696" duration="42501000" />
+      <workItem from="1612343553599" duration="27560000" />
+      <workItem from="1612400417644" duration="1820000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -566,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611939463563</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Да">
+      <created>1612333791643</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1612333791643</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,6 +498,7 @@
     <MESSAGE value="Кастомизация страницы донатов" />
     <MESSAGE value="Фикс" />
     <MESSAGE value="Колорпикеры и ренж" />
-    <option name="LAST_COMMIT_MESSAGE" value="Колорпикеры и ренж" />
+    <MESSAGE value="Да" />
+    <option name="LAST_COMMIT_MESSAGE" value="Да" />
   </component>
 </project>

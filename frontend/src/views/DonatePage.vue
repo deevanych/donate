@@ -132,8 +132,6 @@
 </template>
 
 <script>
-import 'vue-slick-carousel/dist/vue-slick-carousel.css';
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import InputField from '@/components/InputField.vue';
 import DonationVariations from '@/components/DonationVariations.vue';
 import InfoDescription from '@/components/InfoDescription.vue';
@@ -198,7 +196,7 @@ export default {
     },
     pageTitle() {
       return `${this.USER_DONATE_PAGE.name} - ezdonate.ru`;
-    }
+    },
   },
   methods: {
     sendForm() {

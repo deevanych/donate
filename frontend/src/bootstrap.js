@@ -5,8 +5,8 @@ import Vuesax from 'vuesax';
 import Vuelidate from 'vuelidate';
 import VueYoutube from 'vue-youtube';
 import router from '@/router';
-import store from './store';
 import VueHeadFul from 'vue-headful';
+import store from './store';
 
 // VueHeadFul
 Vue.component('VueHeadFul', VueHeadFul);
