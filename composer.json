@@ -70,7 +70,7 @@
             "@php artisan key:generate --ansi"
         ],
         "serve": [
-            "@php artisan serve"
+            "@php artisan serve --host=http://ezdonate.ru --port=8080"
         ]
     }
 }
