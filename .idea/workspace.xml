@@ -22,17 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Да">
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/widgets/stats/StatsWidget.vue" afterDir="false" />
+    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Поддержка виджетов">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/@ui/ColorPicker.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/DonationVariations.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DonationVariations.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/HelpInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HelpInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/@ui/RangeSlider.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/scss/vendors/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/vendors/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardDonationPageSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardDonationPageSettings.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/stats/StatsWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/stats/StatsWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
     </list>
     <list id="4fe381a6-224e-4003-a09d-8e61aea58b25" name="Композер" comment="" />
@@ -324,7 +324,8 @@
       <workItem from="1612101792728" duration="37433000" />
       <workItem from="1612230015696" duration="42501000" />
       <workItem from="1612343553599" duration="27560000" />
-      <workItem from="1612400417644" duration="1820000" />
+      <workItem from="1612400417644" duration="2002000" />
+      <workItem from="1612447234759" duration="27312000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -466,7 +467,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612333791643</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Поддержка виджетов">
+      <created>1612402720877</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1612402720877</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,6 +507,7 @@
     <MESSAGE value="Фикс" />
     <MESSAGE value="Колорпикеры и ренж" />
     <MESSAGE value="Да" />
-    <option name="LAST_COMMIT_MESSAGE" value="Да" />
+    <MESSAGE value="Поддержка виджетов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Поддержка виджетов" />
   </component>
 </project>

@@ -25,32 +25,16 @@
         </vs-input>
       </InputField>
       <InputField title="Фоновый цвет">
-        <div
-          class="color__preview rounded shadow"
-          @focus="toggleColorPicker('background_color', true)"
-          @focusout="toggleColorPicker('background_color', false)"
-          tabindex="0"
-          :style="{'background-color': SETTINGS.background_color}"
-        >
-          <Chrome
-            v-model="SETTINGS.background_color"
-            v-if="colorPickers.background_color"
-            @input="SETTINGS.background_color = $event.hex8"
-          />
-        </div>
+        <ColorPicker v-model="SETTINGS.background_color"/>
       </InputField>
       <InputField title="Размытие изображения">
         <div class="d-flex align-items-center">
-          <vs-input v-model="SETTINGS.background_blur" autocomplete="off" class="settings__background-blur">
-            <template #icon>
-              <i class='bx bx-brush' ></i>
-            </template>
-          </vs-input>
-          <span class="mr-4 ml-1">px</span>
           <RangeSlider
             v-model="SETTINGS.background_blur"
-            width="100px"
             :min="0"
+            :max="100"
+            :width="200"
+            tooltip="hover"
           />
         </div>
       </InputField>
@@ -65,20 +49,11 @@
         </vs-input>
       </InputField>
       <InputField title="Основной цвет">
-        <div
-          class="color__preview rounded shadow"
-          @focus="toggleColorPicker('main_color', true)"
-          @focusout="toggleColorPicker('main_color', false)"
-          tabindex="0"
-          :style="{'background-color': SETTINGS.main_color}">
-          <Chrome :value="SETTINGS.main_color"
-                  v-if="colorPickers.main_color"
-                  @input="SETTINGS.main_color = $event.hex8"/>
-        </div>
+        <ColorPicker v-model="SETTINGS.main_color"/>
       </InputField>
     </InputSection>
 
-    <InputSection title="Настройки Кнопки">
+    <InputSection title="Настройки кнопки">
       <InputField title="Текст кнопки">
         <vs-input v-model="SETTINGS.donate_button_text" autocomplete="off">
           <template #icon>
@@ -87,19 +62,7 @@
         </vs-input>
       </InputField>
       <InputField title="Цвет текста">
-        <div
-          class="color__preview rounded shadow"
-          @focus="toggleColorPicker('donate_button_text_color', true)"
-          @focusout="toggleColorPicker('donate_button_text_color', false)"
-          tabindex="0"
-          :style="{'background-color': SETTINGS.donate_button_text_color}"
-        >
-          <Chrome
-            v-model="SETTINGS.donate_button_text_color"
-            v-if="colorPickers.donate_button_text_color"
-            @input="SETTINGS.donate_button_text_color = $event.hex8"
-          />
-        </div>
+        <ColorPicker v-model="SETTINGS.donate_button_text_color"/>
       </InputField>
     </InputSection>
 
@@ -174,9 +137,9 @@ import InputField from '@/components/InputField.vue';
 import InputSection from '@/components/InputSection.vue';
 import HelpInfo from '@/components/HelpInfo.vue';
 import DashboardPageTitle from '@/components/DashboardPageTitle.vue';
-import RangeSlider from '@/components/@ui/RangeSlider.vue';
+import RangeSlider from 'vue-range-component-fixed';
+import ColorPicker from '@/components/@ui/ColorPicker.vue';
 import { mapGetters } from 'vuex';
-import { Chrome } from 'vue-color';
 
 let loading;
 
@@ -187,17 +150,12 @@ export default {
     DashboardPageTitle,
     InputSection,
     HelpInfo,
-    Chrome,
+    ColorPicker,
     RangeSlider,
   },
   data() {
     return {
       pageTitle: 'Страница доната',
-      colorPickers: {
-        background_color: false,
-        main_color: false,
-        donate_button_text_color: false,
-      },
     };
   },
   computed: {
@@ -210,9 +168,6 @@ export default {
     });
   },
   methods: {
-    toggleColorPicker(colorPicker = 'background_color', show = null) {
-      this.colorPickers[colorPicker] = (show) || !this.colorPickers[colorPicker];
-    },
     donatePagePreview() {
       localStorage.setItem('donatePagePreview', JSON.stringify(this.USER));
       window.open('/preview/donate', 'authWindow', 'width=1200, height=900');
@@ -241,28 +196,5 @@ export default {
 <style scoped lang="scss">
 .settings__background-blur {
   width: 90px;
-}
-
-.color__preview {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  position: relative;
-
-  .vc-chrome::v-deep {
-    top: 3rem;
-    position: absolute;
-    z-index: 1;
-    border-radius: 10px;
-    overflow: hidden;
-
-    .vc-chrome-saturation-wrap {
-      padding-bottom: 100%;
-    }
-
-    .vc-chrome-fields-wrap {
-      display: none;
-    }
-  }
 }
 </style>

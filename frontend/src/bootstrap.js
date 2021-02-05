@@ -6,7 +6,11 @@ import Vuelidate from 'vuelidate';
 import VueYoutube from 'vue-youtube';
 import router from '@/router';
 import VueHeadFul from 'vue-headful';
+import PerfectScrollbar from 'vue2-perfect-scrollbar';
 import store from './store';
+
+// ScrollBar
+Vue.use(PerfectScrollbar);
 
 // VueHeadFul
 Vue.component('VueHeadFul', VueHeadFul);

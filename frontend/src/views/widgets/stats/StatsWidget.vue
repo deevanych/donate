@@ -1,27 +1,24 @@
 <template>
   <div class="stats__widget p-5" :style="(test ? {background: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaGXoxFEhk28gsLbxBnAv6IHV3EzUHS8kETA&usqp=CAU)'} : '')">
-    <div class="stats__widget-wrapper">
-      <div v-if="type === 'list'" :class="`text-${align}`">
-        <h4>{{ title }}</h4>
+    <div class="stats__widget-wrapper" :class="`text-${align}`">
+      <h4 :style="titleStyle" class="widget__title">{{ title.text }}</h4>
+      <div v-if="type === 'list'">
         <li v-for="donation in donations"
             :key="donation.id"
             v-html="template(donation)"
         />
       </div>
-      <template v-else-if="type === 'marquee'">
-        <h4>{{ title }}</h4>
-      <marquee-text :repeat="10" :duration="marqueeSpeed">
+      <marquee-text v-else-if="type === 'marquee'" :repeat="10" :duration="marqueeSpeed">
         <span v-for="donation in donations"
             :key="donation.id"
               class="mr-4 d-inline-block"
               v-html="template(donation)"
         />
       </marquee-text>
-      </template>
-      <div v-else-if="type === 'slider'" :class="`text-${align}`">
-        <h4>{{ title }}</h4>
+      <div v-else-if="type === 'slider'">
         <VueSlickCarousel class="proposed-options"
                           :arrows="false"
+                          :autoplaySpeed="sliderSpeed"
                           :fade="true"
                           :autoplay="true">
           <span v-for="donation in donations"
@@ -60,8 +57,42 @@ export default {
       type: Array,
     },
     title: {
-      required: false,
-      type: String,
+      text: {
+        type: String,
+        required: false,
+      },
+      color: {
+        type: String,
+        default: '#000000',
+      },
+      'font-family': {
+        type: String,
+        default: 'initial',
+      },
+      'border-radius': {
+        type: Number,
+        default: 0,
+      },
+      '-webkit-text-stroke-width': {
+        type: Number,
+        default: 0,
+      },
+      'font-size': {
+        type: Number,
+        default: 0,
+      },
+      '-webkit-text-stroke-color': {
+        type: String,
+        default: 'transparent',
+      },
+      background: {
+        type: String,
+        default: 'transparent',
+      },
+      padding: {
+        type: Number,
+        default: 0,
+      },
     },
     marqueeDuration: {
       type: Number,
@@ -74,6 +105,10 @@ export default {
     align: {
       type: String,
       default: 'center',
+    },
+    sliderSpeed: {
+      type: Number,
+      default: 2000,
     },
   },
   methods: {
@@ -95,6 +130,24 @@ export default {
     marqueeSpeed() {
       return 100 / this.marqueeDuration;
     },
+    titleStyle: {
+      get() {
+        const style = { ...this.title };
+        style.padding = `${style.padding}px`;
+        style['border-radius'] = `${style['border-radius']}px`;
+        style['-webkit-text-stroke-width'] = `${style['-webkit-text-stroke-width']}px`;
+        style['font-size'] = `${style['font-size']}px`;
+        return style;
+      },
+    },
+  },
+  watch: {
+    title: {
+      handler() {
+        return this.titleStyle.get;
+      },
+      deep: true,
+    },
   },
 };
 </script>
@@ -112,6 +165,10 @@ export default {
   .stats__widget-wrapper {
     margin: auto 0;
     width: 100%;
+
+    .widget__title {
+      display: inline-block;
+    }
   }
 }
 </style>
