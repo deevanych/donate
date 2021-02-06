@@ -93,6 +93,16 @@ export default {
         type: Number,
         default: 0,
       },
+      translate: {
+        x: {
+          type: Number,
+          default: 0,
+        },
+        y: {
+          type: Number,
+          default: 0,
+        },
+      },
     },
     marqueeDuration: {
       type: Number,
@@ -137,6 +147,7 @@ export default {
         style['border-radius'] = `${style['border-radius']}px`;
         style['-webkit-text-stroke-width'] = `${style['-webkit-text-stroke-width']}px`;
         style['font-size'] = `${style['font-size']}px`;
+        style.transform = `translate(${style.translate.x}px, ${style.translate.y}px)`;
         return style;
       },
     },

@@ -11,7 +11,7 @@ class BalanceController extends Controller
 {
     //
 
-    public function index() {
+    public function index(Request $request) {
         return Balance::calculateBalance(Auth::id());
     }
 }

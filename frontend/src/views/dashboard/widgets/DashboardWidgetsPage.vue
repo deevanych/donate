@@ -174,6 +174,20 @@
               </InputField>
             </InputSection>
             <InputSection v-if="newWidgetInstance.title.text" title="Заголовок">
+              <InputField title="Шрифт">
+                <vs-select
+                  filter
+                  placeholder="Filter"
+                  v-model="newWidgetInstance.title['font-family']"
+                >
+                  <vs-option label="по умолчанию" value="Google Sans">
+                    по умолчанию
+                  </vs-option>
+                  <vs-option v-for="font in fonts" :key="font.family" :label="font.family" :value="font.family">
+                    {{ font.family }}
+                  </vs-option>
+                </vs-select>
+              </InputField>
               <InputField title="Цвет">
                 <ColorPicker v-model="newWidgetInstance.title.color"/>
               </InputField>
@@ -206,23 +220,37 @@
                              :formatter="formattedValue(newWidgetInstance.title['border-radius'], 'пикс')"
                 />
               </InputField>
+              <InputField title="Смещение">
+                <RangeSlider v-model="newWidgetInstance.title.translate.x"
+                             :min="-100"
+                             :max="100"
+                             tooltip="hover"
+                             :formatter="formattedValue(newWidgetInstance.title.translate.x, 'пикс')"
+                />
+                <RangeSlider v-model="newWidgetInstance.title.translate.y"
+                             :min="-100"
+                             :max="100"
+                             tooltip="hover"
+                             :formatter="formattedValue(newWidgetInstance.title.translate.y, 'пикс')"
+                />
+              </InputField>
             </InputSection>
           </perfect-scrollbar>
         </div>
       </div>
-
     </vs-dialog>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import {mapGetters} from 'vuex';
 import DashboardPageTitle from '@/components/DashboardPageTitle.vue';
 import InputSection from '@/components/InputSection.vue';
 import InputField from '@/components/InputField.vue';
 import StatsWidget from '@/views/widgets/stats/StatsWidget.vue';
 import RangeSlider from 'vue-range-component-fixed';
 import ColorPicker from '@/components/@ui/ColorPicker.vue';
+import fonts from '@/api/fonts';
 
 export default {
   name: 'WidgetsPage',
@@ -238,6 +266,7 @@ export default {
     return {
       pageTitle: 'Виджеты',
       showCreateWidgetPopup: true,
+      googleFonts: [],
       newWidgetInstance: {
         widget_stats_type_id: 1,
         widget_view_type: 'slider',
@@ -250,13 +279,17 @@ export default {
         title: {
           text: 'Заголовок',
           color: '#000000',
-          'font-family': '',
+          'font-family': 'Google Sans',
           background: 'transparent',
           'border-radius': 0,
           padding: 0,
           'font-size': 24,
           '-webkit-text-stroke-color': 'transparent',
           '-webkit-text-stroke-width': 0,
+          translate: {
+            x: 0,
+            y: 0,
+          },
         },
       },
       donations: [
@@ -288,6 +321,29 @@ export default {
     this.$store.dispatch('GET_WIDGET_TYPES').finally(() => {
       loading.close();
     });
+    fonts.getFonts().then((res) => {
+      this.googleFonts = res.data.items;
+      const url = new URL('https://fonts.googleapis.com/css');
+      const familiesStr = this.fonts.map((font) => `${font.family}:"regular,700"`);
+      url.searchParams.append('family', familiesStr.join('|'));
+      url.searchParams.append('font-display', 'swap');
+      fonts.getFontsStyles(url.href).then((fontsStyles) => {
+        const style = document.createElement('style');
+        style.type = 'text/css';
+        style.innerHTML = fontsStyles;
+        document.head.appendChild(style);
+      })
+        .catch((err) => {
+          console.log(err);
+        });
+    }).catch((err) => {
+      this.$vs.notification({
+        position: 'top-right',
+        border: 'danger',
+        title: 'Ошибка',
+        text: err,
+      });
+    });
   },
   methods: {
     formattedValue(value, property = null, step = 1) {
@@ -296,6 +352,9 @@ export default {
   },
   computed: {
     ...mapGetters(['WIDGETS_TYPES']),
+    fonts() {
+      return this.googleFonts.slice(0, 30);
+    },
   },
 };
 </script>
