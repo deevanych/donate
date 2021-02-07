@@ -15,7 +15,7 @@ class CreateBalanceAccountsTable extends Migration
     {
         Schema::create('balance_accounts', function (Blueprint $table) {
             $table->id();
-            $table->integer('balance')->default(0);
+            $table->integer('balance')->default(0)->comment('Баланс пользователя');
             $table->timestamps();
         });
     }

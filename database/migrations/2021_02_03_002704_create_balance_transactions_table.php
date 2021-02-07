@@ -15,12 +15,12 @@ class CreateBalanceTransactionsTable extends Migration
     {
         Schema::create('balance_transactions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('account_id');
+            $table->unsignedBigInteger('account_id')->comment('ID пользователя');
             $table->foreign('account_id')->references('id')->on('users');
             $table->unsignedBigInteger('extra_account_id')->nullable();
             $table->foreign('extra_account_id')->references('id')->on('users');
-            $table->integer('amount');
-            $table->text('data')->nullable();
+            $table->integer('amount')->comment('Сумма');
+            $table->text('data')->nullable()->comment('Дополнительные данные');
             $table->timestamps();
         });
     }

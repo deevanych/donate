@@ -69,14 +69,16 @@ const routes = [
     component: () => import('../views/DonatePage'),
   },
   {
-    path: '/widget/media',
-    name: 'obs.widget',
-    component: () => import('../views/widgets/MediaWidget'),
-  },
-  {
-    path: '/widget/notification/:user',
-    name: 'widget',
-    component: () => import('../views/widgets/Notification'),
+    path: '/widget',
+    name: 'obs.widgets',
+    component: () => import('../views/layouts/MainLayout'),
+    children: [
+      {
+        path: 'stats/:id',
+        name: 'obs.widget.stats',
+        component: () => import('../views/layouts/widgets/StatsWidgetLayout'),
+      },
+    ],
   },
 ];
 

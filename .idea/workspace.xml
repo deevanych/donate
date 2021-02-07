@@ -23,56 +23,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Поддержка виджетов">
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/fonts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/scss/@ui/_select.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Settings/WidgetSettings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/@ui/ClipboardCopyRow.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/@ui/GoogleFontPicker.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/widgets/StatsWidgetCreatingForm.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/layouts/widgets/StatsWidgetLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e38d1de1-5064-4d4d-a300-c2d2ad69cad9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/BalanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/BalanceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/WidgetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/WidgetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Widget.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Widget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_31_170500_create_widget_types_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_31_170500_create_widget_types_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_31_170501_create_widgets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_31_170501_create_widgets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_03_002505_create_balance_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_03_002505_create_balance_accounts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_03_002704_create_balance_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_03_002704_create_balance_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/WidgetSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/WidgetSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/WidgetTypeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/WidgetTypeSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/balance.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/balance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/donations.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/donations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/fonts.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/fonts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/widgets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/widgets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/widgetsTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/widgetsTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/@ui/ColorPicker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/@ui/ColorPicker.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/DashboardPageTitle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DashboardPageTitle.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/DonationVariation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DonationVariation.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/DonationVariations.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DonationVariations.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/HelpInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HelpInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InfoDescription.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InfoDescription.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InputField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InputField.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/InputSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InputSection.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/SocialNetworkLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SocialNetworkLink.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/helpers/color.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/helpers/color.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/scss/@ui/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/@ui/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/DonatePageTest.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePageTest.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomePage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/views/LoginWindow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/LoginWindow.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardDonationPageSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardDonationPageSettings.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardIndexPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardIndexPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardSidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsEditPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsEditPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/layouts/DashboardLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/layouts/DashboardLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/layouts/MainLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/MediaWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/MediaWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/stats/StatsWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/stats/StatsWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vue.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/boxicons.dad92ba1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/boxicons.dad92ba1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/stats/StatsWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/StatsWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <list id="4fe381a6-224e-4003-a09d-8e61aea58b25" name="Композер" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +75,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -249,12 +229,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -268,19 +249,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\ezdonate.ru\app\Settings" />
+      <recent name="C:\OpenServer\domains\ezdonate.ru\frontend\src\assets\lottie" />
+      <recent name="C:\OpenServer\domains\ezdonate.ru\frontend\src\api" />
+      <recent name="C:\OpenServer\domains\ezdonate.ru\app\Http\Controllers\Api\v1" />
+      <recent name="C:\OpenServer\domains\donate\frontend\src\api" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\ezdonate.ru\frontend\src\views\widgets" />
       <recent name="C:\OpenServer\domains\donate\frontend\src\views\dashboard\widgets" />
       <recent name="C:\OpenServer\domains\donate\app\Http\Controllers\Api\v1" />
       <recent name="C:\OpenServer\domains\donate\frontend\src\views\dashboard" />
       <recent name="C:\Users\casha\PhpstormProjects\donate\donations\src\assets\fonts\GoogleSans" />
-      <recent name="C:\Users\casha\PhpstormProjects\donate\storage\app" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\ezdonate.ru\frontend\src\api" />
-      <recent name="C:\OpenServer\domains\ezdonate.ru\frontend\src\assets\lottie" />
-      <recent name="C:\OpenServer\domains\ezdonate.ru\app\Http\Controllers\Api\v1" />
-      <recent name="C:\OpenServer\domains\donate\frontend\src\api" />
-      <recent name="C:\OpenServer\domains\donate\app\Http\Controllers\Api\v1" />
     </key>
   </component>
   <component name="RunManager" selected="npm.lint">
@@ -374,10 +355,8 @@
       <workItem from="1612519426705" duration="105000" />
       <workItem from="1612520241773" duration="1183000" />
       <workItem from="1612521455435" duration="780000" />
-      <workItem from="1612522397070" duration="1028000" />
-      <workItem from="1612541924339" duration="229000" />
-      <workItem from="1612542166752" duration="4140000" />
-      <workItem from="1612610684602" duration="13839000" />
+      <workItem from="1612522397070" duration="1349000" />
+      <workItem from="1612650592909" duration="39073000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -526,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612402720877</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Поддержка виджетов">
+      <created>1612537160769</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1612537160769</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,36 +547,6 @@
     <MESSAGE value="Да" />
     <MESSAGE value="Поддержка виджетов" />
     <option name="LAST_COMMIT_MESSAGE" value="Поддержка виджетов" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="722" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612542446408">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="722" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612542446408" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1612624873130">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612624873130" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1612624873129">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612624873129" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1612624873129">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612624873129" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1612624873130">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612624873130" />
-    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1612543540571">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612543540571" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612612236199">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612612236199" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\User;
+use App\Models\Widget;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -40,6 +41,10 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('user', function ($name) {
             return User::whereName($name)->firstOrFail();
+        });
+
+        Route::bind('widget', function ($uuid) {
+            return Widget::whereUuid($uuid)->firstOrFail();
         });
 
         $this->routes(function () {

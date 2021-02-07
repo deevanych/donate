@@ -15,7 +15,8 @@ class CreateWidgetTypesTable extends Migration
     {
         Schema::create('widget_types', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->comment('Название типа');
+            $table->string('slug')->comment('Название для управления');
             $table->timestamps();
         });
     }

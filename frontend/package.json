@@ -4,8 +4,8 @@
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
-        "build": "rm -rf ../public/{js,css,img} && vue-cli-service build --no-clean",
-        "watch": "vue-cli-service build --watch --no-clean",
+        "build": "rm -rf ../public/{js,css,img} && vue-cli-service build",
+        "watch": "vue-cli-service build --watch --no-clean --mode=development",
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
@@ -20,6 +20,7 @@
         "node-sass": "^5.0.0",
         "pusher": "^4.0.2",
         "vue": "^2.6.11",
+        "vue-clipboard2": "^0.3.1",
         "vue-color": "^2.8.1",
         "vue-headful": "^2.1.0",
         "vue-loading-skeleton": "^1.1.9",

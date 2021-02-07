@@ -1,9 +1,10 @@
 <template>
   <div class="mb-5" :id="title">
-    <h3 class="mb-4"><a :href="`#${title}`">#</a> {{ title }}</h3>
-    <div class="ml-4">
-      <slot/>
+    <div class="row">
+    <h3 class="col mb-4"><a :href="`#${title}`">#</a> {{ title }}</h3>
+      <slot name="action" class="col-auto"></slot>
     </div>
+      <slot/>
   </div>
 </template>
 

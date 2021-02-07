@@ -10,7 +10,7 @@ export default {
       localStorage.setItem('_token', this.$route.query.token || null);
       this.$store.dispatch('SET_TOKEN', this.$route.query.token);
     }
-    this.$router.push('/');
+    this.$router.push('dashboard');
   },
 };
 </script>

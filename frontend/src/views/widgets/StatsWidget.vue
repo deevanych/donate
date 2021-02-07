@@ -1,24 +1,24 @@
 <template>
   <div class="stats__widget p-5" :style="(test ? {background: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaGXoxFEhk28gsLbxBnAv6IHV3EzUHS8kETA&usqp=CAU)'} : '')">
-    <div class="stats__widget-wrapper" :class="`text-${align}`">
-      <h4 :style="titleStyle" class="widget__title">{{ title.text }}</h4>
-      <div v-if="type === 'list'">
+    <div class="stats__widget-wrapper" :class="`text-${widget.align}`">
+      <h4 :style="titleStyle" class="widget__title">{{ widget.title.text }}</h4>
+      <div v-if="widget.widget_view_type === 'list'">
         <li v-for="donation in donations"
             :key="donation.id"
             v-html="template(donation)"
         />
       </div>
-      <marquee-text v-else-if="type === 'marquee'" :repeat="10" :duration="marqueeSpeed">
+      <marquee-text v-else-if="widget.widget_view_type === 'marquee'" :repeat="10" :duration="marqueeSpeed">
         <span v-for="donation in donations"
             :key="donation.id"
               class="mr-4 d-inline-block"
               v-html="template(donation)"
         />
       </marquee-text>
-      <div v-else-if="type === 'slider'">
+      <div v-else-if="widget.widget_view_type === 'slider'">
         <VueSlickCarousel class="proposed-options"
                           :arrows="false"
-                          :autoplaySpeed="sliderSpeed"
+                          :autoplaySpeed="widget.slider_speed"
                           :fade="true"
                           :autoplay="true">
           <span v-for="donation in donations"
@@ -48,77 +48,79 @@ export default {
       type: Boolean,
       default: false,
     },
-    type: {
-      required: true,
-      type: String,
-    },
     donations: {
       required: true,
       type: Array,
     },
-    title: {
-      text: {
-        type: String,
-        required: false,
-      },
-      color: {
-        type: String,
-        default: '#000000',
-      },
-      'font-family': {
-        type: String,
-        default: 'initial',
-      },
-      'border-radius': {
-        type: Number,
-        default: 0,
-      },
-      '-webkit-text-stroke-width': {
-        type: Number,
-        default: 0,
-      },
-      'font-size': {
-        type: Number,
-        default: 0,
-      },
-      '-webkit-text-stroke-color': {
-        type: String,
-        default: 'transparent',
-      },
-      background: {
-        type: String,
-        default: 'transparent',
-      },
-      padding: {
-        type: Number,
-        default: 0,
-      },
-      translate: {
-        x: {
+    widget: {
+      title: {
+        text: {
+          type: String,
+          required: false,
+        },
+        color: {
+          type: String,
+          default: '#000000',
+        },
+        'font-family': {
+          type: String,
+          default: 'initial',
+        },
+        'border-radius': {
           type: Number,
           default: 0,
         },
-        y: {
+        '-webkit-text-stroke-width': {
           type: Number,
           default: 0,
         },
+        'font-size': {
+          type: Number,
+          default: 0,
+        },
+        '-webkit-text-stroke-color': {
+          type: String,
+          default: 'transparent',
+        },
+        background: {
+          type: String,
+          default: 'transparent',
+        },
+        padding: {
+          type: Number,
+          default: 0,
+        },
+        translate: {
+          x: {
+            type: Number,
+            default: 0,
+          },
+          y: {
+            type: Number,
+            default: 0,
+          },
+        },
       },
-    },
-    marqueeDuration: {
-      type: Number,
-      default: 10,
-    },
-    text_template: {
-      type: String,
-      default: '{ sender } - { sum }',
-    },
-    align: {
-      type: String,
-      default: 'center',
-    },
-    sliderSpeed: {
-      type: Number,
-      default: 2000,
+      marquee_duration: {
+        type: Number,
+        default: 10,
+      },
+      text_template: {
+        type: String,
+        default: '{ sender } - { sum }',
+      },
+      align: {
+        type: String,
+        default: 'center',
+      },
+      slider_speed: {
+        type: Number,
+        default: 2000,
+      },
+      widget_view_type: {
+        type: String,
+        default: 'marquee',
+      },
     },
   },
   methods: {
@@ -128,7 +130,7 @@ export default {
         'sum',
         'currency',
       ];
-      let string = this.text_template;
+      let string = this.widget.text_template;
       words.forEach((word) => {
         string = string.replace(`{ ${word} }`, `<span class="donation__${word}">${donation[word]}</span>`);
       });
@@ -138,11 +140,11 @@ export default {
   },
   computed: {
     marqueeSpeed() {
-      return 100 / this.marqueeDuration;
+      return 100 / this.widget.marquee_duration;
     },
     titleStyle: {
       get() {
-        const style = { ...this.title };
+        const style = { ...this.widget.title };
         style.padding = `${style.padding}px`;
         style['border-radius'] = `${style['border-radius']}px`;
         style['-webkit-text-stroke-width'] = `${style['-webkit-text-stroke-width']}px`;

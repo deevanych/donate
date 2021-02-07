@@ -7,7 +7,12 @@ import VueYoutube from 'vue-youtube';
 import router from '@/router';
 import VueHeadFul from 'vue-headful';
 import PerfectScrollbar from 'vue2-perfect-scrollbar';
+import VueClipboard from 'vue-clipboard2';
 import store from './store';
+
+// Clipboard
+VueClipboard.config.autoSetContainer = true;
+Vue.use(VueClipboard);
 
 // ScrollBar
 Vue.use(PerfectScrollbar);
