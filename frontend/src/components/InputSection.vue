@@ -4,7 +4,9 @@
     <h3 class="col mb-4"><a :href="`#${title}`">#</a> {{ title }}</h3>
       <slot name="action" class="col-auto"></slot>
     </div>
+    <div class="ml-4">
       <slot/>
+    </div>
   </div>
 </template>
 

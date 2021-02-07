@@ -2,8 +2,6 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import users from '@/api/users';
 import balance from '@/api/balance';
-import widgets from '@/api/widgets';
-import widgetsTypes from '@/api/widgetsTypes';
 import settings from '@/api/settings';
 import donations from '@/api/donations';
 
@@ -46,8 +44,6 @@ export default new Vuex.Store({
     token: localStorage.getItem('_token') || '',
     user: userObject,
     userDonatePage: userObject,
-    widgets: [],
-    widgetsTypes: [],
   },
   getters: {
     TOKEN: (state) => state.token,
@@ -56,8 +52,6 @@ export default new Vuex.Store({
     USER: (state) => state.user.profile,
     BALANCE: (state) => state.user.balance,
     SETTINGS: (state) => state.user.settings,
-    USER_WIDGETS: (state) => state.widgets,
-    WIDGETS_TYPES: (state) => state.widgetsTypes,
   },
   mutations: {
     setUserProfile(state, payload) {
@@ -75,12 +69,6 @@ export default new Vuex.Store({
     setUserDonatePage(state, payload) {
       state.userDonatePage = payload;
     },
-    setWidgets(state, payload) {
-      state.widgets = payload;
-    },
-    setWidgetsTypes(state, payload) {
-      state.widgetsTypes = payload;
-    },
   },
   actions: {
     async SET_TOKEN(state, token = null) {
@@ -92,28 +80,6 @@ export default new Vuex.Store({
       const e = users.getProfile(user);
       e.then((data) => {
         state.commit('setUserDonatePage', data.data);
-      }).catch(() => {
-
-      });
-
-      return e;
-    },
-
-    async GET_WIDGETS(state) {
-      const e = widgets.getList();
-      e.then((data) => {
-        state.commit('setWidgets', data.data);
-      }).catch(() => {
-
-      });
-
-      return e;
-    },
-
-    async GET_WIDGET_TYPES(state) {
-      const e = widgetsTypes.getList();
-      e.then((data) => {
-        state.commit('setWidgetsTypes', data.data);
       }).catch(() => {
 
       });

@@ -16,7 +16,7 @@ class WidgetTypeController extends Controller
     public function index()
     {
         //
-        return WidgetType::all()->load('widgets');
+        return WidgetType::all()->load('widgets')->groupBy('slug');
     }
 
     /**

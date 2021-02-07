@@ -8,13 +8,12 @@
       description="Виджеты статистики, уведомлений и прочее">
     </DashboardPageTitle>
     <InputSection
-      v-for="widgetType in WIDGETS_TYPES"
-      :key="widgetType.id"
-      :title="widgetType.title"
-      class="widget__section mb-5">
+      v-for="widgetType in widgetsTypes"
+      :key="widgetType[0].id"
+      :title="widgetType[0].title">
       <div class="row">
-        <div class="col-4" v-for="widget in widgetType.widgets" :key="widget.id">
-          <vs-card>
+        <div class="col-4" v-for="(widget, n) in widgetType[0].widgets" :key="widget.id">
+          <vs-card class="widget__item" @click="showForm('stats', widget, n)">
             <template #title v-if="widget.settings.title.text">
               <h3>{{ widget.settings.title.text }}</h3>
             </template>
@@ -38,7 +37,7 @@
           </vs-card>
         </div>
         <div class="col-4">
-          <vs-card class="widget__item" @click="showCreateWidgetPopup[widgetType.slug] = true">
+          <vs-card class="widget__item widget__add-item" @click="showForm('stats')">
             <template #img>
               <h1><i class='bx bx-plus'></i></h1>
             </template>
@@ -47,17 +46,17 @@
       </div>
     </InputSection>
     <vs-dialog v-model="showCreateWidgetPopup.stats" full-screen class="widget__popup widget__popup-create">
-      <StatsWidgetCreatingForm/>
+      <StatsWidgetCreatingForm @widgetCreated="addWidget" @widgetUpdated="updateWidget" v-model="widget"/>
     </vs-dialog>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 import StatsWidgetCreatingForm from '@/components/widgets/StatsWidgetCreatingForm.vue';
 import DashboardPageTitle from '@/components/DashboardPageTitle.vue';
 import InputSection from '@/components/InputSection.vue';
 import ClipboardCopyRow from '@/components/@ui/ClipboardCopyRow.vue';
+import widgetsTypesApi from '@/api/widgetsTypes';
 
 export default {
   name: 'WidgetsPage',
@@ -70,6 +69,9 @@ export default {
   data() {
     return {
       pageTitle: 'Виджеты',
+      widgetsTypes: [],
+      widget: null,
+      widgetIndex: null,
       showCreateWidgetPopup: {
         media: false,
         stats: false,
@@ -78,24 +80,49 @@ export default {
       },
     };
   },
+  methods: {
+    addWidget(data) {
+      this.showCreateWidgetPopup[data.type] = false;
+      this.$set(this.widgetsTypes[data.type][0].widgets, this.widgetsTypes[data.type][0].widgets.length, data.widget);
+    },
+    updateWidget(data) {
+      this.showCreateWidgetPopup[data.type] = false;
+      this.$set(this.widgetsTypes[data.type][0].widgets, this.widgetIndex, data.widget);
+    },
+    showForm(type, widget = null, index = null) {
+      this.widget = widget;
+      this.widgetIndex = index;
+      this.showCreateWidgetPopup[type] = true;
+    },
+  },
   mounted() {
     const loading = this.$vs.loading();
-    this.$store.dispatch('GET_WIDGET_TYPES').finally(() => {
-      loading.close();
-    });
-  },
-  computed: {
-    ...mapGetters(['WIDGETS_TYPES']),
+    widgetsTypesApi.getList().then((res) => {
+      this.widgetsTypes = res.data;
+    })
+      .finally(() => {
+        loading.close();
+      });
   },
 };
 </script>
 
 <style scoped lang="scss">
-.widget__item::v-deep {
+.widget__item {
   margin-bottom: 2rem;
-  .vs-card__img {
+  .vs-card {
+    height: 100%;
+    min-height: 144px;
+    display: flex;
+  }
+}
+
+.widget__item.widget__add-item::v-deep {
+  margin-bottom: 0;
+  > .vs-card__img {
     height: 100%;
     display: flex;
+
     h1 {
       margin: auto;
       font-size: 4rem;

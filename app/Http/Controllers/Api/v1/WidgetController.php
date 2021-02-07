@@ -41,16 +41,20 @@ class WidgetController extends Controller
     public function store(Request $request)
     {
         //
-        $widget = new Widget;
-        $widget->__set('user_id', Auth::id());
-        $widget->__set('widget_type_id', $request->get('widget_type_id'));
-        $widget->__set('title', $request->get('settings')['title']['text']);
-        $widget->__set('uuid', Str::orderedUuid());
-        $widget->save();
+        try {
+            $widget = new Widget;
+            $widget->__set('user_id', Auth::id());
+            $widget->__set('widget_type_id', $request->get('widget_type_id'));
+            $widget->__set('title', $request->get('settings')['title']['text']);
+            $widget->__set('uuid', Str::orderedUuid());
+            $widget->save();
 
-        $widget->setSettings($request->get('settings'));
+            $widget->setSettings($request->get('settings'));
 
-        return $widget;
+            return response(['message' => 'Виджет создан', 'widget' => $widget]);
+        } catch (\Exception $e) {
+            return response($e->getMessage());
+        }
     }
 
     /**
@@ -86,6 +90,15 @@ class WidgetController extends Controller
     public function update(Request $request, Widget $widget)
     {
         //
+        try {
+            $settings = $request->only('settings');
+            $request = $request->except(['embed_link', 'settings']);
+            $widget->setSettings($settings['settings']);
+            $widget->update($request);
+            return response(['message' => 'Виджет обновлен', 'widget' => $widget]);
+        } catch (\Exception $e) {
+            return response($e->getMessage())->setStatusCode(500);
+        }
     }
 
     /**

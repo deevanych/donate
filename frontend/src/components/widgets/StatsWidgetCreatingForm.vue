@@ -244,6 +244,12 @@ export default {
     InputField,
     InputSection,
   },
+  props: {
+    value: {
+      type: Object,
+      default: null,
+    },
+  },
   data() {
     return {
       widget: {
@@ -301,11 +307,31 @@ export default {
       ],
     };
   },
+  mounted() {
+    if (this.value) {
+      const loading = this.$vs.loading();
+      widgets.get(this.value.uuid).then((res) => {
+        this.widget = res.data;
+      })
+        .finally(() => {
+          loading.close();
+        });
+    }
+  },
   methods: {
     sendForm() {
       const loading = this.$vs.loading();
-      widgets.create(this.widget).then((res) => {
-        console.log(res);
+      const method = (this.value ? widgets.update(this.value.uuid, this.widget) : widgets.create(this.widget));
+      const event = (this.value ? 'widgetUpdated' : 'widgetCreated');
+      method.then((res) => {
+        this.$copyText(res.data.widget.embed_link);
+        this.$vs.notification({
+          position: 'top-right',
+          border: 'success',
+          title: res.data.message,
+          text: 'Ссылка на виджет скопирована',
+        });
+        this.$emit(event, { type: 'stats', widget: res.data.widget });
       }).finally(() => {
         loading.close();
       });
@@ -315,7 +341,8 @@ export default {
     },
     toggleStyle(property, style, values) {
       this.widget.settings[property][style] = (this.widget.settings[property][style] === values[0] ? values[1] : values[0]);
-    },
+    }
+    ,
   },
 };
 </script>

@@ -14,10 +14,17 @@ export default {
       data,
     });
   },
-  async get(id) {
+  async update(widgetId, data) {
+    return Vue.prototype.$http({
+      method: 'PUT',
+      url: `/widgets/${widgetId}`,
+      data,
+    });
+  },
+  async get(widgetId) {
     return Vue.prototype.$http({
       method: 'GET',
-      url: `/widgets/${id}`,
+      url: `/widgets/${widgetId}`,
     });
   },
 };

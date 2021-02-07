@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import Vue from 'vue';
-
 export default {
   name: 'ClipboardCopyRow',
   props: {
@@ -20,7 +18,7 @@ export default {
   methods: {
     copy() {
       this.$copyText(this.value).then(() => {
-        Vue.prototype.$vs.notification({
+        this.$vs.notification({
           position: 'top-right',
           border: 'success',
           title: 'Ссылка скопирована',
@@ -28,7 +26,7 @@ export default {
         });
       })
         .catch((err) => {
-          Vue.prototype.$vs.notification({
+          this.$vs.notification({
             position: 'top-right',
             border: 'danger',
             title: 'Произошла ошибка',
