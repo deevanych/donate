@@ -42,7 +42,7 @@ export default {
       settings: [],
     };
   },
-  beforeCreate() {
+  mounted() {
     const widgetId = this.$route.params.id;
     widgets.get(widgetId).then((res) => {
       this.settings = res.data.settings;

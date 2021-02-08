@@ -165,7 +165,7 @@ export default {
       },
     };
   },
-  beforeMount() {
+  mounted() {
     this.updatePreview();
     setInterval(() => {
       this.updatePreview();

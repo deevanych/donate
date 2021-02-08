@@ -31,7 +31,7 @@ export default {
       fonts: [],
     };
   },
-  beforeCreate() {
+  mounted() {
     fonts.getFonts().then((res) => {
       this.fonts = res.data.items.slice(0, 30).filter((font) => {
         let find = false;
