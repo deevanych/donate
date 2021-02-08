@@ -1,15 +1,15 @@
 <template>
-  <VueSlickCarousel class="proposed-options"
-                    :arrows="false"
-                    :variableWidth="true"
-                    :infinite="false"
+  <VueSlickCarousel :arrows="false"
                     :focusOnSelect="true"
+                    :infinite="false"
                     :slidesToShow="3.3"
-                    :swipeToSlide="true">
+                    :swipeToSlide="true"
+                    :variableWidth="true"
+                    class="proposed-options">
     <DonationVariation v-for='variation in variations'
                        :key="variation.id"
-                       :variation="variation"
                        :value="value"
+                       :variation="variation"
                        v-on:input="$emit('input', $event)"/>
   </VueSlickCarousel>
 </template>
@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .proposed-options::v-deep {
   font-weight: bold;
 

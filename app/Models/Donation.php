@@ -15,33 +15,38 @@ use Illuminate\Database\Eloquent\Model;
  * @property string donation_sender
  * @property integer id
  */
-
 class Donation extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
+
     /**
      * @var mixed|string
      */
 
-    public function getSender() {
+    public function getSender()
+    {
         return $this->belongsTo('App\Models\User', 'user_from')->get();
     }
 
-    public function getReceiver() {
+    public function getReceiver()
+    {
         return $this->belongsTo('App\Models\User', 'user_to')->get();
     }
 
-    public function getSum() {
+    public function getSum()
+    {
         return $this->sum;
     }
 
-    public function getText() {
+    public function getText()
+    {
         return $this->text;
     }
 
-    public function getMedia() {
+    public function getMedia()
+    {
         return $this->media;
     }
 }

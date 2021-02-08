@@ -1,6 +1,6 @@
 <template>
   <div class="donation__wrapper position-absolute">
-    <div class="donation__item" v-if="showDonation">
+    <div v-if="showDonation" class="donation__item">
       <h1>{{ donation.donation_sender }} - {{ donation.sum }}₽</h1>
       <h2>{{ donation.text }}</h2>
     </div>
@@ -54,7 +54,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .donation {
   &__wrapper {
 

@@ -41,7 +41,7 @@ class GetYandexCloudToken extends Command
     {
         $client = new Client([
             'base_uri' => 'https://iam.api.cloud.yandex.net/iam/v1/',
-            'timeout'  => 10.0,
+            'timeout' => 10.0,
         ]);
 
         try {

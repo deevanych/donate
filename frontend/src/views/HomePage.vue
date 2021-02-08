@@ -5,19 +5,19 @@
     />
     <header class="container mt-5 justify-content-end d-flex">
       <a v-if="!$store.getters.IS_AUTH" href="/auth/twitch">
-      <vs-button
-                 primary
-                 border
-                 size="large">
+        <vs-button
+          border
+          primary
+          size="large">
           Войти через <i class='bx bxl-twitch ml-2 social_networks twitch'></i>
-      </vs-button>
+        </vs-button>
       </a>
       <router-link v-else :to="{name: 'dashboard.index'}">
         <vs-button
-          primary
           border
+          primary
           size="large">
-          <vs-avatar history history-gradient circle class="mr-3">
+          <vs-avatar circle class="mr-3" history history-gradient>
             <img :src="USER.avatar_url" alt="">
           </vs-avatar>
           Панель управления
@@ -56,7 +56,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .container {
   top: 0;
 }

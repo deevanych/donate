@@ -71,7 +71,7 @@ const routes = [
   {
     path: '/widget',
     name: 'obs.widgets',
-    component: () => import('../views/layouts/MainLayout'),
+    component: () => import('../views/layouts/WidgetsLayout'),
     children: [
       {
         path: 'stats/:id',

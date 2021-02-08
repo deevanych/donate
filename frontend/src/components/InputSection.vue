@@ -1,8 +1,8 @@
 <template>
-  <div class="mb-5" :id="title">
+  <div :id="title" class="mb-5">
     <div class="row">
-    <h3 class="col mb-4"><a :href="`#${title}`">#</a> {{ title }}</h3>
-      <slot name="action" class="col-auto"></slot>
+      <h3 class="col mb-4"><a :href="`#${title}`">#</a> {{ title }}</h3>
+      <slot class="col-auto" name="action"></slot>
     </div>
     <div class="ml-4">
       <slot/>

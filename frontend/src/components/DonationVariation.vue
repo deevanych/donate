@@ -1,6 +1,6 @@
 <template>
   <vs-tooltip>
-    <vs-radio :value="value" :val="variation.sum" v-on:input="$emit('input', $event)">
+    <vs-radio :val="variation.sum" :value="value" v-on:input="$emit('input', $event)">
       <div class="proposed-options__item"
            v-bind:style="{ backgroundImage: 'linear-gradient(' + getBackgroundColor + ')',
                          color: getTextColor}">
@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .proposed-options {
   &__item {
     display: flex;

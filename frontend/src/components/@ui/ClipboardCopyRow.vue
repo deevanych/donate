@@ -1,5 +1,5 @@
 <template>
-  <vs-input border v-model="value" @focus="copy" icon-after>
+  <vs-input v-model="value" border icon-after @focus.stop="copy" @click.stop>
     <template #icon>
       <i class='bx bx-copy'></i>
     </template>
@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .vs-input-parent::v-deep {
   input {
     filter: blur(3px);

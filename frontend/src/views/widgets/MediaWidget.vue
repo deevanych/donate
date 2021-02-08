@@ -1,8 +1,8 @@
 <template>
   <div v-if="showVideo" class="embed-responsive embed-responsive-16by9">
-    <YoutubeVue class="embed-responsive-item"
-                ref="youtube"
+    <YoutubeVue ref="youtube"
                 :videoid="videoId"
+                class="embed-responsive-item"
                 @ended="ended"
                 @ready="playVideo"/>
   </div>

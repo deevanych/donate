@@ -44,7 +44,8 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::bind('widget', function ($uuid) {
-            return Widget::whereUuid($uuid)->firstOrFail();
+            $widget = ($this->currentRouteName() !== 'api.widgets.show' ? Widget::withTrashed() : Widget::withoutTrashed() );
+            return $widget->whereUuid($uuid)->firstOrFail();
         });
 
         $this->routes(function () {

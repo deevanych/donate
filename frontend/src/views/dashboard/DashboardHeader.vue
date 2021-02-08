@@ -1,14 +1,14 @@
 <template>
   <header class="dashboard__header my-5 d-flex align-items-center justify-content-between">
-    <router-link to='/' class="logo">
+    <router-link class="logo" to='/'>
       <h3>EZDONATE</h3>
     </router-link>
     <div class="d-flex align-items-center">
       <span><b>Баланс: </b>
               <animated-number
-                :value="BALANCE"
-                :round="1"
                 :duration="1000"
+                :round="1"
+                :value="BALANCE"
               />₽</span>
       <vs-avatar badge-color="danger" badge-position="top-right" class="ml-5">
         <i class='bx bx-bell'></i>
@@ -45,7 +45,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .dashboard__header {
 
 }

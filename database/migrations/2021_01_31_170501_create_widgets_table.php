@@ -21,6 +21,7 @@ class CreateWidgetsTable extends Migration
             $table->unsignedBigInteger('widget_type_id')->comment('Тип виджета');
             $table->foreign('widget_type_id')->references('id')->on('widget_types');
             $table->uuid('uuid')->index()->comment('UUID виджета');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

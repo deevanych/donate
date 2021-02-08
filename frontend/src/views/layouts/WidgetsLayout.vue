@@ -1,37 +1,13 @@
 <template>
-  <vs-select
-    v-if="fonts.length !== 0"
-    :value="value"
-    filter
-    placeholder="Название шрифта"
-    @input="$emit('input', $event)"
-  >
-    <vs-option label="по умолчанию" value="Google Sans">
-      по умолчанию
-    </vs-option>
-    <vs-option v-for="font in fonts" :key="font.family" :label="font.family" :value="font.family">
-      <span :style="{'font-family': font.family}">{{ font.family }}</span>
-    </vs-option>
-  </vs-select>
+  <router-view/>
 </template>
 
 <script>
 import fonts from '@/api/fonts';
 
 export default {
-  name: 'GoogleFontPicker',
-  props: {
-    value: {
-      type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      fonts: [],
-    };
-  },
-  beforeCreate() {
+  name: 'WidgetLayout',
+  mounted() {
     fonts.getFonts().then((res) => {
       this.fonts = res.data.items.slice(0, 30).filter((font) => {
         let find = false;
@@ -57,13 +33,6 @@ export default {
         .catch((err) => {
           console.log(err);
         });
-    }).catch((err) => {
-      this.$vs.notification({
-        position: 'top-right',
-        border: 'danger',
-        title: 'Ошибка',
-        text: err,
-      });
     });
   },
 };

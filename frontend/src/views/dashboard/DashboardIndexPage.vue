@@ -9,19 +9,20 @@
     </DashboardPageTitle>
     <vs-card style="width: 100%;">
       <template #img>
-        <lottie class="lottie__money"
+        <lottie :height="400"
                 :options="defaultOptions"
-                :height="400"
                 :width="400"
+                class="lottie__money"
                 @animCreated="handleAnimation"/>
         <div class="slider__item">
           <div class="slider__wrapper p-5">
             <h1>
               <animated-number
-              :value="BALANCE"
-              :round="1"
-              :duration="1000"
-            />₽
+                :duration="1000"
+                :round="1"
+                :value="BALANCE"
+              />
+              ₽
             </h1>
             <span>Баланс</span>
           </div>
@@ -68,7 +69,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 
 .vs-card-content::v-deep {
 

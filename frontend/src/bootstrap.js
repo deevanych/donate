@@ -41,7 +41,7 @@ Vue.prototype.$http.interceptors.response.use((response) => response, (error) =>
     position: 'top-right',
     border: 'danger',
     title: 'Произошла ошибка',
-    text: error.response.data,
+    text: error.response.data.message,
   });
   if (error.response.status === 401) {
     store.dispatch('LOGOUT').then(() => {

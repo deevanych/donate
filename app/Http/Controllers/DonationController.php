@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Donation;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class DonationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -22,7 +24,7 @@ class DonationController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create(Request $request, $user)
     {
@@ -36,8 +38,8 @@ class DonationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request, $user)
     {
@@ -52,7 +54,7 @@ class DonationController extends Controller
             $donation->save();
 
             return view('donations.success');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
 
             return view('donations.error');
         }
@@ -61,8 +63,8 @@ class DonationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Donation  $donate
-     * @return \Illuminate\Http\Response
+     * @param Donation $donate
+     * @return Response
      */
     public function show(Donation $donate)
     {
@@ -72,8 +74,8 @@ class DonationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Donation  $donate
-     * @return \Illuminate\Http\Response
+     * @param Donation $donate
+     * @return Response
      */
     public function edit(Donation $donate)
     {
@@ -83,9 +85,9 @@ class DonationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Donation  $donate
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Donation $donate
+     * @return Response
      */
     public function update(Request $request, Donation $donate)
     {
@@ -95,8 +97,8 @@ class DonationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Donation  $donate
-     * @return \Illuminate\Http\Response
+     * @param Donation $donate
+     * @return Response
      */
     public function destroy(Donation $donate)
     {

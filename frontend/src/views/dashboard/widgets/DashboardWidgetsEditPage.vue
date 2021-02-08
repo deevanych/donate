@@ -1,7 +1,7 @@
 <template>
-<div>
-  sda
-</div>
+  <div>
+    sda
+  </div>
 </template>
 
 <script>

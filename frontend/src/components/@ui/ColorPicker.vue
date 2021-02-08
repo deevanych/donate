@@ -1,12 +1,12 @@
 <template>
   <div
+    :style="{'background-color': value}"
     class="color__preview rounded shadow"
-    @focus="show = true"
-    @focusout="show = false"
     tabindex="0"
-    :style="{'background-color': value}">
-    <Chrome :value="value"
-            v-if="show"
+    @focus="show = true"
+    @focusout="show = false">
+    <Chrome v-if="show"
+            :value="value"
             @input="changeValue"/>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default {
 
 <!--    @focus="toggleColorPicker('main_color', true)"-->
 <!--    @focusout="toggleColorPicker('main_color', false)"-->
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .color__preview {
   width: 30px;
   height: 30px;

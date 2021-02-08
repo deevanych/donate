@@ -3,7 +3,9 @@
         $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
         @each $value in $positions {
-            .position#{$infix}-#{$value} { position: $value !important; }
+            .position#{$infix}-#{$value} {
+                position: $value !important;
+            }
         }
     }
 }

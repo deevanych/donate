@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\URL;
 use LaravelPropertyBag\Settings\HasSettings;
 
@@ -12,7 +15,7 @@ use LaravelPropertyBag\Settings\HasSettings;
  */
 class Widget extends Model
 {
-    use HasFactory, HasSettings;
+    use HasFactory, HasSettings, SoftDeletes;
 
     const TYPES = [
         '',
@@ -44,12 +47,12 @@ class Widget extends Model
      */
     private string $title;
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function getSettingsAttribute(): \Illuminate\Support\Collection
+    public function getSettingsAttribute(): Collection
     {
         return $this->allSettings();
     }

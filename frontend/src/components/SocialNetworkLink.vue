@@ -1,7 +1,7 @@
 <template>
   <vs-tooltip>
-    <a :href="link" target="_blank" class="d-flex ml-2 social_networks" :class="type">
-      <i class='bx' :class="`bxl-${type}`"></i>
+    <a :class="type" :href="link" class="d-flex ml-2 social_networks" target="_blank">
+      <i :class="`bxl-${type}`" class='bx'></i>
     </a>
     <template #tooltip>
       {{ link }}

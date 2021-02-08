@@ -6,14 +6,14 @@
     <DashboardPageTitle
       :title="pageTitle"
       description="Настрой страницу под себя">
-      <vs-button @click="donatePagePreview"
+      <vs-button border
+                 class="flex-shrink-0"
                  size="large"
-                 border
-                 class="flex-shrink-0">
+                 @click="donatePagePreview">
         Превью
         <HelpInfo
-          text="Откроется страница донатов в новом окне, которая будет отображать ваши изменения в реальном времени. Меняйте настройки тут и сразу же смотрите результат там."
-          class="ml-2"/>
+          class="ml-2"
+          text="Откроется страница донатов в новом окне, которая будет отображать ваши изменения в реальном времени. Меняйте настройки тут и сразу же смотрите результат там."/>
       </vs-button>
     </DashboardPageTitle>
     <InputSection title="Настройки фона">
@@ -31,8 +31,8 @@
         <div class="d-flex align-items-center">
           <RangeSlider
             v-model="SETTINGS.background_blur"
-            :min="0"
             :max="100"
+            :min="0"
             :width="200"
             tooltip="hover"
           />
@@ -44,7 +44,7 @@
       <InputField title="Приветственный текст">
         <vs-input v-model="SETTINGS.description" autocomplete="off">
           <template #icon>
-            <i class='bx bx-text' ></i>
+            <i class='bx bx-text'></i>
           </template>
         </vs-input>
       </InputField>
@@ -57,7 +57,7 @@
       <InputField title="Текст кнопки">
         <vs-input v-model="SETTINGS.donate_button_text" autocomplete="off">
           <template #icon>
-            <i class='bx bx-text' ></i>
+            <i class='bx bx-text'></i>
           </template>
         </vs-input>
       </InputField>
@@ -70,14 +70,14 @@
       <InputField title="Минимальная сумма доната">
         <vs-input v-model="SETTINGS.donation_min_sum" autocomplete="off">
           <template #icon>
-            <i class='bx bx-money' ></i>
+            <i class='bx bx-money'></i>
           </template>
         </vs-input>
       </InputField>
       <InputField title="Минимальная сумма доната для медиа">
         <vs-input v-model="SETTINGS.donation_media_min_sum" autocomplete="off">
           <template #icon>
-            <i class='bx bx-money' ></i>
+            <i class='bx bx-money'></i>
           </template>
         </vs-input>
       </InputField>
@@ -85,38 +85,38 @@
 
     <InputSection title="Дополнительно">
       <InputField
-        title="Включить цели"
-        help-text="Пользователь сможет выбрать сбор, в который пойдет донат">
+        help-text="Пользователь сможет выбрать сбор, в который пойдет донат"
+        title="Включить цели">
         <vs-switch v-model="SETTINGS.enabled_donation_goals">
           <template #off>
-            <i class='bx bx-x' ></i>
+            <i class='bx bx-x'></i>
           </template>
           <template #on>
-            <i class='bx bx-check' ></i>
+            <i class='bx bx-check'></i>
           </template>
         </vs-switch>
       </InputField>
       <InputField
-        title="Включить вариации"
-        help-text="Пользователю будут доступны вариации донатов на выбор">
+        help-text="Пользователю будут доступны вариации донатов на выбор"
+        title="Включить вариации">
         <vs-switch v-model="SETTINGS.enabled_donation_variations">
           <template #off>
-            <i class='bx bx-x' ></i>
+            <i class='bx bx-x'></i>
           </template>
           <template #on>
-            <i class='bx bx-check' ></i>
+            <i class='bx bx-check'></i>
           </template>
         </vs-switch>
       </InputField>
       <InputField
-        title="Включить медиа"
-        help-text="У пользователя появится возможность включить медиа">
+        help-text="У пользователя появится возможность включить медиа"
+        title="Включить медиа">
         <vs-switch v-model="SETTINGS.enabled_media">
           <template #off>
-            <i class='bx bx-x' ></i>
+            <i class='bx bx-x'></i>
           </template>
           <template #on>
-            <i class='bx bx-check' ></i>
+            <i class='bx bx-check'></i>
           </template>
         </vs-switch>
       </InputField>
@@ -193,7 +193,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .settings__background-blur {
   width: 90px;
 }

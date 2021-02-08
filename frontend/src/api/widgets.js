@@ -27,4 +27,15 @@ export default {
       url: `/widgets/${widgetId}`,
     });
   },
+  async delete(widgetId) {
+    return Vue.prototype.$http({
+      method: 'DELETE',
+      url: `/widgets/${widgetId}`,
+    });
+  },
+  async restore(widgetId) {
+    return this.update(widgetId, {
+      deleted_at: null,
+    });
+  },
 };

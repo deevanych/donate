@@ -3,8 +3,6 @@
 namespace App\Events;
 
 use App\Models\Donation;
-use App\Models\User;
-use App\Services\Yandex;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
@@ -35,7 +33,7 @@ class DonationCreated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('channel-'.$this->donation->user_to);
+        return new Channel('channel-' . $this->donation->user_to);
     }
 
     /**

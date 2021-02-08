@@ -3,23 +3,23 @@
     <div class="col-9">
       <StatsWidget
         :donations="donations"
-        :widget="widget.settings"
         :test="true"
+        :widget="widget.settings"
       />
     </div>
     <div class="col-3 widget__settings">
       <perfect-scrollbar :options="{suppressScrollX: true}">
         <InputSection title="Настройки данных">
           <InputField title="Название виджета">
-            <vs-input border v-model="widget.settings.title.text" placeholder="необязательно"
-                      class="widget__title">
+            <vs-input v-model="widget.settings.title.text" border class="widget__title"
+                      placeholder="необязательно">
               <template #icon>
                 <i class='bx bx-tag-alt'></i>
               </template>
             </vs-input>
           </InputField>
           <InputField title="Тип статистики">
-            <vs-select placeholder="Тип статистики" v-model="widget.settings.stats_type">
+            <vs-select v-model="widget.settings.stats_type" placeholder="Тип статистики">
               <vs-option label="Топ донатеров" value="senders_top">
                 Топ донатеров
               </vs-option>
@@ -32,7 +32,7 @@
             </vs-select>
           </InputField>
           <InputField title="Период">
-            <vs-select placeholder="Период выборки" v-model="widget.settings.period">
+            <vs-select v-model="widget.settings.period" placeholder="Период выборки">
               <vs-option label="Текущий день" value="current_day">
                 Текущий день
               </vs-option>
@@ -63,7 +63,7 @@
             </vs-select>
           </InputField>
           <InputField title="Количество элементов">
-            <vs-input border v-model="widget.settings.elements_count" placeholder="Количество">
+            <vs-input v-model="widget.settings.elements_count" border placeholder="Количество">
               <template #icon>
                 <i class='bx bx-abacus'></i>
               </template>
@@ -72,7 +72,7 @@
         </InputSection>
         <InputSection title="Формат данных">
           <InputField title="Тип отображения">
-            <vs-select placeholder="Тип отображения" v-model="widget.settings.widget_view_type">
+            <vs-select v-model="widget.settings.widget_view_type" placeholder="Тип отображения">
               <vs-option label="Список" value="list">
                 Список
               </vs-option>
@@ -86,18 +86,18 @@
           </InputField>
           <InputField title="Выравнивание">
             <vs-button-group class="justify-content-start">
-              <vs-button border icon
-                         :active="widget.settings.align === 'left'"
+              <vs-button :active="widget.settings.align === 'left'" border
+                         icon
                          @click="widget.settings.align = 'left'">
                 <i class='bx bx-align-left'></i>
               </vs-button>
-              <vs-button border icon
-                         :active="widget.settings.align === 'center'"
+              <vs-button :active="widget.settings.align === 'center'" border
+                         icon
                          @click="widget.settings.align = 'center'">
                 <i class='bx bx-align-middle'></i>
               </vs-button>
-              <vs-button border icon
-                         :active="widget.settings.align === 'right'"
+              <vs-button :active="widget.settings.align === 'right'" border
+                         icon
                          @click="widget.settings.align = 'right'">
                 <i class='bx bx-align-right'></i>
               </vs-button>
@@ -107,8 +107,8 @@
             <InputField title="Скорость прокрутки">
               <RangeSlider
                 v-model="widget.settings.marquee_duration"
-                :min="0"
                 :max="100"
+                :min="0"
                 tooltip="hover"
               />
             </InputField>
@@ -117,16 +117,15 @@
             <InputField title="Длительность слайда">
               <RangeSlider
                 v-model="widget.settings.slider_speed"
+                :formatter="formattedValue(widget.settings.slider_speed, 'сек', 1000)"
+                :max="10000"
                 :min="0"
                 :step="1000"
-                :max="10000"
-                :formatter="formattedValue(widget.settings.slider_speed, 'сек', 1000)"
                 tooltip="hover"
               />
             </InputField>
           </template>
-          <InputField title="Шаблон текста"
-                      help-text="<div class='p-2 text-left'>
+          <InputField help-text="<div class='p-2 text-left'>
                       <b>Поддерживаемые переменные:</b>
                       <br/>
                       <b>{ sender }</b> - имя пользователя
@@ -134,8 +133,9 @@
                       <b>{ sum }</b> - сумма доната
                       <br/>
                       <b>{ currency }</b> - валюта
-                      <div>">
-            <vs-input border placeholder="Шаблон текста" v-model="widget.settings.text_template">
+                      <div>"
+                      title="Шаблон текста">
+            <vs-input v-model="widget.settings.text_template" border placeholder="Шаблон текста">
               <template #icon>
                 <i class='bx bx-text'></i>
               </template>
@@ -148,23 +148,23 @@
           </InputField>
           <InputField title="Стиль">
             <vs-button-group class="justify-content-start">
-              <vs-button border icon
-                         :active="widget.settings.title['font-style'] === 'italic'"
+              <vs-button :active="widget.settings.title['font-style'] === 'italic'" border
+                         icon
                          @click="toggleStyle('title', 'font-style', ['italic', 'normal'])">
                 <i class='bx bx-italic'></i>
               </vs-button>
-              <vs-button border icon
-                         :active="widget.settings.title['font-weight'] === 'bold'"
+              <vs-button :active="widget.settings.title['font-weight'] === 'bold'" border
+                         icon
                          @click="toggleStyle('title', 'font-weight', ['normal', 'bold'])">
                 <i class='bx bx-bold'></i>
               </vs-button>
-              <vs-button border icon
-                         :active="widget.settings.title['text-decoration'] === 'underline'"
+              <vs-button :active="widget.settings.title['text-decoration'] === 'underline'" border
+                         icon
                          @click="toggleStyle('title', 'text-decoration', ['none', 'underline'])">
                 <i class='bx bx-underline'></i>
               </vs-button>
-              <vs-button border icon
-                         :active="widget.settings.title['text-decoration'] === 'line-through'"
+              <vs-button :active="widget.settings.title['text-decoration'] === 'line-through'" border
+                         icon
                          @click="toggleStyle('title', 'text-decoration', ['none', 'line-through'])">
                 <i class='bx bx-strikethrough'></i>
               </vs-button>
@@ -174,13 +174,13 @@
             <ColorPicker v-model="widget.settings.title.color"/>
           </InputField>
           <InputField title="Размер шрифта">
-            <RangeSlider v-model="widget.settings.title['font-size']" :min="16" :max="70" tooltip="hover"/>
+            <RangeSlider v-model="widget.settings.title['font-size']" :max="70" :min="16" tooltip="hover"/>
           </InputField>
           <InputField title="Цвет обводки">
             <ColorPicker v-model="widget.settings.title['-webkit-text-stroke-color']"/>
           </InputField>
           <InputField title="Ширина обводки">
-            <RangeSlider v-model="widget.settings.title['-webkit-text-stroke-width']" :min="0" :max="10"
+            <RangeSlider v-model="widget.settings.title['-webkit-text-stroke-width']" :max="10" :min="0"
                          tooltip="hover"/>
           </InputField>
           <InputField title="Цвет фона">
@@ -188,32 +188,32 @@
           </InputField>
           <InputField title="Отступ">
             <RangeSlider v-model="widget.settings.title.padding"
-                         :min="0"
-                         :max="30"
-                         tooltip="hover"
                          :formatter="formattedValue(widget.settings.title.padding, 'пикс')"
+                         :max="30"
+                         :min="0"
+                         tooltip="hover"
             />
           </InputField>
           <InputField title="Закругление">
             <RangeSlider v-model="widget.settings.title['border-radius']"
-                         :min="0"
-                         :max="50"
-                         tooltip="hover"
                          :formatter="formattedValue(widget.settings.title['border-radius'], 'пикс')"
+                         :max="50"
+                         :min="0"
+                         tooltip="hover"
             />
           </InputField>
           <InputField title="Смещение">
             <RangeSlider v-model="widget.settings.title.translate.x"
-                         :min="-100"
-                         :max="100"
-                         tooltip="hover"
                          :formatter="formattedValue(widget.settings.title.translate.x, 'пикс')"
+                         :max="100"
+                         :min="-100"
+                         tooltip="hover"
             />
             <RangeSlider v-model="widget.settings.title.translate.y"
-                         :min="-100"
-                         :max="100"
-                         tooltip="hover"
                          :formatter="formattedValue(widget.settings.title.translate.y, 'пикс')"
+                         :max="100"
+                         :min="-100"
+                         tooltip="hover"
             />
           </InputField>
         </InputSection>
@@ -264,21 +264,21 @@ export default {
           marquee_duration: 10,
           slider_speed: 2000,
           title: {
-            text: 'ПУППЕЙ',
-            color: '#FFFFFF',
+            text: 'Заголовок',
+            color: '#000000',
             'font-family': 'Google Sans',
-            background: '#FF3C3CFF',
+            background: 'transparent',
             'border-radius': 0,
             padding: 0,
-            'font-size': 70,
+            'font-size': 24,
             '-webkit-text-stroke-color': 'transparent',
             '-webkit-text-stroke-width': 0,
             translate: {
               x: 0,
               y: 0,
             },
-            'font-style': 'italic',
-            'font-weight': 'bold',
+            'font-style': 'normal',
+            'font-weight': 'normal',
             'text-decoration': 'none',
           },
         },
@@ -347,7 +347,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .con-form {
   height: 100%;
 }

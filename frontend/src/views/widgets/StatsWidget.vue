@@ -1,6 +1,7 @@
 <template>
-  <div class="stats__widget p-5" :style="(test ? {background: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaGXoxFEhk28gsLbxBnAv6IHV3EzUHS8kETA&usqp=CAU)'} : '')">
-    <div class="stats__widget-wrapper" :class="`text-${widget.align}`">
+  <div :style="(test ? {background: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaGXoxFEhk28gsLbxBnAv6IHV3EzUHS8kETA&usqp=CAU)'} : '')"
+       class="stats__widget p-5">
+    <div :class="`text-${widget.align}`" class="stats__widget-wrapper">
       <h4 :style="titleStyle" class="widget__title">{{ widget.title.text }}</h4>
       <div v-if="widget.widget_view_type === 'list'">
         <li v-for="donation in donations"
@@ -8,19 +9,19 @@
             v-html="template(donation)"
         />
       </div>
-      <marquee-text v-else-if="widget.widget_view_type === 'marquee'" :repeat="10" :duration="marqueeSpeed">
+      <marquee-text v-else-if="widget.widget_view_type === 'marquee'" :duration="marqueeSpeed" :repeat="10">
         <span v-for="donation in donations"
-            :key="donation.id"
+              :key="donation.id"
               class="mr-4 d-inline-block"
               v-html="template(donation)"
         />
       </marquee-text>
       <div v-else-if="widget.widget_view_type === 'slider'">
-        <VueSlickCarousel class="proposed-options"
-                          :arrows="false"
+        <VueSlickCarousel :arrows="false"
+                          :autoplay="true"
                           :autoplaySpeed="widget.slider_speed"
                           :fade="true"
-                          :autoplay="true">
+                          class="proposed-options">
           <span v-for="donation in donations"
                 :key="donation.id"
                 v-html="template(donation)"
@@ -165,7 +166,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .marquee-text-content {
 
 }
