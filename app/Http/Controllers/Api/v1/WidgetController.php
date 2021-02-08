@@ -92,8 +92,9 @@ class WidgetController extends Controller
     {
         //
         try {
-            if ($request->only('settings')) {
-                $widget->setSettings($request->only('settings'));
+            $settings = $request->only('settings');
+            if (isset($settings['settings'])) {
+                $widget->setSettings($settings['settings']);
             }
             $request = $request->except(['embed_link', 'settings']);
             $widget->update($request);

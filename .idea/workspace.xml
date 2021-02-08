@@ -22,13 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Удаление виджетов">
+    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Фикс 401">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/@ui/GoogleFontPicker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/@ui/GoogleFontPicker.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/DonatePageTest.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePageTest.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/layouts/widgets/StatsWidgetLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/layouts/widgets/StatsWidgetLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/WidgetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/WidgetController.php" afterDir="false" />
     </list>
-    <list id="4fe381a6-224e-4003-a09d-8e61aea58b25" name="Композер" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -306,7 +303,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="" />
-      <changelist id="4fe381a6-224e-4003-a09d-8e61aea58b25" name="Композер" comment="" />
+      <changelist id="" name="Композер" comment="" />
       <created>1610546981183</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -339,7 +336,7 @@
       <workItem from="1612521455435" duration="780000" />
       <workItem from="1612522397070" duration="1349000" />
       <workItem from="1612650592909" duration="55703000" />
-      <workItem from="1612733805684" duration="11216000" />
+      <workItem from="1612733805684" duration="12553000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -523,7 +520,28 @@
       <option name="project" value="LOCAL" />
       <updated>1612744472017</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Фикс 401">
+      <created>1612745549032</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1612745549032</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Фикс 401">
+      <created>1612745768997</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1612745768997</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Фикс 401">
+      <created>1612745814109</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1612745814109</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +578,8 @@
     <MESSAGE value="фикс npm" />
     <MESSAGE value="виджеты" />
     <MESSAGE value="Удаление виджетов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Удаление виджетов" />
+    <MESSAGE value="Фикс 401" />
+    <option name="LAST_COMMIT_MESSAGE" value="Фикс 401" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
