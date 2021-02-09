@@ -38,4 +38,10 @@ export default {
       deleted_at: null,
     });
   },
+  async getData(widgetId) {
+    return Vue.prototype.$http({
+      method: 'GET',
+      url: `/widgets/${widgetId}/data`,
+    });
+  },
 };

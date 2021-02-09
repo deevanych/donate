@@ -5,21 +5,25 @@ namespace App\Http\Controllers\Api\v1;
 use App\Http\Controllers\Controller;
 use App\Models\Donation;
 use App\Models\User;
+use App\Services\WidgetData;
 use App\Services\Yandex;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 
 class DonationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @param Request $request
+     * @return Collection
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+
     }
 
     /**

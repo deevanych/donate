@@ -1,13 +1,13 @@
 <template>
   <div class="con-form row p-5">
-    <div class="col-9">
+    <div class="col-8">
       <StatsWidget
         :donations="donations"
         :test="true"
         :widget="widget.settings"
       />
     </div>
-    <div class="col-3 widget__settings">
+    <div class="col-4 widget__settings">
       <perfect-scrollbar :options="{suppressScrollX: true}">
         <InputSection title="Настройки данных">
           <InputField title="Название виджета">
@@ -20,13 +20,13 @@
           </InputField>
           <InputField title="Тип статистики">
             <vs-select v-model="widget.settings.stats_type" placeholder="Тип статистики">
-              <vs-option label="Топ донатеров" value="senders_top">
+              <vs-option label="Топ донатеров" value="donators">
                 Топ донатеров
               </vs-option>
-              <vs-option label="Топ донатов" value="donations_top">
+              <vs-option label="Топ донатов" value="donations">
                 Топ донатов
               </vs-option>
-              <vs-option label="Последние донаты" value="donations_latest">
+              <vs-option label="Последние донаты" value="latest">
                 Последние донаты
               </vs-option>
             </vs-select>
@@ -57,7 +57,7 @@
               <vs-option label="Последний год" value="last_year">
                 Последний год
               </vs-option>
-              <vs-option label="Все время" value="all">
+              <vs-option label="Все время" value="all_time">
                 Все время
               </vs-option>
             </vs-select>
@@ -128,7 +128,7 @@
           <InputField help-text="<div class='p-2 text-left'>
                       <b>Поддерживаемые переменные:</b>
                       <br/>
-                      <b>{ sender }</b> - имя пользователя
+                      <b>{ donation_sender }</b> - имя пользователя
                       <br/>
                       <b>{ sum }</b> - сумма доната
                       <br/>
@@ -256,7 +256,7 @@ export default {
         widget_type_id: 4,
         settings: {
           widget_view_type: 'marquee',
-          stats_type: 'donations_top',
+          stats_type: 'donators',
           period: 'current_day',
           elements_count: 5,
           text_template: '{ sender } - { sum }',
@@ -286,22 +286,22 @@ export default {
       donations: [
         {
           id: 1,
-          sender: 'Тимати',
+          donation_sender: 'Тимати',
           sum: 403,
         },
         {
           id: 2,
-          sender: 'Джежай',
+          donation_sender: 'Джежай',
           sum: 32,
         },
         {
           id: 3,
-          sender: 'Лещ',
+          donation_sender: 'Лещ',
           sum: 143,
         },
         {
           id: 4,
-          sender: 'Пурда',
+          donation_sender: 'Пурда',
           sum: 3,
         },
       ],

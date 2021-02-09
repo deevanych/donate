@@ -20,22 +20,22 @@ export default {
       donations: [
         {
           id: 1,
-          sender: 'Тимати',
+          donation_sender: 'Тимати',
           sum: 403,
         },
         {
           id: 2,
-          sender: 'Джежай',
+          donation_sender: 'Джежай',
           sum: 32,
         },
         {
           id: 3,
-          sender: 'Лещ',
+          donation_sender: 'Лещ',
           sum: 143,
         },
         {
           id: 4,
-          sender: 'Пурда',
+          donation_sender: 'Пурда',
           sum: 3,
         },
       ],
@@ -46,6 +46,9 @@ export default {
     const widgetId = this.$route.params.id;
     widgets.get(widgetId).then((res) => {
       this.settings = res.data.settings;
+    });
+    widgets.getData(widgetId).then((res) => {
+      this.donations = res.data;
     });
   },
 };

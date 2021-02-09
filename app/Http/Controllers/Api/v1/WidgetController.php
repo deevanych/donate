@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Widget;
+use App\Services\WidgetData;
 use Exception;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -119,5 +121,18 @@ class WidgetController extends Controller
         } catch (Exception $e) {
             return $e->getMessage();
         }
+    }
+
+    /**
+     * Return data from widget settings
+     *
+     * @param Widget $widget
+     * @return Collection
+     */
+    public function getData(Widget $widget)
+    {
+        //
+        $period = explode('_', $widget->settings('period'));
+        return WidgetData::getData($period[0], $period[1], $widget->settings('elements_count'), $widget->settings('stats_type'), $widget->user->id);
     }
 }

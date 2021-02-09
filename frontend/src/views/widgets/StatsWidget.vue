@@ -108,7 +108,7 @@ export default {
       },
       text_template: {
         type: String,
-        default: '{ sender } - { sum }',
+        default: '{ donation_sender } - { sum }',
       },
       align: {
         type: String,
@@ -127,9 +127,10 @@ export default {
   methods: {
     template(donation) {
       const words = [
-        'sender',
+        'donation_sender',
         'sum',
         'currency',
+        'id',
       ];
       let string = this.widget.text_template;
       words.forEach((word) => {

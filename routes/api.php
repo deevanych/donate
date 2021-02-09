@@ -25,6 +25,7 @@ Route::group(['prefix' => '/v1', 'as' => 'api.'], function () {
     Route::resource('users/{user}/donations', DonationController::class)->only('store');
     Route::resource('widgets/types', WidgetTypeController::class)->only('index');
     Route::resource('widgets', WidgetController::class)->only('show');
+    Route::get('widgets/{widget}/data', [WidgetController::class, 'getData']);
 });
 
 Route::group(['prefix' => '/v1', 'as' => 'api.', 'middleware' => 'auth:api'], function () {

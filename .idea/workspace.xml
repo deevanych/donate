@@ -22,10 +22,51 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Фикс 401">
+    <list default="true" id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="Поддержка виджетов">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CurrencyController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Currency.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/WidgetData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_08_211559_create_currencies_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/DonationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/DonationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/WidgetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/WidgetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WidgetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WidgetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Settings/WidgetSettings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Settings/WidgetSettings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/widgets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/widgets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/@ui/ClipboardCopyRow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/@ui/ClipboardCopyRow.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/@ui/ColorPicker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/@ui/ColorPicker.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/@ui/GoogleFontPicker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/@ui/GoogleFontPicker.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/@ui/WidgetItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/@ui/WidgetItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DashboardPageTitle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DashboardPageTitle.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DonationVariation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DonationVariation.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DonationVariations.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DonationVariations.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/InputSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InputSection.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/SocialNetworkLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SocialNetworkLink.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/widgets/StatsWidgetCreatingForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/widgets/StatsWidgetCreatingForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/DonatePageTest.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/DonatePageTest.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/LoginWindow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/LoginWindow.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardDonationPageSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardDonationPageSettings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardIndexPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardIndexPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/DashboardSidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsEditPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsEditPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/widgets/DashboardWidgetsPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/layouts/WidgetsLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/layouts/WidgetsLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/layouts/widgets/StatsWidgetLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/layouts/widgets/StatsWidgetLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/MediaWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/MediaWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/Notification.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/widgets/StatsWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/widgets/StatsWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
+    <list id="4fe381a6-224e-4003-a09d-8e61aea58b25" name="Композер" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +88,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -201,13 +241,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/views/layouts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -216,27 +255,27 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="sshConsole" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\ezdonate.ru\frontend\src\views\layouts" />
-      <recent name="C:\OpenServer\domains\ezdonate.ru\app\Settings" />
-      <recent name="C:\OpenServer\domains\ezdonate.ru\frontend\src\assets\lottie" />
       <recent name="C:\OpenServer\domains\ezdonate.ru\frontend\src\api" />
+      <recent name="C:\OpenServer\domains\ezdonate.ru\frontend\src\assets\lottie" />
       <recent name="C:\OpenServer\domains\ezdonate.ru\app\Http\Controllers\Api\v1" />
+      <recent name="C:\OpenServer\domains\donate\frontend\src\api" />
+      <recent name="C:\OpenServer\domains\donate\app\Http\Controllers\Api\v1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\ezdonate.ru\frontend\src\views\widgets" />
       <recent name="C:\OpenServer\domains\donate\frontend\src\views\dashboard\widgets" />
       <recent name="C:\OpenServer\domains\donate\app\Http\Controllers\Api\v1" />
       <recent name="C:\OpenServer\domains\donate\frontend\src\views\dashboard" />
       <recent name="C:\Users\casha\PhpstormProjects\donate\donations\src\assets\fonts\GoogleSans" />
+      <recent name="C:\Users\casha\PhpstormProjects\donate\storage\app" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.lint">
+  <component name="RunManager" selected="npm.watch">
     <configuration name="serve" type="ComposerRunConfigurationType" factoryName="Composer Script" temporary="true">
       <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
       <option name="script" value="serve" />
@@ -285,25 +324,18 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.lint" />
         <item itemvalue="npm.watch" />
+        <item itemvalue="npm.lint" />
         <item itemvalue="Composer Script.serve" />
         <item itemvalue="npm.serve" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SshConsoleOptionsProvider">
-    <option name="myEncoding" value="windows-1251" />
-    <option name="myConnectionType" value="NONE" />
-  </component>
-  <component name="SvnConfiguration">
-    <configuration>C:\Users\casha\AppData\Roaming\Subversion</configuration>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="db232475-92a7-4962-881d-50a0359b3f1d" name="Default Changelist" comment="" />
-      <changelist id="" name="Композер" comment="" />
+      <changelist id="4fe381a6-224e-4003-a09d-8e61aea58b25" name="Композер" comment="" />
       <created>1610546981183</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -334,9 +366,11 @@
       <workItem from="1612519426705" duration="105000" />
       <workItem from="1612520241773" duration="1183000" />
       <workItem from="1612521455435" duration="780000" />
-      <workItem from="1612522397070" duration="1349000" />
-      <workItem from="1612650592909" duration="55703000" />
-      <workItem from="1612733805684" duration="12553000" />
+      <workItem from="1612522397070" duration="1028000" />
+      <workItem from="1612541924339" duration="229000" />
+      <workItem from="1612542166752" duration="4140000" />
+      <workItem from="1612610684602" duration="14568000" />
+      <workItem from="1612815572969" duration="18995000" />
     </task>
     <task id="LOCAL-00001" summary="Стартуем">
       <created>1610802895044</created>
@@ -486,62 +520,13 @@
       <updated>1612402720877</updated>
     </task>
     <task id="LOCAL-00022" summary="Поддержка виджетов">
-      <created>1612537160769</created>
+      <created>1612625042884</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1612537160769</updated>
+      <updated>1612625042884</updated>
     </task>
-    <task id="LOCAL-00023" summary="Поддержка виджетов">
-      <created>1612701754789</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1612701754789</updated>
-    </task>
-    <task id="LOCAL-00024" summary="фикс npm">
-      <created>1612702147991</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1612702147991</updated>
-    </task>
-    <task id="LOCAL-00025" summary="виджеты">
-      <created>1612732024294</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1612732024294</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Удаление виджетов">
-      <created>1612744472017</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1612744472017</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Фикс 401">
-      <created>1612745549032</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1612745549032</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Фикс 401">
-      <created>1612745768997</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1612745768997</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Фикс 401">
-      <created>1612745814109</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1612745814109</updated>
-    </task>
-    <option name="localTasksCounter" value="30" />
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,11 +560,57 @@
     <MESSAGE value="Колорпикеры и ренж" />
     <MESSAGE value="Да" />
     <MESSAGE value="Поддержка виджетов" />
-    <MESSAGE value="фикс npm" />
-    <MESSAGE value="виджеты" />
-    <MESSAGE value="Удаление виджетов" />
-    <MESSAGE value="Фикс 401" />
-    <option name="LAST_COMMIT_MESSAGE" value="Фикс 401" />
+    <option name="LAST_COMMIT_MESSAGE" value="Поддержка виджетов" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="722" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612542446408">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="722" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612542446408" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1612832529173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612832529173" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1612818935465">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612818935465" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1612818935465">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612818935465" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1612818935465">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612818935465" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1612818935465">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612818935465" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1612816073188">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612816073188" />
+    <state x="733" y="243" key="NewPhpClassDialog" timestamp="1612828447567">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="733" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612828447567" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1612625044722">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1612625044722" />
+    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1612834343537">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612834343537" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1612825868335">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612825868335" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612834437339">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612834437339" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

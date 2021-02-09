@@ -15,10 +15,10 @@ class DonationController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        return 323;
+        return $request;
     }
 
     /**

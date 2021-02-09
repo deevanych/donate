@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Widget;
+use App\Services\WidgetData;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
