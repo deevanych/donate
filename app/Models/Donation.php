@@ -25,6 +25,11 @@ class Donation extends Model
      * @var mixed|string
      */
 
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_to');
+    }
+
     public function getSender()
     {
         return $this->belongsTo('App\Models\User', 'user_from')->get();

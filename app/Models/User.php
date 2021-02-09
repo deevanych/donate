@@ -111,6 +111,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\DonationVariation')->orderBy('sum');
     }
 
+    public function getWidgets(): Collection
+    {
+        return $this->widgets()->get();
+    }
+
 //    Relations
 
     public function getDonationGoals(): Collection
@@ -136,11 +141,6 @@ class User extends Authenticatable
     public function socialNetworks(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\SocialNetwork')->withPivot('link');
-    }
-
-    public function getWidgets(): Collection
-    {
-        return $this->widgets()->get();
     }
 
     public function widgets(): HasMany

@@ -28,11 +28,6 @@ const routes = [
             component: () => import('../views/dashboard/widgets/DashboardWidgetsPage'),
           },
           {
-            path: 'widgets/:id',
-            name: 'dashboard.widgets.edit',
-            component: () => import('../views/dashboard/widgets/DashboardWidgetsEditPage'),
-          },
-          {
             path: 'settings',
             component: () => import('../views/layouts/MainLayout'),
             children: [
@@ -77,6 +72,11 @@ const routes = [
         path: 'stats/:id',
         name: 'obs.widget.stats',
         component: () => import('../views/layouts/widgets/StatsWidgetLayout'),
+      },
+      {
+        path: 'media/:id',
+        name: 'obs.widget.media',
+        component: () => import('../views/layouts/widgets/MediaWidgetLayout'),
       },
     ],
   },
