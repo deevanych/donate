@@ -259,7 +259,7 @@ export default {
           stats_type: 'donators',
           period: 'current_day',
           elements_count: 5,
-          text_template: '{ sender } - { sum }',
+          text_template: '{ donation_sender } - { sum }',
           align: 'left',
           marquee_duration: 10,
           slider_speed: 2000,
