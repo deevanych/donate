@@ -29,7 +29,7 @@
               <vs-option label="Последние донаты" value="latest">
                 Последние донаты
               </vs-option>
-            </vs-select>
+            </vs-select>s
           </InputField>
           <InputField title="Период">
             <vs-select v-model="widget.settings.period" placeholder="Период выборки">

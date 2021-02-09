@@ -25,3 +25,4 @@ Homestead.json
 /resources/views/index.blade.php
 /.idea/
 /resources/views/
+/.idea/workspace.xml
