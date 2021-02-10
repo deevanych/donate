@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\v1;
 use App\Http\Controllers\Controller;
 use App\Models\Donation;
 use App\Models\User;
-use App\Services\WidgetData;
 use App\Services\Yandex;
 use Exception;
 use Illuminate\Http\Request;

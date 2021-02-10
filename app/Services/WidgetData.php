@@ -1,15 +1,13 @@
 <?php
 
-
 namespace App\Services;
-
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class WidgetData
 {
-    public static function getData($type = 'last', $period = 'day', $count = 5, $group = null, $userId = null)
+    public static function getData(string $group, int $userId, string $type = 'last', string $period = 'day', int $count = 5): \Illuminate\Support\Collection
     {
 
         $date = Carbon::now();
@@ -36,6 +34,6 @@ class WidgetData
                     ->orderBy('created_at', 'desc');
         }
 
-        return $donations = $donationsQuery->get();
+        return $donationsQuery->get();
     }
 }

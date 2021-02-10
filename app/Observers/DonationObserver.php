@@ -5,7 +5,7 @@ namespace App\Observers;
 use App\Events\DonationCreated;
 use App\Events\MediaReceived;
 use App\Models\Donation;
-use App\Services\YoutubeVideo;
+use App\Models\Video;
 use Illuminatech\Balance\Facades\Balance;
 
 class DonationObserver
@@ -19,13 +19,16 @@ class DonationObserver
     public function created(Donation $donation)
     {
         //
-        if ($donation->media && YoutubeVideo::checkVideo($donation->media)) {
-//            todo
-            $user = $donation->getReceiver()->first();
-            dd($user->getWidgets());
-            MediaReceived::dispatch('3b64c7c4-19e9-4b3c-845a-4254116ab482', $donation->media);
-        }
         DonationCreated::dispatch($donation);
+
+        if (isset($donation->media)) {
+            $video = new Video($donation->media);
+
+            if (count($video->checkPlayingPossibility()) === 0) {
+                $widgetId = $donation->__get('user')->getMediaWidget()->__get('uuid');
+                MediaReceived::dispatch($widgetId, $donation->media);
+            }
+        }
         Balance::increase($donation->user_to, $donation->sum);
     }
 

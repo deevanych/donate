@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Widget;
 use App\Services\WidgetData;
 use Exception;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -41,7 +41,7 @@ class WidgetController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request): Response
     {
         //
         try {
@@ -56,6 +56,7 @@ class WidgetController extends Controller
 
             return response(['message' => 'Виджет создан', 'widget' => $widget]);
         } catch (Exception $e) {
+
             return response($e->getMessage());
         }
     }
@@ -90,7 +91,7 @@ class WidgetController extends Controller
      * @param Widget $widget
      * @return Response
      */
-    public function update(Request $request, Widget $widget)
+    public function update(Request $request, Widget $widget): Response
     {
         //
         try {
@@ -100,8 +101,10 @@ class WidgetController extends Controller
             }
             $request = $request->except(['embed_link', 'settings']);
             $widget->update($request);
+
             return response(['message' => 'Виджет обновлен', 'widget' => $widget]);
         } catch (Exception $e) {
+
             return response($e->getMessage())->setStatusCode(500);
         }
     }
@@ -117,8 +120,10 @@ class WidgetController extends Controller
         //
         try {
             $widget->delete();
+
             return $widget;
         } catch (Exception $e) {
+
             return $e->getMessage();
         }
     }
@@ -129,10 +134,10 @@ class WidgetController extends Controller
      * @param Widget $widget
      * @return Collection
      */
-    public function getData(Widget $widget)
+    public function getData(Widget $widget): Collection
     {
         //
         $period = explode('_', $widget->settings('period'));
-        return WidgetData::getData($period[0], $period[1], $widget->settings('elements_count'), $widget->settings('stats_type'), $widget->user->id);
+        return WidgetData::getData($widget->settings('stats_type'), $widget->__get('user')->id, $period[0], $period[1], $widget->settings('elements_count'));
     }
 }

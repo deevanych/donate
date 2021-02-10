@@ -116,7 +116,18 @@ class User extends Authenticatable
         return $this->widgets()->get();
     }
 
+    public function widgets(): HasMany
+    {
+        return $this->hasMany('App\Models\Widget');
+    }
+
 //    Relations
+
+    public function getMediaWidget(): Widget
+    {
+        $widget = WidgetType::whereSlug(WidgetType::MEDIA_TYPE)->first();
+        return $this->__get('widgets')->where('widget_type_id', $widget->__get('id'))->first();
+    }
 
     public function getDonationGoals(): Collection
     {
@@ -141,10 +152,5 @@ class User extends Authenticatable
     public function socialNetworks(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\SocialNetwork')->withPivot('link');
-    }
-
-    public function widgets(): HasMany
-    {
-        return $this->hasMany('App\Models\Widget');
     }
 }

@@ -105,7 +105,8 @@
                 <vs-input v-model="donation.media"
                           :disabled="parseInt(donation.sum, 0) < USER_DONATE_PAGE.settings.donation_media_min_sum"
                           autocomplete="off"
-                          placeholder="Ссылка на видео">
+                          placeholder="Ссылка на видео"
+                          @input="checkVideo">
                   <template #icon>
                     <i class='bx bxl-youtube'></i>
                   </template>
@@ -114,6 +115,28 @@
                     Минимальная сумма для медиа -
                     {{ USER_DONATE_PAGE.settings.donation_media_min_sum }}₽
                   </template>
+                  <template #message-danger>
+                    <div>
+                      <div v-if="mediaErrors.likes_ratio">
+                        Неподходящее соотношение лайков/дизлайков
+                      </div>
+                      <div v-if="mediaErrors.broadcasting">
+                        Это трансляция!
+                      </div>
+                      <div v-if="mediaErrors.adult">
+                        Возрастное ограничение
+                      </div>
+                      <div v-if="mediaErrors.embed_not_allowed">
+                        Это видео запрещено встраивать
+                      </div>
+                      <div v-if="mediaErrors.view_count">
+                        Неподходящее количество просмотров
+                      </div>
+                      <div v-if="!$v.mediaErrors.not_found">
+                        Видео не найдено
+                      </div>
+                    </div>
+                  </template>
                 </vs-input>
               </InputField>
             </template>
@@ -121,7 +144,8 @@
         </div>
         <div class="row">
           <div class="col-12 col-lg-5">
-            <vs-button :disabled="$v.$invalid" :style="{'color': USER_DONATE_PAGE.settings.donate_button_text_color}" size="xl"
+            <vs-button :disabled="$v.$invalid" :style="{'color': USER_DONATE_PAGE.settings.donate_button_text_color}"
+                       size="xl"
                        @click="sendForm">
               {{ USER_DONATE_PAGE.settings.donate_button_text }}
             </vs-button>
@@ -145,6 +169,17 @@ import { HEXtoRGB } from '@/helpers/color';
 
 let loading;
 
+function initialMediaErrors() {
+  return {
+    adult: false,
+    likes_ratio: false,
+    embed_not_allowed: false,
+    broadcasting: false,
+    view_count: false,
+    not_found: false,
+  };
+}
+
 export default {
   name: 'donation',
   components: {
@@ -162,6 +197,7 @@ export default {
         goal_id: null,
         media: '',
       },
+      mediaErrors: initialMediaErrors(),
     };
   },
   validations() {
@@ -175,6 +211,14 @@ export default {
         text: {
           maxLength: maxLength(100),
         },
+      },
+      mediaErrors: {
+        adult: (value) => value.adult === false,
+        likes_ratio: (value) => value.likes_ratio === false,
+        embed_not_allowed: (value) => value.embed_not_allowed === false,
+        broadcasting: (value) => value.broadcasting === false,
+        view_count: (value) => value.view_count === false,
+        not_found: (value) => value.not_found === false,
       },
     };
   },
@@ -206,6 +250,16 @@ export default {
         .finally(() => {
           loading.close();
         });
+    },
+    checkVideo() {
+      Object.assign(this.mediaErrors, initialMediaErrors());
+      if (this.donation.media.length > 0) {
+        this.$http(`/video?uri=${this.donation.media}`).then((res) => {
+          res.data.forEach((error) => {
+            this.mediaErrors[error] = true;
+          });
+        });
+      }
     },
   },
 };

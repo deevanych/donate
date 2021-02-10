@@ -20,6 +20,10 @@ class Donation extends Model
     use HasFactory;
 
     protected $guarded = [];
+    /**
+     * @var mixed
+     */
+    private $user;
 
     /**
      * @var mixed|string

@@ -1,6 +1,7 @@
 <template>
-  <div :style="(test ? {background: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaGXoxFEhk28gsLbxBnAv6IHV3EzUHS8kETA&usqp=CAU)'} : '')"
-       class="stats__widget p-5">
+  <div
+    :style="(test ? {background: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaGXoxFEhk28gsLbxBnAv6IHV3EzUHS8kETA&usqp=CAU)'} : '')"
+    class="stats__widget p-5">
     <div :class="`text-${widget.align}`" class="stats__widget-wrapper">
       <h4 :style="titleStyle" class="widget__title">{{ widget.title.text }}</h4>
       <div v-if="widget.widget_view_type === 'list'">
