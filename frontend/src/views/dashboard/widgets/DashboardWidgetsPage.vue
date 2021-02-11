@@ -11,12 +11,13 @@
       v-for="widgetType in widgetsTypes"
       :key="widgetType[0].id"
       :title="widgetType[0].title">
-      <div class="row">
+      <div class="row widget__list">
         <WidgetItem v-for="(widget, index) in widgetType[0].widgets"
                     :key="widget.id"
                     :widget="widget"
+                    :widgetType="widgetType[0].slug"
                     @click.native="showForm('stats', widget, index)"/>
-        <div class="col-4">
+        <div class="col-4" v-if="widgetType[0].slug !== 'media'">
           <vs-card class="widget__item widget__add-item" @click="showForm(widgetType[0].slug)">
             <template #img>
               <h1><i class='bx bx-plus'></i></h1>
@@ -88,6 +89,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.widget__list {
+  row-gap: 2rem;
+}
+
 .vs-dialog-content::v-deep {
   .vs-dialog__content {
     height: 100%;

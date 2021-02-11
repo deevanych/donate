@@ -20,6 +20,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//guarded routes
+Route::group(['prefix' => '/v1', 'as' => 'api.', 'middleware' => 'auth:api'], function () {
+    Route::resource('users', UserController::class)->except('show');
+    Route::resource('balance', BalanceController::class);
+    Route::resource('settings', UserSettingsController::class);
+    Route::resource('widgets/types', WidgetTypeController::class)->only('index');
+    Route::resource('widgets', WidgetController::class)->except('show');
+});
+
 //open routes
 Route::group(['prefix' => '/v1', 'as' => 'api.'], function () {
     Route::resource('users', UserController::class)->only('show');
@@ -29,11 +38,3 @@ Route::group(['prefix' => '/v1', 'as' => 'api.'], function () {
     Route::get('video', VideoController::class);
 });
 
-//guarded routes
-Route::group(['prefix' => '/v1', 'as' => 'api.', 'middleware' => 'auth:api'], function () {
-    Route::resource('users', UserController::class)->except('show');
-    Route::resource('balance', BalanceController::class);
-    Route::resource('settings', UserSettingsController::class);
-    Route::resource('widgets', WidgetController::class)->except('show');
-    Route::resource('widgets/types', WidgetTypeController::class)->only('index');
-});

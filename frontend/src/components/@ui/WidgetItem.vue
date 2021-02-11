@@ -1,7 +1,10 @@
 <template>
   <div class="col-4">
     <vs-card class="widget__item">
-      <template v-if="widget.settings.title.text" #title>
+      <template v-if="widgetType === 'media'" #title>
+        <h3>Медиавиджет</h3>
+      </template>
+      <template v-else-if="widget.settings.title.text" #title>
         <h3>{{ widget.settings.title.text }}</h3>
       </template>
       <template #img>
@@ -11,17 +14,22 @@
         <ClipboardCopyRow v-model="widget.embed_link"/>
       </template>
       <template #interactions>
-        <vs-button danger icon @click.stop="(deleted ? restoreWidget(widget.uuid) : deleteWidget(widget.uuid))">
-          <lottie :options="defaultOptions"
-                  class="lottie__delete"
-                  @animCreated="handleAnimation"/>
+        <vs-button v-if="widgetType === 'media' || widgetType === 'notification'" success icon>
+          <i class='bx bx-play'></i>
         </vs-button>
-        <vs-button class="btn-chat" primary shadow>
-          <i class='bx bx-copy mr-2'></i>
-          <span class="span">
-                копировать
-              </span>
-        </vs-button>
+        <template v-if="widgetType !== 'media'">
+          <vs-button danger icon @click.stop="(deleted ? restoreWidget(widget.uuid) : deleteWidget(widget.uuid))">
+            <lottie :options="defaultOptions"
+                    class="lottie__delete"
+                    @animCreated="handleAnimation"/>
+          </vs-button>
+          <vs-button class="btn-chat" primary shadow>
+            <i class='bx bx-copy mr-2'></i>
+            <span class="span">
+                  копировать
+                </span>
+          </vs-button>
+        </template>
       </template>
     </vs-card>
   </div>
@@ -38,6 +46,10 @@ export default {
   props: {
     widget: {
       type: Object,
+      required: true,
+    },
+    widgetType: {
+      type: String,
       required: true,
     },
   },
@@ -118,7 +130,6 @@ export default {
 }
 
 .widget__item {
-  margin-bottom: 3rem;
 
   .vs-card {
     height: 100%;
