@@ -142,81 +142,7 @@
             </vs-input>
           </InputField>
         </InputSection>
-        <InputSection v-if="widget.settings.title.text" title="Заголовок">
-          <InputField title="Шрифт">
-            <GoogleFontPicker v-model="widget.settings.title['font-family']"/>
-          </InputField>
-          <InputField title="Стиль">
-            <vs-button-group class="justify-content-start">
-              <vs-button :active="widget.settings.title['font-style'] === 'italic'" border
-                         icon
-                         @click="toggleStyle('title', 'font-style', ['italic', 'normal'])">
-                <i class='bx bx-italic'></i>
-              </vs-button>
-              <vs-button :active="widget.settings.title['font-weight'] === 'bold'" border
-                         icon
-                         @click="toggleStyle('title', 'font-weight', ['normal', 'bold'])">
-                <i class='bx bx-bold'></i>
-              </vs-button>
-              <vs-button :active="widget.settings.title['text-decoration'] === 'underline'" border
-                         icon
-                         @click="toggleStyle('title', 'text-decoration', ['none', 'underline'])">
-                <i class='bx bx-underline'></i>
-              </vs-button>
-              <vs-button :active="widget.settings.title['text-decoration'] === 'line-through'" border
-                         icon
-                         @click="toggleStyle('title', 'text-decoration', ['none', 'line-through'])">
-                <i class='bx bx-strikethrough'></i>
-              </vs-button>
-            </vs-button-group>
-          </InputField>
-          <InputField title="Цвет">
-            <ColorPicker v-model="widget.settings.title.color"/>
-          </InputField>
-          <InputField title="Размер шрифта">
-            <RangeSlider v-model="widget.settings.title['font-size']" :max="70" :min="16" tooltip="hover"/>
-          </InputField>
-          <InputField title="Цвет обводки">
-            <ColorPicker v-model="widget.settings.title['-webkit-text-stroke-color']"/>
-          </InputField>
-          <InputField title="Ширина обводки">
-            <RangeSlider v-model="widget.settings.title['-webkit-text-stroke-width']" :max="10" :min="0"
-                         tooltip="hover"/>
-          </InputField>
-          <InputField title="Цвет фона">
-            <ColorPicker v-model="widget.settings.title.background"/>
-          </InputField>
-          <InputField title="Отступ">
-            <RangeSlider v-model="widget.settings.title.padding"
-                         :formatter="formattedValue(widget.settings.title.padding, 'пикс')"
-                         :max="30"
-                         :min="0"
-                         tooltip="hover"
-            />
-          </InputField>
-          <InputField title="Закругление">
-            <RangeSlider v-model="widget.settings.title['border-radius']"
-                         :formatter="formattedValue(widget.settings.title['border-radius'], 'пикс')"
-                         :max="50"
-                         :min="0"
-                         tooltip="hover"
-            />
-          </InputField>
-          <InputField title="Смещение">
-            <RangeSlider v-model="widget.settings.title.translate.x"
-                         :formatter="formattedValue(widget.settings.title.translate.x, 'пикс')"
-                         :max="100"
-                         :min="-100"
-                         tooltip="hover"
-            />
-            <RangeSlider v-model="widget.settings.title.translate.y"
-                         :formatter="formattedValue(widget.settings.title.translate.y, 'пикс')"
-                         :max="100"
-                         :min="-100"
-                         tooltip="hover"
-            />
-          </InputField>
-        </InputSection>
+        <AppearanceBlock v-bind:block="widget.settings.title"/>
         <vs-button size="xl" @click="sendForm">
           Сохранить
         </vs-button>
@@ -228,10 +154,9 @@
 <script>
 import StatsWidget from '@/views/widgets/StatsWidget.vue';
 import RangeSlider from 'vue-range-component-fixed';
-import ColorPicker from '@/components/@ui/ColorPicker.vue';
-import GoogleFontPicker from '@/components/@ui/GoogleFontPicker.vue';
 import InputField from '@/components/InputField.vue';
 import InputSection from '@/components/InputSection.vue';
+import AppearanceBlock from '@/components/widgets/AppearanceBlock.vue';
 import widgets from '@/api/widgets';
 
 export default {
@@ -239,10 +164,9 @@ export default {
   components: {
     StatsWidget,
     RangeSlider,
-    ColorPicker,
-    GoogleFontPicker,
     InputField,
     InputSection,
+    AppearanceBlock,
   },
   props: {
     value: {

@@ -55,7 +55,7 @@ export default {
       widgetIndex: null,
       showCreateWidgetPopup: {
         media: false,
-        stats: false,
+        stats: true,
         notifications: false,
         goals: false,
       },

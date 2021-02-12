@@ -22,6 +22,8 @@
         "vue": "^2.6.11",
         "vue-clipboard2": "^0.3.1",
         "vue-color": "^2.8.1",
+        "vue-color-gradient-picker": "^0.1.2",
+        "vue-gpickr": "^0.2.7",
         "vue-headful": "^2.1.0",
         "vue-loading-skeleton": "^1.1.9",
         "vue-lottie": "^0.2.1",
