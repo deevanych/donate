@@ -11,14 +11,17 @@
       <perfect-scrollbar :options="{suppressScrollX: true}">
         <InputSection title="Настройки данных">
           <InputField title="Название виджета">
+            <div class="col">
             <vs-input v-model="widget.settings.title.text" border class="widget__title"
                       placeholder="необязательно">
               <template #icon>
                 <i class='bx bx-tag-alt'></i>
               </template>
             </vs-input>
+            </div>
           </InputField>
           <InputField title="Тип статистики">
+            <div class="col">
             <vs-select v-model="widget.settings.stats_type" placeholder="Тип статистики">
               <vs-option label="Топ донатеров" value="donators">
                 Топ донатеров
@@ -30,8 +33,10 @@
                 Последние донаты
               </vs-option>
             </vs-select>
+          </div>
           </InputField>
           <InputField title="Период">
+            <div class="col">
             <vs-select v-model="widget.settings.period" placeholder="Период выборки">
               <vs-option label="Текущий день" value="current_day">
                 Текущий день
@@ -61,17 +66,21 @@
                 Все время
               </vs-option>
             </vs-select>
+          </div>
           </InputField>
           <InputField title="Количество элементов">
+            <div class="col">
             <vs-input v-model="widget.settings.elements_count" border placeholder="Количество">
               <template #icon>
                 <i class='bx bx-abacus'></i>
               </template>
             </vs-input>
+          </div>
           </InputField>
         </InputSection>
         <InputSection title="Формат данных">
           <InputField title="Тип отображения">
+            <div class="col">
             <vs-select v-model="widget.settings.widget_view_type" placeholder="Тип отображения">
               <vs-option label="Список" value="list">
                 Список
@@ -83,8 +92,10 @@
                 Слайдер
               </vs-option>
             </vs-select>
+          </div>
           </InputField>
           <InputField title="Выравнивание">
+            <div class="col">
             <vs-button-group class="justify-content-start">
               <vs-button :active="widget.settings.align === 'left'" border
                          icon
@@ -102,19 +113,23 @@
                 <i class='bx bx-align-right'></i>
               </vs-button>
             </vs-button-group>
+          </div>
           </InputField>
           <template v-if="widget.settings.widget_view_type === 'marquee'">
             <InputField title="Скорость прокрутки">
+              <div class="col">
               <RangeSlider
                 v-model="widget.settings.marquee_duration"
                 :max="100"
                 :min="0"
                 tooltip="hover"
               />
-            </InputField>
+            </div>
+          </InputField>
           </template>
           <template v-if="widget.settings.widget_view_type === 'slider'">
             <InputField title="Длительность слайда">
+              <div class="col">
               <RangeSlider
                 v-model="widget.settings.slider_speed"
                 :formatter="formattedValue(widget.settings.slider_speed, 'сек', 1000)"
@@ -123,7 +138,8 @@
                 :step="1000"
                 tooltip="hover"
               />
-            </InputField>
+            </div>
+          </InputField>
           </template>
           <InputField help-text="<div class='p-2 text-left'>
                       <b>Поддерживаемые переменные:</b>
@@ -135,11 +151,13 @@
                       <b>{ currency }</b> - валюта
                       <div>"
                       title="Шаблон текста">
+            <div class="col">
             <vs-input v-model="widget.settings.text_template" border placeholder="Шаблон текста">
               <template #icon>
                 <i class='bx bx-text'></i>
               </template>
             </vs-input>
+            </div>
           </InputField>
         </InputSection>
         <AppearanceBlock v-bind:block="widget.settings.title"/>
@@ -188,19 +206,27 @@ export default {
           marquee_duration: 10,
           slider_speed: 2000,
           title: {
+            // shadow
+            shadowEnabled: false,
+            shadowColor: '#000000',
+            shadowBlur: 2,
+            shadowPosition: {
+              x: 2,
+              y: -2,
+            },
+            strokeEnabled: false,
+            w: 200,
+            h: 100,
+            x: 100,
+            y: 10,
+            angle: 0,
             text: 'Заголовок',
-            color: '#000000',
             'font-family': 'Google Sans',
-            background: 'transparent',
+            color: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
+            stroke: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
             'border-radius': 0,
             padding: 0,
             'font-size': 24,
-            '-webkit-text-stroke-color': 'transparent',
-            '-webkit-text-stroke-width': 0,
-            translate: {
-              x: 0,
-              y: 0,
-            },
             'font-style': 'normal',
             'font-weight': 'normal',
             'text-decoration': 'none',

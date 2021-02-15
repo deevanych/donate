@@ -8,7 +8,11 @@ import router from '@/router';
 import VueHeadFul from 'vue-headful';
 import PerfectScrollbar from 'vue2-perfect-scrollbar';
 import VueClipboard from 'vue-clipboard2';
+import drr from '@minogin/vue-drag-resize-rotate';
 import store from './store';
+
+// DRR
+Vue.component('drr', drr);
 
 // Clipboard
 VueClipboard.config.autoSetContainer = true;
