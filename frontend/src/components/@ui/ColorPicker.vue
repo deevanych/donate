@@ -75,6 +75,7 @@ export default {
   height: 30px;
   cursor: pointer;
   position: relative;
+  z-index: 601;
 
   .vc-chrome::v-deep {
     top: 3rem;

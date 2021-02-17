@@ -1,24 +1,6 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
     <defs>
-      <linearGradient id="fill"
-                      :x1="angleToPoints.x1"
-                      :x2="angleToPoints.x2"
-                      :y1="angleToPoints.y1"
-                      :y2="angleToPoints.y2"
-      >
-        <stop v-for="(color, n) in gradients('color').stops"
-              :key="n"
-              :stop-color="color[0]"
-              :offset="color[1]"/>
-      </linearGradient>
-      <filter x="0" y="0" width="1" height="1" id="background">
-        <feFlood flood-color="yellow" result="bg" />
-        <feMerge>
-          <feMergeNode in="bg"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
       <linearGradient v-if="text.strokeEnabled"
                       id="stroke"
                       :x1="angleToPoints('stroke').x1"
@@ -31,13 +13,40 @@
               :stop-color="color[0]"
               :offset="color[1]"/>
       </linearGradient>
+      <linearGradient id="fill"
+                      :x1="angleToPoints.x1"
+                      :x2="angleToPoints.x2"
+                      :y1="angleToPoints.y1"
+                      :y2="angleToPoints.y2"
+      >
+        <stop v-for="(color, n) in gradients('color').stops"
+              :key="n"
+              :stop-color="color[0]"
+              :offset="color[1]"/>
+      </linearGradient>
+      <filter x="0" y="0" width="1" height="1" id="background">
+        <feFlood flood-color="yellow" result="bg"/>
+        <feMerge>
+          <feMergeNode in="bg"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+<!--      todo-->
+<!--      <filter id="shadow" x="0" y="0" width="200%" height="200%">-->
+<!--        <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20"/>-->
+<!--        <feColorMatrix result="matrixOut" in="offOut" type="matrix"-->
+<!--                       values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>-->
+<!--        <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10"/>-->
+<!--        <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>-->
+<!--      </filter>-->
     </defs>
     <g>
       <text class="text"
             :style="style"
             :y="text['font-size'] * 0.9"
             fill="url(#fill)"
-            stroke="url(#stroke)">
+            stroke="url(#stroke)"
+      >
         {{ text.text }}
       </text>
     </g>
@@ -76,7 +85,7 @@ export default {
   computed: {
     style: {
       get() {
-        const style = { ...this.text };
+        const style = {...this.text};
         style.padding = `${style.padding}px`;
         if (this.text.shadowEnabled) {
           style['text-shadow'] = `${style.shadowPosition.x}px ${style.shadowPosition.y}px ${style.shadowBlur}px ${style.shadowColor}`;
@@ -89,7 +98,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .text {
+.text {
 
-  }
+}
 </style>

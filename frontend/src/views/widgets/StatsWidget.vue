@@ -9,7 +9,8 @@
         :w="widget.title.w"
         :h="widget.title.h"
         :angle="widget.title.angle"
-        :aspectRatio="true"
+        :aspectRatio="false"
+        :selectable="test"
         @change="itemChange"
       >
         <SVGText :text="widget.title"/>
@@ -150,8 +151,8 @@ export default {
     },
   },
   methods: {
-    itemChange(re) {
-      console.log(re);
+    itemChange(coords) {
+      this.widget.title = Object.assign(this.widget.title, coords);
     },
     template(donation) {
       const words = [
@@ -214,6 +215,8 @@ export default {
   display: flex;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  align-items: center;
 
   .stats__widget-wrapper {
     margin: auto 0;

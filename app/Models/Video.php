@@ -5,6 +5,7 @@ namespace App\Models;
 
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class Video
 {
@@ -35,11 +36,11 @@ class Video
             ]);
 
             $response = json_decode($response->getBody()->getContents());
+
             if (isset($response->items[0])) {
                 $this->stats = $response->items[0];
             }
-
-        } catch (Exception $e) {
+        } catch (GuzzleException $e) {
             return $e;
         }
     }
@@ -55,7 +56,6 @@ class Video
     public function checkPlayingPossibility(): array
     {
         $errors = [];
-
         if (!isset($this->stats)) {
             $errors[] = 'not_found';
 
