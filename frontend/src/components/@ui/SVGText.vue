@@ -85,7 +85,7 @@ export default {
   computed: {
     style: {
       get() {
-        const style = {...this.text};
+        const style = { ...this.text };
         style.padding = `${style.padding}px`;
         if (this.text.shadowEnabled) {
           style['text-shadow'] = `${style.shadowPosition.x}px ${style.shadowPosition.y}px ${style.shadowBlur}px ${style.shadowColor}`;
