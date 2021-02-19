@@ -1,57 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
-    <defs>
-      <linearGradient v-if="text.strokeEnabled"
-                      id="stroke"
-                      :x1="angleToPoints('stroke').x1"
-                      :x2="angleToPoints('stroke').x2"
-                      :y1="angleToPoints('stroke').y1"
-                      :y2="angleToPoints('stroke').y2"
-      >
-        <stop v-for="(color, n) in gradients('stroke').stops"
-              :key="n"
-              :stop-color="color[0]"
-              :offset="color[1]"/>
-      </linearGradient>
-      <linearGradient id="fill"
-                      :x1="angleToPoints.x1"
-                      :x2="angleToPoints.x2"
-                      :y1="angleToPoints.y1"
-                      :y2="angleToPoints.y2"
-      >
-        <stop v-for="(color, n) in gradients('color').stops"
-              :key="n"
-              :stop-color="color[0]"
-              :offset="color[1]"/>
-      </linearGradient>
-      <filter x="0" y="0" width="1" height="1" id="background">
-        <feFlood flood-color="yellow" result="bg"/>
-        <feMerge>
-          <feMergeNode in="bg"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-<!--      todo-->
-<!--      <filter id="shadow" x="0" y="0" width="200%" height="200%">-->
-<!--        <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20"/>-->
-<!--        <feColorMatrix result="matrixOut" in="offOut" type="matrix"-->
-<!--                       values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>-->
-<!--        <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10"/>-->
-<!--        <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>-->
-<!--      </filter>-->
-    </defs>
-    <g>
-      <text class="text"
-            :style="style"
-            :y="text['font-size'] * 0.9"
-            fill="url(#fill)"
-            stroke="url(#stroke)"
-      >
-        {{ text.text }}
-      </text>
-    </g>
-
-  </svg>
+  <h1 class="text" :data-text="text.text" :style="style">{{ text.text }}</h1>
 </template>
 
 <script>
@@ -86,7 +34,18 @@ export default {
     style: {
       get() {
         const style = { ...this.text };
+        const color = JSON.parse(style.color);
+        const gradientColors = [];
+
         style.padding = `${style.padding}px`;
+        style['font-size'] = `${style['font-size']}px`;
+        Object.keys(color.stops).forEach((key) => {
+          gradientColors.push(`${color.stops[key][0]} ${color.stops[key][1] * 100}%`);
+        });
+
+        // text color
+        style.background = `linear-gradient(${color.angle}deg, ${gradientColors.join(', ')})`;
+
         if (this.text.shadowEnabled) {
           style['text-shadow'] = `${style.shadowPosition.x}px ${style.shadowPosition.y}px ${style.shadowBlur}px ${style.shadowColor}`;
         }
@@ -99,6 +58,13 @@ export default {
 
 <style scoped lang="scss">
 .text {
+  vector-effect: non-scaling-stroke;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
 
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+  }
 }
 </style>

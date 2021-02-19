@@ -206,6 +206,12 @@ export default {
           marquee_duration: 10,
           slider_speed: 2000,
           title: {
+            // background
+            backgroundEnabled: false,
+            'border-radius': 0,
+            padding: 0,
+            background: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
+
             // shadow
             shadowEnabled: false,
             shadowColor: '#000000',
@@ -214,22 +220,26 @@ export default {
               x: 2,
               y: -2,
             },
+
+            // stroke
             strokeEnabled: false,
+            stroke: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
+
+            // text
+            text: 'Заголовок',
+            'font-size': '24',
+            'font-family': 'Google Sans',
+            color: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
+            'font-style': 'normal',
+            'font-weight': 'normal',
+            'text-decoration': 'none',
+
+            // position
             w: 200,
             h: 100,
             x: 100,
             y: 10,
             angle: 0,
-            text: 'Заголовок',
-            'font-family': 'Google Sans',
-            color: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
-            stroke: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
-            'border-radius': 0,
-            padding: 0,
-            'font-size': 24,
-            'font-style': 'normal',
-            'font-weight': 'normal',
-            'text-decoration': 'none',
           },
         },
       },

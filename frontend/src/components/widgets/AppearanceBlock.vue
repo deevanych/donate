@@ -75,9 +75,9 @@
         </div>
       </template>
     </InputField>
-    <InputField title="Тень">
+    <InputField title="Фон">
       <template #action>
-        <vs-switch success v-model="block.shadowEnabled" class="ml-3">
+        <vs-switch success v-model="block.backgroundEnabled" class="ml-3">
           <template #off>
             <i class='bx bx-x' ></i>
           </template>
@@ -86,7 +86,7 @@
           </template>
         </vs-switch>
       </template>
-      <template v-if="block.shadowEnabled">
+      <template v-if="block.backgroundEnabled">
         <div class="col">
           <div class="row mb-4 align-items-center">
             <div class="col-auto">
@@ -106,7 +106,38 @@
           </div>
         </div>
       </template>
-    </InputField>
+    </InputField><InputField title="Тень">
+    <template #action>
+      <vs-switch success v-model="block.shadowEnabled" class="ml-3">
+        <template #off>
+          <i class='bx bx-x' ></i>
+        </template>
+        <template #on>
+          <i class='bx bx-check' ></i>
+        </template>
+      </vs-switch>
+    </template>
+    <template v-if="block.shadowEnabled">
+      <div class="col">
+        <div class="row mb-4 align-items-center">
+          <div class="col-auto">
+            <ColorPicker v-model="block.shadowColor" :gradient="false"/>
+          </div>
+          <div class="col-auto">
+            <JoyStick v-model="block.shadowPosition"/>
+          </div>
+          <div class="col">
+            <RangeSlider
+              v-model="block.shadowBlur"
+              :max="10"
+              :min="0"
+              tooltip="hover"
+            />
+          </div>
+        </div>
+      </div>
+    </template>
+  </InputField>
   </InputSection>
 </template>
 

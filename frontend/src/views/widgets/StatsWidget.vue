@@ -12,8 +12,10 @@
         :aspectRatio="false"
         :selectable="test"
         @change="itemChange"
+        @resize="sizeChange"
+        class="ddr__block"
       >
-        <SVGText :text="widget.title"/>
+        <SVGText ref="block" :text="widget.title"/>
       </drr>
       <div v-if="widget.widget_view_type === 'list'">
         <li v-for="donation in donations"
@@ -154,6 +156,10 @@ export default {
     itemChange(coords) {
       this.widget.title = Object.assign(this.widget.title, coords);
     },
+    sizeChange(coords) {
+      const startWidth = this.$refs.block.$el.clientWidth;
+      this.$refs.block.$el.style.zoom = coords.w / startWidth;
+    },
     template(donation) {
       const words = [
         'donation_sender',
@@ -197,12 +203,15 @@ export default {
 };
 </script>
 
+<style lang="scss">
+  .ddr__block {
+    width: auto !important;
+    height: auto !important;
+  }
+</style>
+
 <style lang="scss" scoped>
 
-.ddr::v-deep {
-  width: auto !important;
-  height: auto !important;
-}
 .marquee-text-content {
 
 }

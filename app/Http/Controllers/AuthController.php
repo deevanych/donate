@@ -9,7 +9,6 @@ use Laravel\Socialite\Facades\Socialite;
 class AuthController extends Controller
 {
     //
-
     public function index(Request $request, $type = 'twitch')
     {
 
