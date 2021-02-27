@@ -9,6 +9,7 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "@devsnowflake/text-emoji-parser": "^1.0.0",
         "@minogin/vue-drag-resize-rotate": "^1.0.5",
         "animate.css": "^4.1.1",
         "animated-number-vue": "^1.0.0",

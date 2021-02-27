@@ -1,21 +1,23 @@
 <template>
   <div
     :style="(test ? {background: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaGXoxFEhk28gsLbxBnAv6IHV3EzUHS8kETA&usqp=CAU)'} : '')"
-    class="stats__widget p-5">
+    class="stats__widget"
+    :class="{'p-5': test}">
     <div :class="`text-${widget.align}`" class="stats__widget-wrapper">
       <drr
-        :x="widget.title.x"
-        :y="widget.title.y"
-        :w="widget.title.w"
-        :h="widget.title.h"
-        :angle="widget.title.angle"
-        :aspectRatio="false"
+        :x="widget.title.block.coords.x"
+        :y="widget.title.block.coords.y"
+        :w="widget.title.block.coords.w"
+        :h="widget.title.block.coords.h"
+        :angle="widget.title.block.coords.angle"
+        :aspectRatio="true"
         :selectable="test"
-        @change="itemChange"
-        @resize="sizeChange"
-        class="ddr__block"
-      >
-        <SVGText ref="block" :text="widget.title"/>
+        @change="itemChange('title', $event)"
+        @resize="sizeChange('title', $event)"
+        class="ddr__block">
+        <div class="drr__wrapper" :style="getStyle('title')">
+          <SVGText ref="block" :text="widget.title"/>
+        </div>
       </drr>
       <div v-if="widget.widget_view_type === 'list'">
         <li v-for="donation in donations"
@@ -72,30 +74,31 @@ export default {
     },
     widget: {
       title: {
-        x: {
-          type: Number,
-          required: false,
-          default: 0,
-        },
-        y: {
-          type: Number,
-          required: false,
-          default: 0,
-        },
-        w: {
-          type: Number,
-          required: false,
-          default: 0,
-        },
-        h: {
-          type: Number,
-          required: false,
-          default: 0,
-        },
-        angle: {
-          type: Number,
-          required: false,
-          default: 0,
+        block: {
+          x: {
+            type: Number,
+            default: 0,
+          },
+          y: {
+            type: Number,
+            default: 0,
+          },
+          w: {
+            type: Number,
+            default: 0,
+          },
+          h: {
+            type: Number,
+            default: 0,
+          },
+          angle: {
+            type: Number,
+            default: 0,
+          },
+          zoom: {
+            type: Number,
+            default: 1,
+          },
         },
         text: {
           type: String,
@@ -116,14 +119,6 @@ export default {
         'font-size': {
           type: Number,
           default: 0,
-        },
-        '-webkit-text-stroke-width': {
-          type: Number,
-          default: 0,
-        },
-        '-webkit-text-stroke-color': {
-          type: String,
-          default: 'red',
         },
         padding: {
           type: Number,
@@ -153,12 +148,40 @@ export default {
     },
   },
   methods: {
-    itemChange(coords) {
-      this.widget.title = Object.assign(this.widget.title, coords);
+    getStyle(type = 'title') {
+      const style = { ...this.widget[type].block };
+
+      if (style.backgroundColorEnabled) {
+        const color = JSON.parse(style.backgroundColor);
+        const gradientColors = [];
+
+        style.padding = `${style.padding}px`;
+
+        Object.keys(color.stops).forEach((key) => {
+          gradientColors.push(`${color.stops[key][0]} ${color.stops[key][1] * 100}%`);
+        });
+
+        // text color
+        style.background = `linear-gradient(${color.angle}deg, ${gradientColors.join(', ')})`;
+      }
+
+      if (style.backgroundShadowEnabled) {
+        style['box-shadow'] = `${style.backgroundShadowPosition.x}px ${style.backgroundShadowPosition.y}px ${style.backgroundShadowBlur}px ${style.backgroundShadowColor}`;
+      }
+
+      if (style.backgroundStrokeEnabled) {
+        style.border = `${style.backgroundStrokeWidth}px solid ${style.backgroundStrokeColor}`;
+        style.borderRadius = `${style.backgroundStrokeRadius}px`;
+      }
+
+      return style;
     },
-    sizeChange(coords) {
+    itemChange(type, coords) {
+      Object.assign(this.widget[type].block.coords, coords);
+    },
+    sizeChange(type, coords) {
       const startWidth = this.$refs.block.$el.clientWidth;
-      this.$refs.block.$el.style.zoom = coords.w / startWidth;
+      this.$emit('changeZoom', coords.w / startWidth);
     },
     template(donation) {
       const words = [
@@ -182,7 +205,6 @@ export default {
     titleStyle: {
       get() {
         const style = { ...this.widget.title };
-        style.padding = `${style.padding}px`;
         style['border-radius'] = `${style['border-radius']}px`;
         style['-webkit-text-stroke-width'] = `${style['-webkit-text-stroke-width']}px`;
         style['font-size'] = `${style['font-size']}px`;
@@ -203,13 +225,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
-  .ddr__block {
-    width: auto !important;
-    height: auto !important;
-  }
-</style>
-
 <style lang="scss" scoped>
 
 .marquee-text-content {
@@ -227,10 +242,31 @@ export default {
   overflow: hidden;
   align-items: center;
 
-  .stats__widget-wrapper {
+  .stats__widget-wrapper::v-deep {
     margin: auto 0;
     width: 100%;
     position: relative;
+
+    .drr__wrapper {
+
+      &:before {
+        content: '';
+        background: red;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    }
+
+    .ddr__block {
+      width: auto !important;
+      height: auto !important;
+
+      .drr__stroke {
+        position: absolute;
+      }
+    }
 
     .widget__title {
       display: inline-block;

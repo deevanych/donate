@@ -16,6 +16,7 @@
                     :key="widget.id"
                     :widget="widget"
                     :widgetType="widgetType[0].slug"
+                    :ref="`widget${widget.id}`"
                     @click.native="showForm('stats', widget, index)"/>
         <div class="col-4" v-if="widgetType[0].slug !== 'media'">
           <vs-card class="widget__item widget__add-item" @click="showForm(widgetType[0].slug)">

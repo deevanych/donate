@@ -34,16 +34,6 @@
             </vs-button-group>
           </div>
         </div>
-        <div class="row mt-3">
-          <div class="col">
-            <RangeSlider
-              v-model="block['font-size']"
-              :max="100"
-              :min="0"
-              tooltip="hover"
-            />
-          </div>
-        </div>
       </div>
     </InputField>
     <InputField title="Обводка">
@@ -61,11 +51,11 @@
         <div class="col">
           <div class="row mb-4 align-items-center">
             <div class="col-auto">
-              <ColorPicker v-model="block.stroke"/>
+              <ColorPicker v-model="block.strokeColor"/>
             </div>
             <div class="col">
               <RangeSlider
-                v-model="block['stroke-width']"
+                v-model="block.strokeWidth"
                 :max="5"
                 :min="0"
                 tooltip="hover"
@@ -75,38 +65,7 @@
         </div>
       </template>
     </InputField>
-    <InputField title="Фон">
-      <template #action>
-        <vs-switch success v-model="block.backgroundEnabled" class="ml-3">
-          <template #off>
-            <i class='bx bx-x' ></i>
-          </template>
-          <template #on>
-            <i class='bx bx-check' ></i>
-          </template>
-        </vs-switch>
-      </template>
-      <template v-if="block.backgroundEnabled">
-        <div class="col">
-          <div class="row mb-4 align-items-center">
-            <div class="col-auto">
-              <ColorPicker v-model="block.shadowColor" :gradient="false"/>
-            </div>
-            <div class="col-auto">
-              <JoyStick v-model="block.shadowPosition"/>
-            </div>
-            <div class="col">
-              <RangeSlider
-                v-model="block.shadowBlur"
-                :max="10"
-                :min="0"
-                tooltip="hover"
-              />
-            </div>
-          </div>
-        </div>
-      </template>
-    </InputField><InputField title="Тень">
+    <InputField title="Тень">
     <template #action>
       <vs-switch success v-model="block.shadowEnabled" class="ml-3">
         <template #off>
@@ -138,6 +97,104 @@
       </div>
     </template>
   </InputField>
+    <InputField title="Цвет и отступ фона">
+      <template #action>
+        <vs-switch success v-model="block.block.backgroundColorEnabled" class="ml-3">
+          <template #off>
+            <i class='bx bx-x' ></i>
+          </template>
+          <template #on>
+            <i class='bx bx-check' ></i>
+          </template>
+        </vs-switch>
+      </template>
+      <template v-if="block.block.backgroundColorEnabled">
+        <div class="col">
+          <div class="row mb-4 align-items-center">
+            <div class="col-auto">
+              <ColorPicker v-model="block.block.backgroundColor"/>
+            </div>
+            <div class="col">
+              <RangeSlider
+                v-model="block.block.padding"
+                :max="50"
+                :min="0"
+                tooltip="hover"
+              />
+            </div>
+          </div>
+        </div>
+      </template>
+    </InputField>
+    <InputField title="Обводка и закругление фона">
+      <template #action>
+        <vs-switch success v-model="block.block.backgroundStrokeEnabled" class="ml-3">
+          <template #off>
+            <i class='bx bx-x' ></i>
+          </template>
+          <template #on>
+            <i class='bx bx-check' ></i>
+          </template>
+        </vs-switch>
+      </template>
+      <template v-if="block.block.backgroundStrokeEnabled">
+        <div class="col">
+          <div class="row mb-4 align-items-center">
+            <div class="col-auto">
+              <ColorPicker v-model="block.block.backgroundStrokeColor" :gradient="false"/>
+            </div>
+            <div class="col">
+              <RangeSlider
+                v-model="block.block.backgroundStrokeWidth"
+                :max="10"
+                :min="0"
+                tooltip="hover"
+              />
+            </div>
+            <div class="col">
+              <RangeSlider
+                v-model="block.block.backgroundStrokeRadius"
+                :max="100"
+                :min="0"
+                tooltip="hover"
+              />
+            </div>
+          </div>
+        </div>
+      </template>
+    </InputField>
+    <InputField title="Тень фона">
+      <template #action>
+        <vs-switch success v-model="block.block.backgroundShadowEnabled" class="ml-3">
+          <template #off>
+            <i class='bx bx-x' ></i>
+          </template>
+          <template #on>
+            <i class='bx bx-check' ></i>
+          </template>
+        </vs-switch>
+      </template>
+      <template v-if="block.block.backgroundShadowEnabled">
+        <div class="col">
+          <div class="row mb-4 align-items-center">
+            <div class="col-auto">
+              <ColorPicker v-model="block.block.backgroundShadowColor" :gradient="false"/>
+            </div>
+            <div class="col-auto">
+              <JoyStick v-model="block.block.backgroundShadowPosition"/>
+            </div>
+            <div class="col">
+              <RangeSlider
+                v-model="block.block.backgroundShadowBlur"
+                :max="20"
+                :min="0"
+                tooltip="hover"
+              />
+            </div>
+          </div>
+        </div>
+      </template>
+    </InputField>
   </InputSection>
 </template>
 
@@ -155,10 +212,6 @@ export default {
     block: {
       type: Object,
       require: true,
-    },
-    stroke: {
-      type: Boolean,
-      default: false,
     },
   },
   components: {

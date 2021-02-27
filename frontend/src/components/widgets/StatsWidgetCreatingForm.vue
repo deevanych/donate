@@ -5,6 +5,7 @@
         :donations="donations"
         :test="true"
         :widget="widget.settings"
+        @changeZoom="changeZoom('title', $event)"
       />
     </div>
     <div class="col-4 widget__settings">
@@ -206,12 +207,6 @@ export default {
           marquee_duration: 10,
           slider_speed: 2000,
           title: {
-            // background
-            backgroundEnabled: false,
-            'border-radius': 0,
-            padding: 0,
-            background: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
-
             // shadow
             shadowEnabled: false,
             shadowColor: '#000000',
@@ -223,11 +218,11 @@ export default {
 
             // stroke
             strokeEnabled: false,
-            stroke: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
+            strokeColor: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
+            strokeWidth: 1,
 
             // text
             text: 'Заголовок',
-            'font-size': '24',
             'font-family': 'Google Sans',
             color: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
             'font-style': 'normal',
@@ -235,11 +230,32 @@ export default {
             'text-decoration': 'none',
 
             // position
-            w: 200,
-            h: 100,
-            x: 100,
-            y: 10,
-            angle: 0,
+            block: {
+              coords: {
+                w: 100,
+                h: 100,
+                x: 50,
+                y: 20,
+                angle: 0,
+                zoom: 1,
+              },
+
+              // background
+              padding: 0,
+              backgroundColorEnabled: false,
+              backgroundColor: '{"angle":0,"stops":[["#FFFFFF",0],["#f6ce01",1]]}',
+              backgroundStrokeEnabled: false,
+              backgroundStrokeRadius: 0,
+              backgroundStrokeWidth: 2,
+              backgroundStrokeColor: '#000000',
+              backgroundShadowEnabled: false,
+              backgroundShadowColor: '#000000',
+              backgroundShadowBlur: 2,
+              backgroundShadowPosition: {
+                x: 2,
+                y: -2,
+              },
+            },
           },
         },
       },
@@ -279,6 +295,9 @@ export default {
     }
   },
   methods: {
+    changeZoom(type = 'title', zoom = 1) {
+      this.widget.settings[type].block.coords.zoom = zoom;
+    },
     sendForm() {
       const loading = this.$vs.loading();
       const method = (this.value ? widgets.update(this.value.uuid, this.widget) : widgets.create(this.widget));
