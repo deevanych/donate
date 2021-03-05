@@ -5,12 +5,10 @@ const getSettings = () => Vue.prototype.$http({
   url: '/settings',
 });
 
-const saveSettings = (settings) => Vue.prototype.$http({
+const saveSettings = (data) => Vue.prototype.$http({
   method: 'POST',
   url: '/settings',
-  data: {
-    settings,
-  },
+  data,
 });
 
 export { getSettings, saveSettings };

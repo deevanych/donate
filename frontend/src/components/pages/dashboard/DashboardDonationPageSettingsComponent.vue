@@ -201,7 +201,14 @@ export default {
     },
     sendForm() {
       loading = this.$vs.loading();
-      this.$store.dispatch('SAVE_SETTINGS').finally(() => {
+      this.$store.dispatch('SAVE_SETTINGS').then(({ data }) => {
+        this.$vs.notification({
+          position: 'top-right',
+          border: 'success',
+          title: data.message,
+          text: 'Настройки успешно сохранены',
+        });
+      }).finally(() => {
         loading.close();
       });
     },
@@ -216,9 +223,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.settings__background-blur {
-  width: 90px;
-}
-</style>

@@ -25,7 +25,7 @@ export const settings = {
   },
   actions: {
     SAVE_SETTINGS: (state) => {
-      const query = saveSettings(state.settings);
+      const query = saveSettings(state.getters.SETTINGS);
       query.then(({ data }) => {
         state.commit('SET_SETTING', data.settings);
       });

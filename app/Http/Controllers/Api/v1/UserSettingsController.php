@@ -31,7 +31,6 @@ class UserSettingsController extends Controller
     public function store(Request $request)
     {
         //
-        return $request->all();
         try {
             Auth::user()->setSettings($request->all());
 
