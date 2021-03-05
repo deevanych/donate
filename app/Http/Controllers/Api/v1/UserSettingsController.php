@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
 class UserSettingsController extends Controller
@@ -13,9 +14,9 @@ class UserSettingsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Collection
      */
-    public function index()
+    public function index(): Collection
     {
         //
         return Auth::user()->allSettings();
@@ -30,6 +31,7 @@ class UserSettingsController extends Controller
     public function store(Request $request)
     {
         //
+        return $request->all();
         try {
             Auth::user()->setSettings($request->all());
 
@@ -45,40 +47,5 @@ class UserSettingsController extends Controller
                 'message' => $e->getMessage(),
             ];
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function show(User $user)
-    {
-        //
-        return $user;
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

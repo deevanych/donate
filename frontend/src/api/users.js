@@ -1,10 +1,8 @@
 import Vue from 'vue';
 
-export default {
-  async getProfile(userName = '') {
-    return Vue.prototype.$http({
-      method: 'GET',
-      url: (userName) ? `/users/${userName}` : '/users',
-    });
-  },
-};
+export const getUserProfile = (user) => Vue.prototype.$http({
+  method: 'GET',
+  url: (user) ? `/users/${user}` : '/users',
+});
+
+export default getUserProfile;

@@ -40,13 +40,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('GET_BALANCE');
-    this.$store.dispatch('GET_USER_PROFILE');
+    this.$store.dispatch('GET_USER');
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.dashboard__header {
-
-}
-</style>

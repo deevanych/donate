@@ -32,7 +32,7 @@ class UserSettings extends ResourceConfig
         ],
         'background_color' => [
             'allowed' => ':any:',
-            'default' => 'rgba(255, 255, 255, .8)',
+            'default' => '{"angle":0,"stops":[["#FFFFFF",0],["#f6ce01",1]]}',
         ],
         'background_blur' => [
             'allowed' => ':any:',

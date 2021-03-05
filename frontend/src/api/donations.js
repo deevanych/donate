@@ -1,13 +1,11 @@
 import Vue from 'vue';
 
-export default {
-  async sendDonation(userName = '', donation = {}) {
-    return Vue.prototype.$http({
-      method: 'POST',
-      url: `/users/${userName}/donations`,
-      data: {
-        donation,
-      },
-    });
+export const sendDonation = (user, donation) => Vue.prototype.$http({
+  method: 'POST',
+  url: `/users/${user}/donations`,
+  data: {
+    donation,
   },
-};
+});
+
+export default { sendDonation };
