@@ -39,7 +39,7 @@
 import ClipboardCopyRow from '@/components/@ui/ClipboardCopyRowComponent.vue';
 import Lottie from 'vue-lottie';
 import * as animationData from '@/assets/lottie/delete.json';
-import widgets from '@/api/widgets';
+import { remove, restore } from '@/api/widgets';
 
 export default {
   name: 'WidgetItem',
@@ -75,7 +75,7 @@ export default {
     },
     deleteWidget(widgetId) {
       const loading = this.$vs.loading();
-      widgets.delete(widgetId).then(() => {
+      remove(widgetId).then(() => {
         this.deleted = true;
         this.anim.playSegments([0, 12], true);
         this.$vs.notification({
@@ -91,7 +91,7 @@ export default {
     },
     restoreWidget(widgetId) {
       const loading = this.$vs.loading();
-      widgets.restore(widgetId).then((res) => {
+      restore(widgetId).then((res) => {
         this.deleted = false;
         this.anim.playSegments([12, 0], true);
         this.$copyText(res.data.widget.embed_link);

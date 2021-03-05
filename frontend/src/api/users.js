@@ -5,4 +5,4 @@ export const getUserProfile = (user) => Vue.prototype.$http({
   url: (user) ? `/users/${user}` : '/users',
 });
 
-export default getUserProfile;
+export default { getUserProfile };

@@ -176,7 +176,7 @@ import RangeSlider from 'vue-range-component-fixed';
 import InputField from '@/components/@ui/InputFieldComponent.vue';
 import InputSection from '@/components/@ui/InputSectionComponent.vue';
 import AppearanceBlock from '@/components/AppearanceBlockComponent.vue';
-import widgets from '@/api/widgets';
+import { get, createWidget, updateWidget } from '@/api/widgets';
 
 export default {
   name: 'StatsWidgetCreatingForm',
@@ -286,7 +286,7 @@ export default {
   mounted() {
     if (this.value) {
       const loading = this.$vs.loading();
-      widgets.get(this.value.uuid).then((res) => {
+      get(this.value.uuid).then((res) => {
         this.widget = res.data;
       })
         .finally(() => {
@@ -300,7 +300,7 @@ export default {
     },
     sendForm() {
       const loading = this.$vs.loading();
-      const method = (this.value ? widgets.update(this.value.uuid, this.widget) : widgets.create(this.widget));
+      const method = (this.value ? updateWidget(this.value.uuid, this.widget) : createWidget(this.widget));
       const event = (this.value ? 'widgetUpdated' : 'widgetCreated');
       method.then((res) => {
         this.$copyText(res.data.widget.embed_link);

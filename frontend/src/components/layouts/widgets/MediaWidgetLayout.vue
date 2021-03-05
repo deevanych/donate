@@ -4,7 +4,7 @@
 
 <script>
 import MediaWidget from '@/components/widgets/MediaWidgetComponent.vue';
-import widgets from '@/api/widgets';
+import { get, getData } from '@/api/widgets';
 
 export default {
   name: 'StatsWidgetLayout',
@@ -40,16 +40,12 @@ export default {
   },
   mounted() {
     const widgetId = this.$route.params.id;
-    widgets.get(widgetId).then((res) => {
+    get(widgetId).then((res) => {
       this.settings = res.data.settings;
     });
-    widgets.getData(widgetId).then((res) => {
+    getData(widgetId).then((res) => {
       this.donations = res.data;
     });
   },
 };
 </script>
-
-<style scoped>
-
-</style>
