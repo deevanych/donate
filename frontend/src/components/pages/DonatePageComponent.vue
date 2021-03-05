@@ -157,10 +157,10 @@
 </template>
 
 <script>
-import InputField from '@/components/InputField.vue';
-import DonationVariations from '@/components/DonationVariations.vue';
-import InfoDescription from '@/components/InfoDescription.vue';
-import SocialNetworkLink from '@/components/SocialNetworkLink.vue';
+import InputField from '@/components/@ui/InputFieldComponent.vue';
+import DonationVariations from '@/components/DonationVariationsComponent.vue';
+import InfoDescription from '@/components/@ui/InfoDescriptionComponent.vue';
+import SocialNetworkLink from '@/components/SocialNetworkLinkComponent.vue';
 import {
   maxLength, minValue, numeric, required,
 } from 'vuelidate/lib/validators';

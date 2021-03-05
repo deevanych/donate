@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import StatsWidget from '@/views/widgets/StatsWidget.vue';
+import StatsWidget from '@/components/widgets/StatsWidgetComponent.vue';
 import widgets from '@/api/widgets';
 
 export default {

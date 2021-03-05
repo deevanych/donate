@@ -6,35 +6,35 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    component: () => import('../views/layouts/MainLayout'),
+    component: () => import('../components/layouts/MainLayout'),
     children: [
       {
         path: '',
         name: 'home',
-        component: () => import('../views/HomePage'),
+        component: () => import('../components/pages/HomePageComponent'),
       },
       {
         path: 'dashboard',
-        component: () => import('../views/layouts/DashboardLayout'),
+        component: () => import('../components/layouts/DashboardLayout'),
         children: [
           {
             path: '',
             name: 'dashboard.index',
-            component: () => import('../views/dashboard/DashboardIndexPage'),
+            component: () => import('../components/pages/dashboard/index/DashboardIndexPageComponent'),
           },
           {
             path: 'widgets',
             name: 'dashboard.widgets.list',
-            component: () => import('../views/dashboard/widgets/DashboardWidgetsPage'),
+            component: () => import('../components/pages/dashboard/widgets/DashboardWidgetsPageComponent'),
           },
           {
             path: 'settings',
-            component: () => import('../views/layouts/MainLayout'),
+            component: () => import('../components/layouts/MainLayout'),
             children: [
               {
                 path: 'donation-page',
                 name: 'dashboard.settings.donationPage',
-                component: () => import('../views/dashboard/DashboardDonationPageSettings'),
+                component: () => import('../components/pages/dashboard/DashboardDonationPageSettingsComponent'),
               },
             ],
           },
@@ -44,39 +44,39 @@ const routes = [
   },
   {
     path: '/preview',
-    component: () => import('../views/layouts/MainLayout'),
+    component: () => import('../components/layouts/MainLayout'),
     children: [
       {
         path: 'donate',
-        component: () => import('../views/DonatePageTest'),
+        component: () => import('../components/pages/DonatePagePreviewComponent'),
       },
     ],
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('../views/LoginWindow'),
+    component: () => import('../components/LoginWindowComponent'),
   },
   {
     path: '/:user',
     alias: '/donate/:user',
     name: 'donate',
-    component: () => import('../views/DonatePage'),
+    component: () => import('../components/pages/DonatePageComponent'),
   },
   {
     path: '/widget',
     name: 'obs.widgets',
-    component: () => import('../views/layouts/WidgetsLayout'),
+    component: () => import('../components/layouts/widgets/WidgetsLayout'),
     children: [
       {
         path: 'stats/:id',
         name: 'obs.widget.stats',
-        component: () => import('../views/layouts/widgets/StatsWidgetLayout'),
+        component: () => import('../components/layouts/widgets/StatsWidgetLayout'),
       },
       {
         path: 'media/:id',
         name: 'obs.widget.media',
-        component: () => import('../views/layouts/widgets/MediaWidgetLayout'),
+        component: () => import('../components/layouts/widgets/MediaWidgetLayout'),
       },
     ],
   },

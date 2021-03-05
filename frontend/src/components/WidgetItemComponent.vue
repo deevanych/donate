@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import ClipboardCopyRow from '@/components/@ui/ClipboardCopyRow.vue';
+import ClipboardCopyRow from '@/components/@ui/ClipboardCopyRowComponent.vue';
 import Lottie from 'vue-lottie';
 import * as animationData from '@/assets/lottie/delete.json';
 import widgets from '@/api/widgets';

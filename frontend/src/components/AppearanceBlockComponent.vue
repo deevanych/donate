@@ -199,12 +199,12 @@
 </template>
 
 <script>
-import InputField from '@/components/InputField.vue';
-import InputSection from '@/components/InputSection.vue';
-import ColorPicker from '@/components/@ui/ColorPicker.vue';
-import GoogleFontPicker from '@/components/@ui/GoogleFontPicker.vue';
+import InputField from '@/components/@ui/InputFieldComponent.vue';
+import InputSection from '@/components/@ui/InputSectionComponent.vue';
+import ColorPicker from '@/components/@ui/ColorPickerComponent.vue';
+import GoogleFontPicker from '@/components/@ui/GoogleFontPickerComponent.vue';
 import RangeSlider from 'vue-range-component-fixed';
-import JoyStick from '@/components/@ui/JoyStick.vue';
+import JoyStick from '@/components/@ui/JoyStickComponent.vue';
 
 export default {
   name: 'AppearanceBlock',

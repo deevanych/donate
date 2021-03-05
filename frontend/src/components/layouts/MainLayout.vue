@@ -7,6 +7,3 @@ export default {
   name: 'MainLayout',
 };
 </script>
-
-<style>
-</style>

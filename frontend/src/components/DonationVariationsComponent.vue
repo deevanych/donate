@@ -18,7 +18,7 @@
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import VueSlickCarousel from 'vue-slick-carousel';
-import DonationVariation from '@/components/DonationVariation.vue';
+import DonationVariation from '@/components/DonationVariationComponent.vue';
 
 export default {
   name: 'DonationVariations',

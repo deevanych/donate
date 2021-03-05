@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import MediaWidget from '@/views/widgets/MediaWidget.vue';
+import MediaWidget from '@/components/widgets/MediaWidgetComponent.vue';
 import widgets from '@/api/widgets';
 
 export default {

@@ -133,12 +133,12 @@
 </template>
 
 <script>
-import InputField from '@/components/InputField.vue';
-import InputSection from '@/components/InputSection.vue';
-import HelpInfo from '@/components/HelpInfo.vue';
-import DashboardPageTitle from '@/components/DashboardPageTitle.vue';
+import InputField from '@/components/@ui/InputFieldComponent.vue';
+import InputSection from '@/components/@ui/InputSectionComponent.vue';
+import HelpInfo from '@/components/@ui/HelpInfoComponent.vue';
+import DashboardPageTitle from '@/components/pages/dashboard/DashboardPageTitleComponent.vue';
 import RangeSlider from 'vue-range-component-fixed';
-import ColorPicker from '@/components/@ui/ColorPicker.vue';
+import ColorPicker from '@/components/@ui/ColorPickerComponent.vue';
 import { mapGetters } from 'vuex';
 
 let loading;

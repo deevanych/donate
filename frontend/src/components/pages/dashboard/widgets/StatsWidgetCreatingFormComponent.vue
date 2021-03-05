@@ -13,134 +13,134 @@
         <InputSection title="Настройки данных">
           <InputField title="Название виджета">
             <div class="col">
-            <vs-input v-model="widget.settings.title.text" border class="widget__title"
-                      placeholder="необязательно">
-              <template #icon>
-                <i class='bx bx-tag-alt'></i>
-              </template>
-            </vs-input>
+              <vs-input v-model="widget.settings.title.text" border class="widget__title"
+                        placeholder="необязательно">
+                <template #icon>
+                  <i class='bx bx-tag-alt'></i>
+                </template>
+              </vs-input>
             </div>
           </InputField>
           <InputField title="Тип статистики">
             <div class="col">
-            <vs-select v-model="widget.settings.stats_type" placeholder="Тип статистики">
-              <vs-option label="Топ донатеров" value="donators">
-                Топ донатеров
-              </vs-option>
-              <vs-option label="Топ донатов" value="donations">
-                Топ донатов
-              </vs-option>
-              <vs-option label="Последние донаты" value="latest">
-                Последние донаты
-              </vs-option>
-            </vs-select>
-          </div>
+              <vs-select v-model="widget.settings.stats_type" placeholder="Тип статистики">
+                <vs-option label="Топ донатеров" value="donators">
+                  Топ донатеров
+                </vs-option>
+                <vs-option label="Топ донатов" value="donations">
+                  Топ донатов
+                </vs-option>
+                <vs-option label="Последние донаты" value="latest">
+                  Последние донаты
+                </vs-option>
+              </vs-select>
+            </div>
           </InputField>
           <InputField title="Период">
             <div class="col">
-            <vs-select v-model="widget.settings.period" placeholder="Период выборки">
-              <vs-option label="Текущий день" value="current_day">
-                Текущий день
-              </vs-option>
-              <vs-option label="Текущая неделя" value="current_week">
-                Текущая неделя
-              </vs-option>
-              <vs-option label="Текущий месяц" value="current_month">
-                Текущий месяц
-              </vs-option>
-              <vs-option label="Текущий год" value="current_year">
-                Текущий год
-              </vs-option>
-              <vs-option label="Последний день" value="last_day">
-                Последний день
-              </vs-option>
-              <vs-option label="Последняя неделя" value="last_week">
-                Последняя неделя
-              </vs-option>
-              <vs-option label="Последний месяц" value="last_month">
-                Последний месяц
-              </vs-option>
-              <vs-option label="Последний год" value="last_year">
-                Последний год
-              </vs-option>
-              <vs-option label="Все время" value="all_time">
-                Все время
-              </vs-option>
-            </vs-select>
-          </div>
+              <vs-select v-model="widget.settings.period" placeholder="Период выборки">
+                <vs-option label="Текущий день" value="current_day">
+                  Текущий день
+                </vs-option>
+                <vs-option label="Текущая неделя" value="current_week">
+                  Текущая неделя
+                </vs-option>
+                <vs-option label="Текущий месяц" value="current_month">
+                  Текущий месяц
+                </vs-option>
+                <vs-option label="Текущий год" value="current_year">
+                  Текущий год
+                </vs-option>
+                <vs-option label="Последний день" value="last_day">
+                  Последний день
+                </vs-option>
+                <vs-option label="Последняя неделя" value="last_week">
+                  Последняя неделя
+                </vs-option>
+                <vs-option label="Последний месяц" value="last_month">
+                  Последний месяц
+                </vs-option>
+                <vs-option label="Последний год" value="last_year">
+                  Последний год
+                </vs-option>
+                <vs-option label="Все время" value="all_time">
+                  Все время
+                </vs-option>
+              </vs-select>
+            </div>
           </InputField>
           <InputField title="Количество элементов">
             <div class="col">
-            <vs-input v-model="widget.settings.elements_count" border placeholder="Количество">
-              <template #icon>
-                <i class='bx bx-abacus'></i>
-              </template>
-            </vs-input>
-          </div>
+              <vs-input v-model="widget.settings.elements_count" border placeholder="Количество">
+                <template #icon>
+                  <i class='bx bx-abacus'></i>
+                </template>
+              </vs-input>
+            </div>
           </InputField>
         </InputSection>
         <InputSection title="Формат данных">
           <InputField title="Тип отображения">
             <div class="col">
-            <vs-select v-model="widget.settings.widget_view_type" placeholder="Тип отображения">
-              <vs-option label="Список" value="list">
-                Список
-              </vs-option>
-              <vs-option label="Бегущая строка" value="marquee">
-                Бегущая строка
-              </vs-option>
-              <vs-option label="Слайдер" value="slider">
-                Слайдер
-              </vs-option>
-            </vs-select>
-          </div>
+              <vs-select v-model="widget.settings.widget_view_type" placeholder="Тип отображения">
+                <vs-option label="Список" value="list">
+                  Список
+                </vs-option>
+                <vs-option label="Бегущая строка" value="marquee">
+                  Бегущая строка
+                </vs-option>
+                <vs-option label="Слайдер" value="slider">
+                  Слайдер
+                </vs-option>
+              </vs-select>
+            </div>
           </InputField>
           <InputField title="Выравнивание">
             <div class="col">
-            <vs-button-group class="justify-content-start">
-              <vs-button :active="widget.settings.align === 'left'" border
-                         icon
-                         @click="widget.settings.align = 'left'">
-                <i class='bx bx-align-left'></i>
-              </vs-button>
-              <vs-button :active="widget.settings.align === 'center'" border
-                         icon
-                         @click="widget.settings.align = 'center'">
-                <i class='bx bx-align-middle'></i>
-              </vs-button>
-              <vs-button :active="widget.settings.align === 'right'" border
-                         icon
-                         @click="widget.settings.align = 'right'">
-                <i class='bx bx-align-right'></i>
-              </vs-button>
-            </vs-button-group>
-          </div>
+              <vs-button-group class="justify-content-start">
+                <vs-button :active="widget.settings.align === 'left'" border
+                           icon
+                           @click="widget.settings.align = 'left'">
+                  <i class='bx bx-align-left'></i>
+                </vs-button>
+                <vs-button :active="widget.settings.align === 'center'" border
+                           icon
+                           @click="widget.settings.align = 'center'">
+                  <i class='bx bx-align-middle'></i>
+                </vs-button>
+                <vs-button :active="widget.settings.align === 'right'" border
+                           icon
+                           @click="widget.settings.align = 'right'">
+                  <i class='bx bx-align-right'></i>
+                </vs-button>
+              </vs-button-group>
+            </div>
           </InputField>
           <template v-if="widget.settings.widget_view_type === 'marquee'">
             <InputField title="Скорость прокрутки">
               <div class="col">
-              <RangeSlider
-                v-model="widget.settings.marquee_duration"
-                :max="100"
-                :min="0"
-                tooltip="hover"
-              />
-            </div>
-          </InputField>
+                <RangeSlider
+                  v-model="widget.settings.marquee_duration"
+                  :max="100"
+                  :min="0"
+                  tooltip="hover"
+                />
+              </div>
+            </InputField>
           </template>
           <template v-if="widget.settings.widget_view_type === 'slider'">
             <InputField title="Длительность слайда">
               <div class="col">
-              <RangeSlider
-                v-model="widget.settings.slider_speed"
-                :formatter="formattedValue(widget.settings.slider_speed, 'сек', 1000)"
-                :max="10000"
-                :min="0"
-                :step="1000"
-                tooltip="hover"
-              />
-            </div>
-          </InputField>
+                <RangeSlider
+                  v-model="widget.settings.slider_speed"
+                  :formatter="formattedValue(widget.settings.slider_speed, 'сек', 1000)"
+                  :max="10000"
+                  :min="0"
+                  :step="1000"
+                  tooltip="hover"
+                />
+              </div>
+            </InputField>
           </template>
           <InputField help-text="<div class='p-2 text-left'>
                       <b>Поддерживаемые переменные:</b>
@@ -153,11 +153,11 @@
                       <div>"
                       title="Шаблон текста">
             <div class="col">
-            <vs-input v-model="widget.settings.text_template" border placeholder="Шаблон текста">
-              <template #icon>
-                <i class='bx bx-text'></i>
-              </template>
-            </vs-input>
+              <vs-input v-model="widget.settings.text_template" border placeholder="Шаблон текста">
+                <template #icon>
+                  <i class='bx bx-text'></i>
+                </template>
+              </vs-input>
             </div>
           </InputField>
         </InputSection>
@@ -171,11 +171,11 @@
 </template>
 
 <script>
-import StatsWidget from '@/views/widgets/StatsWidget.vue';
+import StatsWidget from '@/components/widgets/StatsWidgetComponent.vue';
 import RangeSlider from 'vue-range-component-fixed';
-import InputField from '@/components/InputField.vue';
-import InputSection from '@/components/InputSection.vue';
-import AppearanceBlock from '@/components/widgets/AppearanceBlock.vue';
+import InputField from '@/components/@ui/InputFieldComponent.vue';
+import InputSection from '@/components/@ui/InputSectionComponent.vue';
+import AppearanceBlock from '@/components/AppearanceBlockComponent.vue';
 import widgets from '@/api/widgets';
 
 export default {

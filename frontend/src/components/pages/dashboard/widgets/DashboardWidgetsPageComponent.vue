@@ -34,11 +34,11 @@
 </template>
 
 <script>
-import StatsWidgetCreatingForm from '@/components/widgets/StatsWidgetCreatingForm.vue';
-import DashboardPageTitle from '@/components/DashboardPageTitle.vue';
-import InputSection from '@/components/InputSection.vue';
+import StatsWidgetCreatingForm from '@/components/pages/dashboard/widgets/StatsWidgetCreatingFormComponent.vue';
+import DashboardPageTitle from '@/components/pages/dashboard/DashboardPageTitleComponent.vue';
+import InputSection from '@/components/@ui/InputSectionComponent.vue';
 import widgetsTypesApi from '@/api/widgetsTypes';
-import WidgetItem from '@/components/@ui/WidgetItem.vue';
+import WidgetItem from '@/components/WidgetItemComponent.vue';
 
 export default {
   name: 'WidgetsPage',

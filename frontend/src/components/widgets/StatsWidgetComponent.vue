@@ -54,7 +54,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import MarqueeText from 'vue-marquee-text-component';
 import VueSlickCarousel from 'vue-slick-carousel';
 import { LinearGradient } from 'vue-gpickr';
-import SVGText from '@/components/@ui/SVGText.vue';
+import SVGText from '@/components/SVGTextComponent.vue';
 
 export default {
   name: 'StatsWidget',

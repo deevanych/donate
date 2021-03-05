@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import DashboardPageTitle from '@/components/DashboardPageTitle.vue';
+import DashboardPageTitle from '@/components/pages/dashboard/DashboardPageTitleComponent.vue';
 import AnimatedNumber from 'animated-number-vue';
 import Lottie from 'vue-lottie';
 import * as animationData from '@/assets/lottie/money.json';

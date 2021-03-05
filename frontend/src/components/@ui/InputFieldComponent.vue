@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import HelpInfo from '@/components/HelpInfo.vue';
+import HelpInfo from '@/components/@ui/HelpInfoComponent.vue';
 
 export default {
   name: 'InputField',

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import InfoDescription from '@/components/InfoDescription.vue';
+import InfoDescription from '@/components/@ui/InfoDescriptionComponent.vue';
 
 export default {
   name: 'DashboardPageTitle',

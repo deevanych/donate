@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import DashboardHeader from '@/views/dashboard/DashboardHeader.vue';
-import DashboardSidebar from '@/views/dashboard/DashboardSidebar.vue';
+import DashboardHeader from '@/components/pages/dashboard/DashboardHeaderComponent.vue';
+import DashboardSidebar from '@/components/pages/dashboard/DashboardSidebarComponent.vue';
 
 export default {
   name: 'DashboardLayout',
@@ -28,7 +28,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-
-</style>
