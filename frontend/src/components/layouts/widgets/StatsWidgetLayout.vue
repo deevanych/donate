@@ -10,7 +10,7 @@
 import StatsWidget from '@/components/widgets/StatsWidgetComponent.vue';
 import { get, getData } from '@/api/widgets';
 import { donationsType } from '@/types/donations';
-import { settingsType } from '@/types/settings';
+import { statsWidgetType } from '@/types/statsWidgetType';
 
 export default {
   name: 'StatsWidgetLayout',
@@ -20,16 +20,16 @@ export default {
   data() {
     return {
       donations: donationsType,
-      settings: settingsType,
+      settings: statsWidgetType,
     };
   },
   mounted() {
     const widgetId = this.$route.params.id;
-    get(widgetId).then((res) => {
-      this.settings = res.data.settings;
+    get(widgetId).then(({ data }) => {
+      this.settings = data.settings;
     });
-    getData(widgetId).then((res) => {
-      this.donations = res.data;
+    getData(widgetId).then(({ data }) => {
+      this.donations = data;
     });
   },
 };

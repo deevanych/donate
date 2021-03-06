@@ -7,28 +7,28 @@
             <ColorPicker v-model="block.color"/>
           </div>
           <div class="col-auto">
-            <GoogleFontPicker v-model="block['font-family']"/>
+            <GoogleFontPicker v-model="block.fontFamily"/>
           </div>
           <div class="col-auto">
             <vs-button-group class="justify-content-start">
-              <vs-button :active="block['font-style'] === 'italic'" border
+              <vs-button :active="block.fontStyle === 'italic'" border
                          icon
-                         @click="toggleStyle('title', 'font-style', ['italic', 'normal'])">
+                         @click="toggleStyle('title', 'fontStyle', ['italic', 'normal'])">
                 <i class='bx bx-italic'></i>
               </vs-button>
-              <vs-button :active="block['font-weight'] === 'bold'" border
+              <vs-button :active="block.fontWeight === 'bold'" border
                          icon
-                         @click="toggleStyle('title', 'font-weight', ['normal', 'bold'])">
+                         @click="toggleStyle('title', 'fontWeight', ['normal', 'bold'])">
                 <i class='bx bx-bold'></i>
               </vs-button>
-              <vs-button :active="block['text-decoration'] === 'underline'" border
+              <vs-button :active="block.textDecoration === 'underline'" border
                          icon
-                         @click="toggleStyle('title', 'text-decoration', ['none', 'underline'])">
+                         @click="toggleStyle('title', 'textDecoration', ['none', 'underline'])">
                 <i class='bx bx-underline'></i>
               </vs-button>
-              <vs-button :active="block['text-decoration'] === 'line-through'" border
+              <vs-button :active="block.textDecoration === 'line-through'" border
                          icon
-                         @click="toggleStyle('title', 'text-decoration', ['none', 'line-through'])">
+                         @click="toggleStyle('title', 'textDecoration', ['none', 'line-through'])">
                 <i class='bx bx-strikethrough'></i>
               </vs-button>
             </vs-button-group>

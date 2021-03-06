@@ -3,7 +3,6 @@
 
 namespace App\Models;
 
-use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 

@@ -1,4 +1,4 @@
-export const donations = [
+const donations = [
   {
     id: 1,
     donation_sender: 'Преданный малыш',
@@ -21,4 +21,12 @@ export const donations = [
   },
 ];
 
-export { donations as donationsType };
+const donation = {
+  text: '',
+  donation_sender: '',
+  sum: '',
+  goal_id: null,
+  media: '',
+};
+
+export { donations as donationsType, donation as donationType };

@@ -34,43 +34,51 @@
                   help-text="Пользователь установил специальные оформления для донатов разной суммы"
                   title="Вариации донатов"
                 >
-                  <DonationVariations v-model="donation.sum" :variations="user.donation_variations"/>
+                  <div class="col">
+                    <DonationVariations v-model="donation.sum" :variations="user.donation_variations"/>
+                  </div>
                 </InputField>
               </template>
               <InputField title="Ваше имя">
-                <vs-input v-model="donation.donation_sender" autocomplete="off" placeholder="Диваныч">
-                  <template #icon>
-                    <i class='bx bx-user'></i>
-                  </template>
-                </vs-input>
+                <div class="col">
+                  <vs-input v-model="donation.donation_sender" autocomplete="off" placeholder="Диваныч">
+                    <template #icon>
+                      <i class='bx bx-user'></i>
+                    </template>
+                  </vs-input>
+                </div>
               </InputField>
               <InputField title="Сумма доната">
-                <vs-input v-model="donation.sum" autocomplete="off" placeholder="100">
-                  <template #icon>
-                    ₽
-                  </template>
-                  <template v-if="!$v.donation.sum.numeric" #message-warn>
-                    Поле должно быть числом
-                  </template>
-                  <template v-if="!$v.donation.sum.required" #message-danger>
-                    Обязательное поле
-                  </template>
-                  <template v-if="!$v.donation.sum.minValue" #message-warn>
-                    Минимальная сумма -
-                    {{ user.settings.donation_min_sum }}
-                    ₽
-                  </template>
-                </vs-input>
+                <div class="col">
+                  <vs-input v-model="donation.sum" autocomplete="off" placeholder="100">
+                    <template #icon>
+                      ₽
+                    </template>
+                    <template v-if="!$v.donation.sum.numeric" #message-warn>
+                      Поле должно быть числом
+                    </template>
+                    <template v-if="!$v.donation.sum.required" #message-danger>
+                      Обязательное поле
+                    </template>
+                    <template v-if="!$v.donation.sum.minValue" #message-warn>
+                      Минимальная сумма -
+                      {{ user.settings.donation_min_sum }}
+                      ₽
+                    </template>
+                  </vs-input>
+                </div>
               </InputField>
               <InputField title="Текст сообщения">
-                <vs-input v-model="donation.text" autocomplete="off" placeholder="Ты топчик!">
-                  <template #icon>
-                    <i class='bx bx-comment-detail'></i>
-                  </template>
-                  <template v-if="!$v.donation.text.maxLength" #message-warn>
-                    Превышено максимальное количество знаков
-                  </template>
-                </vs-input>
+                <div class="col">
+                  <vs-input v-model="donation.text" autocomplete="off" placeholder="Ты топчик!">
+                    <template #icon>
+                      <i class='bx bx-comment-detail'></i>
+                    </template>
+                    <template v-if="!$v.donation.text.maxLength" #message-warn>
+                      Превышено максимальное количество знаков
+                    </template>
+                  </vs-input>
+                </div>
               </InputField>
             </form>
           </div>
@@ -81,19 +89,21 @@
                 help-text="Пользователь установил сборы на цели"
                 title="Цели сбора"
               >
-                <div class="center d-flex flex-column align-items-start">
-                  <vs-radio v-model="donation.goal_id"
-                            :val="null"
-                            class="mb-2">
-                    Без цели
-                  </vs-radio>
-                  <vs-radio v-for="donation_goal in user.donation_goals"
-                            :key="donation_goal.id"
-                            v-model="donation.goal_id"
-                            :val="donation_goal.id"
-                            class="mb-2">
-                    {{ donation_goal.title }}
-                  </vs-radio>
+                <div class="col">
+                  <div class="center d-flex flex-column align-items-start">
+                    <vs-radio v-model="donation.goal_id"
+                              :val="null"
+                              class="mb-2">
+                      Без цели
+                    </vs-radio>
+                    <vs-radio v-for="donation_goal in user.donation_goals"
+                              :key="donation_goal.id"
+                              v-model="donation.goal_id"
+                              :val="donation_goal.id"
+                              class="mb-2">
+                      {{ donation_goal.title }}
+                    </vs-radio>
+                  </div>
                 </div>
               </InputField>
             </template>
@@ -102,42 +112,44 @@
                 help-text="При донате у пользователя будет воспроизведено медиа"
                 title="Медиа"
               >
-                <vs-input v-model="donation.media"
-                          :disabled="parseInt(donation.sum, 0) < user.settings.donation_media_min_sum"
-                          autocomplete="off"
-                          placeholder="Ссылка на видео"
-                          @input="checkVideo">
-                  <template #icon>
-                    <i class='bx bxl-youtube'></i>
-                  </template>
-                  <template v-if="parseInt(donation.sum, 0) < user.settings.donation_media_min_sum"
-                            #message-warn>
-                    Минимальная сумма для медиа -
-                    {{ user.settings.donation_media_min_sum }}₽
-                  </template>
-                  <template #message-danger>
-                    <div>
-                      <div v-if="mediaErrors.likes_ratio">
-                        Неподходящее соотношение лайков/дизлайков
+                <div class="col">
+                  <vs-input v-model="donation.media"
+                            :disabled="parseInt(donation.sum, 0) < user.settings.donation_media_min_sum"
+                            autocomplete="off"
+                            placeholder="Ссылка на видео"
+                            @input="checkVideo">
+                    <template #icon>
+                      <i class='bx bxl-youtube'></i>
+                    </template>
+                    <template v-if="parseInt(donation.sum, 0) < user.settings.donation_media_min_sum"
+                              #message-warn>
+                      Минимальная сумма для медиа -
+                      {{ user.settings.donation_media_min_sum }}₽
+                    </template>
+                    <template #message-danger>
+                      <div>
+                        <div v-if="mediaErrors.likes_ratio">
+                          Неподходящее соотношение лайков/дизлайков
+                        </div>
+                        <div v-if="mediaErrors.broadcasting">
+                          Это трансляция!
+                        </div>
+                        <div v-if="mediaErrors.adult">
+                          Возрастное ограничение
+                        </div>
+                        <div v-if="mediaErrors.embed_not_allowed">
+                          Это видео запрещено встраивать
+                        </div>
+                        <div v-if="mediaErrors.view_count">
+                          Неподходящее количество просмотров
+                        </div>
+                        <div v-if="!$v.mediaErrors.not_found">
+                          Видео не найдено
+                        </div>
                       </div>
-                      <div v-if="mediaErrors.broadcasting">
-                        Это трансляция!
-                      </div>
-                      <div v-if="mediaErrors.adult">
-                        Возрастное ограничение
-                      </div>
-                      <div v-if="mediaErrors.embed_not_allowed">
-                        Это видео запрещено встраивать
-                      </div>
-                      <div v-if="mediaErrors.view_count">
-                        Неподходящее количество просмотров
-                      </div>
-                      <div v-if="!$v.mediaErrors.not_found">
-                        Видео не найдено
-                      </div>
-                    </div>
-                  </template>
-                </vs-input>
+                    </template>
+                  </vs-input>
+                </div>
               </InputField>
             </template>
           </div>
@@ -146,7 +158,8 @@
           <div class="col-12 col-lg-5">
             <vs-button :disabled="$v.$invalid" :style="{'color': user.settings.donate_button_text_color}"
                        size="xl"
-                       @click="sendForm">
+                       @click="sendForm"
+                       class="m-0">
               {{ user.settings.donate_button_text }}
             </vs-button>
           </div>
@@ -168,6 +181,7 @@ import { getUserProfile } from '@/api/users';
 import { HEXtoRGB } from '@/helpers/color';
 import { userType } from '@/types/user';
 import { sendDonation } from '@/api/donations';
+import { donationType } from '@/types/donations';
 
 let loading;
 
@@ -194,13 +208,7 @@ export default {
     return {
       loaded: false,
       user: userType,
-      donation: {
-        text: '',
-        donation_sender: '',
-        sum: '',
-        goal_id: null,
-        media: '',
-      },
+      donation: donationType,
       mediaErrors: initialMediaErrors(),
     };
   },
@@ -230,7 +238,9 @@ export default {
     loading = this.$vs.loading();
     getUserProfile(this.$route.params.user).then(({ data }) => {
       this.user = data;
-      this.loaded = true;
+      this.$nextTick(() => {
+        this.loaded = true;
+      });
       loading.close();
     });
   },

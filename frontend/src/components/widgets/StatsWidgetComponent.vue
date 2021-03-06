@@ -55,6 +55,7 @@ import MarqueeText from 'vue-marquee-text-component';
 import VueSlickCarousel from 'vue-slick-carousel';
 import { LinearGradient } from 'vue-gpickr';
 import SVGText from '@/components/SVGTextComponent.vue';
+import { statsWidgetType } from '@/types/statsWidgetType';
 
 export default {
   name: 'StatsWidget',
@@ -72,80 +73,7 @@ export default {
       required: true,
       type: Array,
     },
-    widget: {
-      title: {
-        block: {
-          x: {
-            type: Number,
-            default: 0,
-          },
-          y: {
-            type: Number,
-            default: 0,
-          },
-          w: {
-            type: Number,
-            default: 0,
-          },
-          h: {
-            type: Number,
-            default: 0,
-          },
-          angle: {
-            type: Number,
-            default: 0,
-          },
-          zoom: {
-            type: Number,
-            default: 1,
-          },
-        },
-        text: {
-          type: String,
-          required: false,
-        },
-        color: {
-          type: String,
-          default: '#000000',
-        },
-        'font-family': {
-          type: String,
-          default: 'initial',
-        },
-        'border-radius': {
-          type: Number,
-          default: 0,
-        },
-        'font-size': {
-          type: Number,
-          default: 0,
-        },
-        padding: {
-          type: Number,
-          default: 0,
-        },
-      },
-      marquee_duration: {
-        type: Number,
-        default: 10,
-      },
-      text_template: {
-        type: String,
-        default: '{ donation_sender } - { sum }',
-      },
-      align: {
-        type: String,
-        default: 'center',
-      },
-      slider_speed: {
-        type: Number,
-        default: 2000,
-      },
-      widget_view_type: {
-        type: String,
-        default: 'marquee',
-      },
-    },
+    widget: statsWidgetType,
   },
   methods: {
     getStyle(type = 'title') {
