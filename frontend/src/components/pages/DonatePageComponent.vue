@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loaded" :style="{backgroundImage: `url(${user.settings.background_uri})`}"
+  <div :style="{backgroundImage: `url(${user.settings.background_uri})`}"
        class="donation__page position-relative position-lg-absolute background-center">
     <VueHeadFul
       :title="pageTitle"
@@ -177,9 +177,7 @@ import SocialNetworkLink from '@/components/SocialNetworkLinkComponent.vue';
 import {
   maxLength, minValue, numeric, required,
 } from 'vuelidate/lib/validators';
-import { getUserProfile } from '@/api/users';
 import { HEXtoRGB } from '@/helpers/color';
-import { userType } from '@/types/user';
 import { sendDonation } from '@/api/donations';
 import { donationType } from '@/types/donations';
 
@@ -206,11 +204,15 @@ export default {
   },
   data() {
     return {
-      loaded: false,
-      user: userType,
       donation: donationType,
       mediaErrors: initialMediaErrors(),
     };
+  },
+  props: {
+    user: {
+      required: true,
+      type: Object,
+    },
   },
   validations() {
     return {
@@ -233,16 +235,6 @@ export default {
         not_found: (value) => value.not_found === false,
       },
     };
-  },
-  mounted() {
-    loading = this.$vs.loading();
-    getUserProfile(this.$route.params.user).then(({ data }) => {
-      this.user = data;
-      this.$nextTick(() => {
-        this.loaded = true;
-      });
-      loading.close();
-    });
   },
   computed: {
     cssVars() {

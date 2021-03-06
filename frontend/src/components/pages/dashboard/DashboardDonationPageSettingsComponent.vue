@@ -183,7 +183,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['SETTINGS']),
+    ...mapGetters(['SETTINGS', 'USER']),
   },
   mounted() {
     loading = this.$vs.loading();
@@ -193,11 +193,12 @@ export default {
   },
   methods: {
     donatePagePreview() {
-      localStorage.setItem('donatePagePreview', JSON.stringify(this.USER));
-      window.open('/preview/donate', 'authWindow', 'width=1200, height=900');
+      this.setPreview();
+      window.open('/donations-page?type=preview', 'authWindow', 'width=1200, height=900');
     },
     setPreview() {
-      localStorage.setItem('donatePagePreview', JSON.stringify(this.USER));
+      const tempUser = Object.assign(this.USER, { settings: this.SETTINGS });
+      localStorage.setItem('donatePagePreview', JSON.stringify(tempUser));
     },
     sendForm() {
       loading = this.$vs.loading();
@@ -214,7 +215,7 @@ export default {
     },
   },
   watch: {
-    USER: {
+    SETTINGS: {
       handler() {
         this.setPreview();
       },

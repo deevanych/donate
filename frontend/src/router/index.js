@@ -43,16 +43,6 @@ const routes = [
     ],
   },
   {
-    path: '/preview',
-    component: () => import('../components/layouts/MainLayout'),
-    children: [
-      {
-        path: 'donate',
-        component: () => import('../components/pages/DonatePagePreviewComponent'),
-      },
-    ],
-  },
-  {
     path: '/login',
     name: 'login',
     component: () => import('../components/LoginWindowComponent'),
@@ -61,7 +51,11 @@ const routes = [
     path: '/:user',
     alias: '/donate/:user',
     name: 'donate',
-    component: () => import('../components/pages/DonatePageComponent'),
+    component: () => import('../components/layouts/DonatePageLayout'),
+  },
+  {
+    path: '/donations-page?type=preview',
+    component: () => import('../components/layouts/DonatePageLayout'),
   },
   {
     path: '/widget',
