@@ -7,3 +7,5 @@ export const sendDonation = (user, donation) => Vue.prototype.$http({
     donation,
   },
 });
+
+export default { sendDonation };

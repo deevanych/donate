@@ -177,6 +177,8 @@ import InputField from '@/components/@ui/InputFieldComponent.vue';
 import InputSection from '@/components/@ui/InputSectionComponent.vue';
 import AppearanceBlock from '@/components/AppearanceBlockComponent.vue';
 import { get, createWidget, updateWidget } from '@/api/widgets';
+import { donationsType } from '@/types/donations';
+import { blockStyleType } from '@/types/SVGblock';
 
 export default {
   name: 'StatsWidgetCreatingForm',
@@ -206,81 +208,10 @@ export default {
           align: 'left',
           marquee_duration: 10,
           slider_speed: 2000,
-          title: {
-            // shadow
-            shadowEnabled: false,
-            shadowColor: '#000000',
-            shadowBlur: 2,
-            shadowPosition: {
-              x: 2,
-              y: -2,
-            },
-
-            // stroke
-            strokeEnabled: false,
-            strokeColor: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
-            strokeWidth: 1,
-
-            // text
-            text: 'Заголовок',
-            'font-family': 'Google Sans',
-            color: '{"angle":0,"stops":[["#0359b5",0],["#f6ce01",1]]}',
-            'font-style': 'normal',
-            'font-weight': 'normal',
-            'text-decoration': 'none',
-
-            // position
-            block: {
-              coords: {
-                w: 100,
-                h: 100,
-                x: 50,
-                y: 20,
-                angle: 0,
-                zoom: 1,
-              },
-
-              // background
-              padding: 0,
-              backgroundColorEnabled: false,
-              backgroundColor: '{"angle":0,"stops":[["#FFFFFF",0],["#f6ce01",1]]}',
-              backgroundStrokeEnabled: false,
-              backgroundStrokeRadius: 0,
-              backgroundStrokeWidth: 2,
-              backgroundStrokeColor: '#000000',
-              backgroundShadowEnabled: false,
-              backgroundShadowColor: '#000000',
-              backgroundShadowBlur: 2,
-              backgroundShadowPosition: {
-                x: 2,
-                y: -2,
-              },
-            },
-          },
+          title: blockStyleType,
         },
       },
-      donations: [
-        {
-          id: 1,
-          donation_sender: 'Тимати',
-          sum: 403,
-        },
-        {
-          id: 2,
-          donation_sender: 'Джежай',
-          sum: 32,
-        },
-        {
-          id: 3,
-          donation_sender: 'Лещ',
-          sum: 143,
-        },
-        {
-          id: 4,
-          donation_sender: 'Пурда',
-          sum: 3,
-        },
-      ],
+      donations: donationsType,
     };
   },
   mounted() {

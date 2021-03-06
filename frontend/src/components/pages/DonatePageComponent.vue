@@ -1,5 +1,5 @@
 <template>
-  <div :style="{backgroundImage: `url(${USER_DONATE_PAGE.settings.background_uri})`}"
+  <div v-if="loaded" :style="{backgroundImage: `url(${user.settings.background_uri})`}"
        class="donation__page position-relative position-lg-absolute background-center">
     <VueHeadFul
       :title="pageTitle"
@@ -10,31 +10,31 @@
           <div class="col">
             <h1 class="user__nickname d-flex align-items-center">
               <span
-                :style="{backgroundImage: `url(${USER_DONATE_PAGE.avatar_url})`}"
+                :style="{backgroundImage: `url(${user.avatar_url})`}"
                 class="user__avatar d-inline-flex rounded background-center mr-3">
               </span>
-              {{ USER_DONATE_PAGE.name }}
+              {{ user.name }}
               <SocialNetworkLink
-                v-for="socialNetwork in USER_DONATE_PAGE.social_networks"
+                v-for="socialNetwork in user.social_networks"
                 :key="socialNetwork.id"
                 :link="socialNetwork.pivot.link"
                 :type="socialNetwork.title"
                 class="ml-4"
               />
             </h1>
-            <InfoDescription :text="USER_DONATE_PAGE.settings.description"/>
+            <InfoDescription :text="user.settings.description"/>
           </div>
         </div>
         <div class="row">
           <div class="col-12 col-lg-6">
             <form @submit.prevent="sendForm">
-              <template v-if="USER_DONATE_PAGE.settings.enabled_donation_variations">
+              <template v-if="user.settings.enabled_donation_variations">
                 <InputField
-                  v-if="USER_DONATE_PAGE.donation_variations.length !== 0"
+                  v-if="user.donation_variations.length !== 0"
                   help-text="Пользователь установил специальные оформления для донатов разной суммы"
                   title="Вариации донатов"
                 >
-                  <DonationVariations v-model="donation.sum" :variations="USER_DONATE_PAGE.donation_variations"/>
+                  <DonationVariations v-model="donation.sum" :variations="user.donation_variations"/>
                 </InputField>
               </template>
               <InputField title="Ваше имя">
@@ -57,7 +57,7 @@
                   </template>
                   <template v-if="!$v.donation.sum.minValue" #message-warn>
                     Минимальная сумма -
-                    {{ USER_DONATE_PAGE.settings.donation_min_sum }}
+                    {{ user.settings.donation_min_sum }}
                     ₽
                   </template>
                 </vs-input>
@@ -75,9 +75,9 @@
             </form>
           </div>
           <div class="offset-lg-1 col-12 col-lg-5 mt-2 mt-lg-0">
-            <template v-if="USER_DONATE_PAGE.settings.enabled_donation_goals">
+            <template v-if="user.settings.enabled_donation_goals">
               <InputField
-                v-if="USER_DONATE_PAGE.donation_goals.length !== 0"
+                v-if="user.donation_goals.length !== 0"
                 help-text="Пользователь установил сборы на цели"
                 title="Цели сбора"
               >
@@ -87,7 +87,7 @@
                             class="mb-2">
                     Без цели
                   </vs-radio>
-                  <vs-radio v-for="donation_goal in USER_DONATE_PAGE.donation_goals"
+                  <vs-radio v-for="donation_goal in user.donation_goals"
                             :key="donation_goal.id"
                             v-model="donation.goal_id"
                             :val="donation_goal.id"
@@ -97,23 +97,23 @@
                 </div>
               </InputField>
             </template>
-            <template v-if="USER_DONATE_PAGE.settings.enabled_media">
+            <template v-if="user.settings.enabled_media">
               <InputField
                 help-text="При донате у пользователя будет воспроизведено медиа"
                 title="Медиа"
               >
                 <vs-input v-model="donation.media"
-                          :disabled="parseInt(donation.sum, 0) < USER_DONATE_PAGE.settings.donation_media_min_sum"
+                          :disabled="parseInt(donation.sum, 0) < user.settings.donation_media_min_sum"
                           autocomplete="off"
                           placeholder="Ссылка на видео"
                           @input="checkVideo">
                   <template #icon>
                     <i class='bx bxl-youtube'></i>
                   </template>
-                  <template v-if="parseInt(donation.sum, 0) < USER_DONATE_PAGE.settings.donation_media_min_sum"
+                  <template v-if="parseInt(donation.sum, 0) < user.settings.donation_media_min_sum"
                             #message-warn>
                     Минимальная сумма для медиа -
-                    {{ USER_DONATE_PAGE.settings.donation_media_min_sum }}₽
+                    {{ user.settings.donation_media_min_sum }}₽
                   </template>
                   <template #message-danger>
                     <div>
@@ -144,10 +144,10 @@
         </div>
         <div class="row">
           <div class="col-12 col-lg-5">
-            <vs-button :disabled="$v.$invalid" :style="{'color': USER_DONATE_PAGE.settings.donate_button_text_color}"
+            <vs-button :disabled="$v.$invalid" :style="{'color': user.settings.donate_button_text_color}"
                        size="xl"
                        @click="sendForm">
-              {{ USER_DONATE_PAGE.settings.donate_button_text }}
+              {{ user.settings.donate_button_text }}
             </vs-button>
           </div>
         </div>
@@ -164,8 +164,10 @@ import SocialNetworkLink from '@/components/SocialNetworkLinkComponent.vue';
 import {
   maxLength, minValue, numeric, required,
 } from 'vuelidate/lib/validators';
-import { mapGetters } from 'vuex';
+import { getUserProfile } from '@/api/users';
 import { HEXtoRGB } from '@/helpers/color';
+import { userType } from '@/types/user';
+import { sendDonation } from '@/api/donations';
 
 let loading;
 
@@ -190,6 +192,8 @@ export default {
   },
   data() {
     return {
+      loaded: false,
+      user: userType,
       donation: {
         text: '',
         donation_sender: '',
@@ -205,7 +209,7 @@ export default {
       donation: {
         sum: {
           required,
-          minValue: minValue(this.USER_DONATE_PAGE.settings.donation_min_sum),
+          minValue: minValue(this.user.settings.donation_min_sum),
           numeric,
         },
         text: {
@@ -224,29 +228,43 @@ export default {
   },
   mounted() {
     loading = this.$vs.loading();
-    this.$store.dispatch('SET_USER_DONATE_PAGE', this.$route.params.user)
-      .then(() => {
-        this.donation.sum = this.USER_DONATE_PAGE.settings.donation_min_sum;
-        loading.close();
-      });
+    getUserProfile(this.$route.params.user).then(({ data }) => {
+      this.user = data;
+      this.loaded = true;
+      loading.close();
+    });
   },
   computed: {
-    ...mapGetters(['USER_DONATE_PAGE']),
     cssVars() {
+      const color = JSON.parse(this.user.settings.background_color);
+      const gradientColors = [];
+
+      Object.keys(color.stops).forEach((key) => {
+        gradientColors.push(`${color.stops[key][0]} ${color.stops[key][1] * 100}%`);
+      });
+
       return {
-        '--vs-primary': HEXtoRGB(this.USER_DONATE_PAGE.settings.main_color),
-        'backdrop-filter': `blur(${this.USER_DONATE_PAGE.settings.background_blur}px)`,
-        background: this.USER_DONATE_PAGE.settings.background_color,
+        '--vs-primary': HEXtoRGB(this.user.settings.main_color),
+        'backdrop-filter': `blur(${this.user.settings.background_blur}px)`,
+        background: `linear-gradient(${color.angle}deg, ${gradientColors.join(', ')})`,
       };
     },
     pageTitle() {
-      return `${this.USER_DONATE_PAGE.name} - ezdonate.ru`;
+      return `${this.user.name} - ezdonate.ru`;
     },
   },
   methods: {
     sendForm() {
       loading = this.$vs.loading();
-      this.$store.dispatch('SEND_DONATION', { user: this.$route.params.user, donation: this.donation })
+      sendDonation(this.$route.params.user, this.donation)
+        .then(({ data }) => {
+          this.$vs.notification({
+            position: 'top-right',
+            border: data.status,
+            title: data.message,
+            text: 'Донат успешно отправлен',
+          });
+        })
         .finally(() => {
           loading.close();
         });

@@ -1,19 +1,8 @@
 import { getUserProfile } from '@/api/users';
+import { userType } from '@/types/user';
 
 export const user = {
-  state: () => ({
-    name: '',
-    avatar_url: '',
-    email: '',
-    social_networks: [
-      {
-        title: '',
-        pivot: {
-          link: '',
-        },
-      },
-    ],
-  }),
+  state: () => (userType),
   getters: {
     USER: (state) => state,
   },
